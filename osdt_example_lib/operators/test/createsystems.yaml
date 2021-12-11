@@ -1,5 +1,5 @@
 task: "function"
-module: "osdt_example_lib.experiments.file_bouncing_ball"
+module: "osdt_example_lib.functions.file_bouncing_ball"
 function: "create_systems"
 args: []
 kwargs:

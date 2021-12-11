@@ -1,5 +1,8 @@
-run:
-  $function: "osdt_example_lib.experiments.script_bouncing_ball.main"
+
+
+script1: ["create_ball","edit_config","run_env","create_plot","save_env"]
+
+script2: ["load_env","create_plot"]
 
 create_ball:
   $function: "osdt_example_lib.models.bouncing_ball.create"
@@ -17,12 +20,6 @@ create_ball:
     gravity: 9.81
     restitution: .95
 
-create_plot:
-  $function: "osdt_example_lib.experiments.script_bouncing_ball.plot"
-
-run_env:
-  $function: "osdt.run"
-
 edit_config:
   $function: "osdt.edit_config"
   time: 9.0
@@ -32,3 +29,16 @@ save_env:
   $function: "osdt.save_env"
   path: "output/bb"
   overwrite: false
+
+load_env:
+  $function: "osdt.load_env"
+  path: "output/bb"
+
+run:
+  $function: "osdt_example_lib.functions.script_bouncing_ball.main"
+
+create_plot:
+  $function: "osdt_example_lib.functions.script_bouncing_ball.plot"
+
+run_env:
+  $function: "osdt.run"

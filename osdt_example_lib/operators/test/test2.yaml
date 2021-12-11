@@ -1,7 +1,7 @@
 
 var2:
   type: "call"
-  function: "osdt_example_lib.experiments.file_bouncing_ball.connect_systems"
+  function: "osdt_example_lib.functions.file_bouncing_ball.connect_systems"
   vars: 
     connector": ["#","osdt_example_lib.models.bouncing_ball.CONNECTOR"]
   args: []
