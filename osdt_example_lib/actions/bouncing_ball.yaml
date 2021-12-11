@@ -1,0 +1,34 @@
+run:
+  $function: "osdt_example_lib.experiments.script_bouncing_ball.main"
+
+create_ball:
+  $function: "osdt_example_lib.models.bouncing_ball.create"
+  $args: []
+  c: "osdt_example_lib.models.bouncing_ball.C"
+  f: "osdt_example_lib.models.bouncing_ball.F"
+  d: "osdt_example_lib.models.bouncing_ball.D"
+  g: "osdt_example_lib.models.bouncing_ball.G"
+  u: "osdt_example_lib.models.bouncing_ball.U"
+  y: "osdt_example_lib.models.bouncing_ball.Y"
+  x_vals:
+    y_position: 2.0
+    y_velocity: 1.0
+  p_vals:
+    gravity: 9.81
+    restitution: .95
+
+create_plot:
+  $function: "osdt_example_lib.experiments.script_bouncing_ball.plot"
+
+run_env:
+  $function: "osdt.run"
+
+edit_config:
+  $function: "osdt.edit_config"
+  time: 9.0
+  jumps: 30
+
+save_env:
+  $function: "osdt.save_env"
+  path: "output/bb"
+  overwrite: false
