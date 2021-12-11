@@ -1,0 +1,7 @@
+task: "function"
+module: "osdt_example_lib.experiments.file_bouncing_ball"
+function: "connect_systems"
+args: []
+kwargs:
+  ball1: {"#osdt_example_lib.models.bouncing_ball.CONNECTOR#": ["$","osdt.get_system",["ball0"],{}]}
+  ball2: {"#osdt_example_lib.models.bouncing_ball.CONNECTOR#": ["$","osdt.get_system",["ball1"],{}]}

@@ -36,14 +36,12 @@ def main(y_position=1.0,
         restitution=.95,
         t=5.0,
         j=20):
-  #  ball_args=yaml.safe_load(open("tasks/createsys.yaml", 'r'))
-    #for sys_id in ball_args:
-   #     ball=create_sys(**ball_args[sys_id],id=sys_id)
-   # ball = osdt.utils.perform_task("tasks/create_bouncing_ball.yaml")
+
 
     ball = osdt.utils.perform_task("tasks/create_bouncing_ball.yaml")
 
     balls=osdt.utils.perform_task("tasks/createsystems.yaml")
+    osdt.utils.perform_task("tasks/connect_systems.yaml")
 
     dt.run(t=t, j=j)
 
@@ -75,70 +73,80 @@ def get_module_obj(obj_str):
 
 def replace_arg_values(args):
     if type(args) is list:
-        new_list = []
-        for arg_obj in args:
-            new_arg_obj = replace_arg_values(arg_obj)
-            new_list.append(new_arg_obj)
-        return new_list
+        function_call = False
+        if len(args) == 4:
+            if args[0]=="$": function_call=True
+        if function_call:
+            return check_list(args)
+        else:
+            new_list = []
+            for arg_obj in args:
+                new_arg_obj = replace_arg_values(arg_obj)
+                new_list.append(new_arg_obj)
+            return new_list
     elif type(args) is dict:
         new_args={}
         for arg_key in args:
             arg_obj = args[arg_key]
+            arg_key=check_str_arg(arg_key)
             new_arg_obj = replace_arg_values(arg_obj)
             new_args[arg_key]=new_arg_obj
         return new_args
-    elif type(args) is str:
-        new_obj = args
-
+    else:
+        new_arg=check_str_arg(args)
+        return new_arg
+def check_str_arg(args):
+    new_obj = args
+    if type(args) is str:
         if args.startswith("#") and args.endswith("#"):
-            module_obj=get_module_obj(args[1:len(args)-1])
+            print(args)
+            module_obj = get_module_obj(args[1:len(args) - 1])
             if module_obj is not None:
-                new_obj=module_obj
+                new_obj = module_obj
+        """
         elif args.startswith("$") and args.endswith("$"):
             try:
-                true_val = args[1:len(args)-1]
+                true_val = args[1:len(args) - 1]
                 module_func = true_val.split("$")[0]
                 args = true_val.split("$")[1]
-                func=get_module_obj(module_func)
-                potential_obj=func(args)
-                new_obj=potential_obj
+                func = get_module_obj(module_func)
+                potential_obj = func(args)
+                if potential_obj is not None: new_obj = potential_obj
             except:
                 pass
-        return new_obj
+        """
+    return new_obj
 
-    else:
-        return args
+def check_list(list_data):
+    try:
+        func_name = list_data[1]
+        args = list_data[2]
+        kwargs=list_data[3]
+        func = get_module_obj(func_name)
+        new_obj=func(*args,**kwargs)
+        return new_obj
+    except:
+        log.error("failed to call function: "+str(list_data))
+    return list_data
+
+
+def connect_systems(**system_conns):
+    conns=replace_arg_values(system_conns)
+    print(conns)
+    for sys_id in conns:
+        syst=osdt.get_system(sys_id)
+        conn_data = conns[sys_id]
+        for conn_key in conn_data:
+            syst.set(conn_key,conn_data[conn_key])
 
 def create_systems(**system_args):
-    conns=system_args["connections"]
-    print(conns)
-    sysargs={}
-    for arg_key in system_args:
-        print(arg_key)
-        if arg_key != 'connections':
-            sysargs[arg_key]=system_args[arg_key]
-    print("sys_args\n"+str(sysargs))
-    systems = replace_arg_values(sysargs)
-    print("systems\n"+str(systems))
-    new_systems={}
-    for sys_id in systems.keys():
-        kwargs=systems[sys_id]
-        kwargs["id"]=sys_id
-        new_sys=create_sys(**kwargs)
-        new_systems[sys_id]=new_sys
-    print(new_systems)
-    conndata=replace_arg_values(conns)
-    print(conndata)
-    return new_systems
-
-def create_systems_working(**system_args):
     print(system_args)
     systems = replace_arg_values(system_args)
     print(systems)
     new_systems={}
     for sys_id in systems.keys():
         kwargs=systems[sys_id]
-      #  kwargs["id"]=sys_id
+        kwargs["id"]=sys_id
         new_sys=create_sys(**kwargs)
         new_systems[sys_id]=new_sys
     return new_systems

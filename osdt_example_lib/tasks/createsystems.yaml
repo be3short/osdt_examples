@@ -35,10 +35,3 @@ kwargs:
       PARAMS:
         gravity: 9.81
         restitution: .95
-  connections: 
-    ball1: {
-    "#osdt_example_lib.models.bouncing_ball.CONNECTOR#": "$osdt.get_system$ball0$"
-    }
-    ball2: {
-    "#osdt_example_lib.models.bouncing_ball.CONNECTOR#": "$osdt.get_system$ball1$"
-    }
