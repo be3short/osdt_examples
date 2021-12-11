@@ -36,10 +36,10 @@ def Y(x, sys, *args, **argmap): # output map (determine output)
 def Y_dict(x, hs, *args, **argmap): # output map (determine output)
     return x.__dict__
 
-def create(x_vals={},p_vals={},id="ball",**model):
+def create(x_vals={},p_vals={},**model):
     state = State(**x_vals)
     params = Params(**p_vals)
-    system = osdt.create_system(x=state,id=id,vars={PARAMS: params},**model)
+    system = osdt.create_system(x=state,vars={PARAMS: params},**model)
     return system
 
 
