@@ -1,0 +1,43 @@
+data_file: null
+
+
+
+ball:
+  id: "rc_pwm"
+  c: "osdt_example_lib.models.rc_filter_pwm.C"
+  f: "osdt_example_lib.models.rc_filter_pwm.F"
+  d: "osdt_example_lib.models.rc_filter_pwm.D"
+  g: "osdt_example_lib.models.rc_filter_pwm.G"
+  u: "osdt_example_lib.models.rc_filter_pwm.U"
+  y: "osdt_example_lib.models.rc_filter_pwm.Y"
+  x_vals:
+    v_in: 0.0
+    v_out: 0.0
+    toggle_timer: 0.0
+  p_vals:
+    resistor: 1500.0
+    capacitor: 10.0e-6
+    max_voltage: 3.3
+    frequency: 1000.0
+    duty_cycle: .3
+
+rc_sys:
+  $args: ["rc_pwm"]
+
+config:
+  time: 0.05
+  jumps: 10000
+
+
+
+run: 
+  arguments:
+    data_file: null
+  actions: [
+    ["osdt_example_lib.models.rc_filter_pwm.create", "data_file:ball"],
+    ["osdt.edit_config", "data_file:config"],
+    ["osdt_example_lib.functions.rc_filter_pwm.adjust_integrator_step","data_file:rc_sys"],
+    ["osdt.run"],
+    ["osdt_example_lib.functions.rc_filter_pwm.figure1"],
+    ["osdt.display"]
+]

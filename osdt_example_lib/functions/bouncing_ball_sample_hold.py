@@ -11,4 +11,4 @@ def figure1(pos_sensor, vel_sensor):
     fig.subplot(2).plot("y_velocity", label="ball y velocity")
     fig.subplot(2).plot("value", label="sensor y velocity", sys=osdt.get_system(vel_sensor),
                         color="red")
-    
+

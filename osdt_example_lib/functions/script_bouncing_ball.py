@@ -8,7 +8,7 @@ import osdt as dt
 from random import random
 
 
-def plot():
+def figure1():
     # create a figure
     fig = dt.create_figure(layout=[[1,3,4,4], [2,3,4,4]],title="Bouncing Ball",
                            width=1600, height=600)
@@ -23,7 +23,7 @@ def main(action_file="operators/bouncing_ball.yaml"):
     ball1 = osdt.scripting.run_task(action_file,"create_ball")
     osdt.scripting.run_task(action_file,"edit_config")
     dt.run()
-    plot()
+    figure1()
     ball1 = osdt.scripting.run_task(action_file,"save_env")
 
 

@@ -1,0 +1,44 @@
+external1: &external1 "operators/bouncing_ball2.yaml"
+
+script1: ["create_ball",[*external1,"create_ball"],"edit_config","run_env","create_plot","save_env"]
+
+script2: ["load_env","create_plot"]
+
+create_ball:
+  $function: "osdt_example_lib.models.bouncing_ball.create"
+  $args: []
+  c: "osdt_example_lib.models.bouncing_ball.C"
+  f: "osdt_example_lib.models.bouncing_ball.F"
+  d: "osdt_example_lib.models.bouncing_ball.D"
+  g: "osdt_example_lib.models.bouncing_ball.G"
+  u: "osdt_example_lib.models.bouncing_ball.U"
+  y: "osdt_example_lib.models.bouncing_ball.Y"
+  x_vals:
+    y_position: 2.0
+    y_velocity: 1.0
+  p_vals:
+    gravity: 9.81
+    restitution: .95
+
+edit_config:
+  $function: "osdt.edit_config"
+  time: 9.0
+  jumps: 30
+
+save_env:
+  $function: "osdt.save_env"
+  path: "output/bb"
+  overwrite: false
+
+load_env:
+  $function: "osdt.load_env"
+  path: "output/bb"
+
+run:
+  $function: "osdt_example_lib.functions.script_bouncing_ball.main"
+
+create_plot:
+  $function: "osdt_example_lib.functions.script_bouncing_ball.plot"
+
+run_env:
+  $function: "osdt.run"

@@ -1,0 +1,92 @@
+
+$functions:
+  create_ball: &create_ball "osdt_example_lib.models.bouncing_ball.create"
+  create_sampler: &create_samplera "osdt_example_lib.models.sample_hold_sensor.create"
+  edit_config: &edit_config "osdt.edit_config"
+  run: &run "osdt.run"
+  display: &display "osdt.display"
+
+script1: [
+  {*create_ball: ["ball"]},
+  {*create_sampler: ["pos_sh","vel_sh"]}
+
+]
+#"create_pos_sh","create_vel_sh","connect_pos_sh","connect_vel_sh","edit_config","run_env","create_plot","display","save_env"]
+
+script2: ["load_env","create_plot","display"]
+
+create_ball:
+  $function: "osdt_example_lib.models.sample_hold_sensor.create"
+  ball:
+    id: "ball"
+    c: "osdt_example_lib.models.bouncing_ball.C"
+    f: "osdt_example_lib.models.bouncing_ball.F"
+    d: "osdt_example_lib.models.bouncing_ball.D"
+    g: "osdt_example_lib.models.bouncing_ball.G"
+    u: "osdt_example_lib.models.bouncing_ball.U"
+    y: "osdt_example_lib.models.bouncing_ball.Y_dict"
+    x_vals:
+      y_position: 12.0
+      y_velocity: 1.0
+    p_vals:
+      gravity: 9.81
+      restitution: .95
+
+create_samplers: 
+  $function: "osdt_example_lib.models.sample_hold_sensor.create"
+  pos_sh:
+    id: "pos_sampler"
+    c: "osdt_example_lib.models.sample_hold_sensor.C"
+    f: "osdt_example_lib.models.sample_hold_sensor.F"
+    d: "osdt_example_lib.models.sample_hold_sensor.D"
+    g: "osdt_example_lib.models.sample_hold_sensor.G"
+    u: "osdt_example_lib.models.sample_hold_sensor.U"
+    y: "osdt_example_lib.models.sample_hold_sensor.Y"
+    x_vals:
+      value: 0.0
+      timer: 0.0
+    p_vals:
+      sample_period: 0.1
+      sample_field: "y_position"
+
+  vel_sh:
+    $args: []
+    id: "vel_sampler"
+    c: "osdt_example_lib.models.sample_hold_sensor.C"
+    f: "osdt_example_lib.models.sample_hold_sensor.F"
+    d: "osdt_example_lib.models.sample_hold_sensor.D"
+    g: "osdt_example_lib.models.sample_hold_sensor.G"
+    u: "osdt_example_lib.models.sample_hold_sensor.U"
+    y: "osdt_example_lib.models.sample_hold_sensor.Y"
+    x_vals:
+      value: 0.0
+      timer: 0.0
+    p_vals:
+      sample_period: 0.1
+      sample_field: "y_velocity"
+
+connect_samplers:
+  $function: "osdt_example_lib.models.sample_hold_sensor.connect_input"
+
+  pos_connection:
+    sh_system: "pos_sampler"
+    input_system: "ball"
+
+  vel_connection:
+    sh_system: "vel_sampler"
+    input_system: "ball"
+  
+edit_config:
+  $function: "osdt.edit_config"
+  config:
+    time: 9.0
+    jumps: 300
+
+env_io:
+  path: "output/bb_sh"
+  overwrite: false
+
+create_plot:
+  $function: "osdt_example_lib.functions.bouncing_ball_sample_hold.figure1"
+  pos_sensor: "pos_sampler"
+  vel_sensor: "vel_sampler"

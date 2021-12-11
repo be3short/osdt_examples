@@ -1,4 +1,3 @@
-data_file: null
 
 ball:
   id: "ball"
@@ -9,21 +8,14 @@ ball:
   u: "osdt_example_lib.models.bouncing_ball.U"
   y: "osdt_example_lib.models.bouncing_ball.Y_dict"
   x_vals:
-    y_position: 12.0
+    y_position: 3.0
     y_velocity: 1.0
   p_vals:
     gravity: 9.81
     restitution: .95
 
 config:
-  time: 9.0
+  time: 19.0
   jumps: 300
 
-run: 
-  actions: [
-    ["osdt_example_lib.models.bouncing_ball.create", "data_file:ball"],
-    ["osdt.edit_config", "data_file:config"],
-    ["osdt.run",{}],
-    ["osdt_example_lib.functions.script_bouncing_ball.figure1",{}],
-    ["osdt.display",{}]
-  ]
+

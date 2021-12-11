@@ -14,3 +14,11 @@ create_ball:
   p_vals:
     gravity: 9.81
     restitution: .95
+
+config2:
+  time: 3.0
+  jumps: 300
+
+config3:
+  time: 30.0
+  jumps: 300
