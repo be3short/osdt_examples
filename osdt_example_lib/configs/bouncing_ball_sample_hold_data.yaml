@@ -29,7 +29,6 @@ pos_sh:
     sample_field: "y_position"
 
 vel_sh:
-  $args: []
   id: "vel_sampler"
   c: "osdt_example_lib.models.sample_hold_sensor.C"
   f: "osdt_example_lib.models.sample_hold_sensor.F"
@@ -44,18 +43,26 @@ vel_sh:
     sample_period: 0.1
     sample_field: "y_velocity"
 
-pos_connection:
-  sh_system: "pos_sampler"
-  input_system: "ball"
-
-vel_connection:
-  sh_system: "vel_sampler"
-  input_system: "ball"
-
 config:
-  time: 2.0
+  time: 9.0
   jumps: 300
+
+env_load:
+  path: "output/bb_sh"
+
+env_save:
+  path: "output/bb_sh"
+  overwrite: True
 
 figure1:
   pos_sensor: "pos_sampler"
   vel_sensor: "vel_sampler"
+
+
+connections:
+  matrix: [
+    ["pos_sampler","ball","osdt_example_lib.models.sample_hold_sensor.INPUT"],
+    ["vel_sampler","ball","osdt_example_lib.models.sample_hold_sensor.INPUT"],
+    ["ball","pos_sampler","'test'"]
+  ]
+  get_systems: true
