@@ -1,6 +1,6 @@
+external1: &external1 "operators/bouncing_ball2.yaml"
 
-
-script1: ["create_ball","edit_config","run_env","create_plot","save_env"]
+script1: ["create_ball",[*external1,"create_ball"],"edit_config","run_env","create_plot","save_env"]
 
 script2: ["load_env","create_plot"]
 

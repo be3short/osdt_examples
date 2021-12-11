@@ -1,0 +1,7 @@
+{
+    "systems": {
+        "ball_1": "sys_ball_1.osdt",
+        "ball_2": "sys_ball_2.osdt"
+    },
+    "objects": {}
+}
