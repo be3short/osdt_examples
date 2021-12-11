@@ -1,5 +1,5 @@
 
-ball1:
+ball0:
   x: "osdt_example_lib.models.bouncing_ball.State"
   c: "osdt_example_lib.models.bouncing_ball.C"
   f: "osdt_example_lib.models.bouncing_ball.F"

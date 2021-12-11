@@ -36,10 +36,13 @@ def main(y_position=1.0,
         restitution=.95,
         t=5.0,
         j=20):
-    #ball_args=yaml.safe_load(open("tasks/createsys.yaml", 'r'))
+  #  ball_args=yaml.safe_load(open("tasks/createsys.yaml", 'r'))
     #for sys_id in ball_args:
    #     ball=create_sys(**ball_args[sys_id],id=sys_id)
    # ball = osdt.utils.perform_task("tasks/create_bouncing_ball.yaml")
+
+    ball = osdt.utils.perform_task("tasks/create_bouncing_ball.yaml")
+
     balls=osdt.utils.perform_task("tasks/createsystems.yaml")
 
     dt.run(t=t, j=j)
@@ -91,11 +94,44 @@ def replace_arg_values(args):
             module_obj=get_module_obj(args[1:len(args)-1])
             if module_obj is not None:
                 new_obj=module_obj
+        elif args.startswith("$") and args.endswith("$"):
+            try:
+                true_val = args[1:len(args)-1]
+                module_func = true_val.split("$")[0]
+                args = true_val.split("$")[1]
+                func=get_module_obj(module_func)
+                potential_obj=func(args)
+                new_obj=potential_obj
+            except:
+                pass
         return new_obj
+
     else:
         return args
 
 def create_systems(**system_args):
+    conns=system_args["connections"]
+    print(conns)
+    sysargs={}
+    for arg_key in system_args:
+        print(arg_key)
+        if arg_key != 'connections':
+            sysargs[arg_key]=system_args[arg_key]
+    print("sys_args\n"+str(sysargs))
+    systems = replace_arg_values(sysargs)
+    print("systems\n"+str(systems))
+    new_systems={}
+    for sys_id in systems.keys():
+        kwargs=systems[sys_id]
+        kwargs["id"]=sys_id
+        new_sys=create_sys(**kwargs)
+        new_systems[sys_id]=new_sys
+    print(new_systems)
+    conndata=replace_arg_values(conns)
+    print(conndata)
+    return new_systems
+
+def create_systems_working(**system_args):
     print(system_args)
     systems = replace_arg_values(system_args)
     print(systems)

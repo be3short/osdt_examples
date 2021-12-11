@@ -1,12 +1,9 @@
 """Bouncing ball model"""
 
 import osdt
-import yaml
 from osdt import PARAMS
 CONNECTOR="Test"
-class State(yaml.YAMLObject): # state class
-    yaml_tag = '!st'
-
+class State(): # state class
     def __init__(self, y_position=1.0, y_velocity=0.0):
         self.y_position = y_position
         self.y_velocity = y_velocity

@@ -15,5 +15,5 @@ kwargs:
   p_vals:
     gravity: 9.81
     restitution: .95
-  id: "ball"
+  id: "ball0"
 
