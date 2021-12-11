@@ -36,8 +36,9 @@ def main(y_position=1.0,
         restitution=.95,
         t=5.0,
         j=20):
-
-
+    ydata=yaml.safe_load(open('tasks/test.yaml', 'r'))
+    print(ydata)
+    sys.exit(0)
     ball = osdt.utils.perform_task("tasks/create_bouncing_ball.yaml")
 
     balls=osdt.utils.perform_task("tasks/createsystems.yaml")

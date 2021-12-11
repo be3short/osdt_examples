@@ -1,0 +1,37 @@
+
+
+
+ball1:
+  $function: "osdt_example_lib.models.bouncing_ball.create"
+  $args: []
+  c: "osdt_example_lib.models.bouncing_ball.C"
+  f: "osdt_example_lib.models.bouncing_ball.F"
+  d: "osdt_example_lib.models.bouncing_ball.D"
+  g: "osdt_example_lib.models.bouncing_ball.G"
+  u: "osdt_example_lib.models.bouncing_ball.U"
+  y: "osdt_example_lib.models.bouncing_ball.Y"
+  x_vals:
+    y_position: 2.0
+    y_velocity: 1.0
+  p_vals:
+    gravity: 9.81
+    restitution: .95
+
+
+
+
+ball2:
+  $function: "osdt_example_lib.models.bouncing_ball.create"
+  $args: []
+  c: "osdt_example_lib.models.bouncing_ball.C"
+  f: "osdt_example_lib.models.bouncing_ball.F"
+  d: "osdt_example_lib.models.bouncing_ball.D"
+  g: "osdt_example_lib.models.bouncing_ball.G"
+  u: "osdt_example_lib.models.bouncing_ball.U"
+  y: "osdt_example_lib.models.bouncing_ball.Y"
+  x_vals:
+    y_position: 5.0
+    y_velocity: 0.0
+  p_vals:
+    gravity: 9.81
+    restitution: .95

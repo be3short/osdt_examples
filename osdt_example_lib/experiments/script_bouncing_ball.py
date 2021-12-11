@@ -14,14 +14,9 @@ def main(y_position=1.0,
         t=5.0,
         j=20):
 
+    ball1 = osdt.scripting.run_task("tasks/test.yaml","ball1")
+    ball2 = osdt.scripting.run_task("tasks/test.yaml","ball2")
 
-
-    state = bb.State(y_position=y_position, y_velocity=y_velocity)
-    params = bb.Params(gravity=gravity, restitution=restitution)
-    ball = dt.create_system(x=state,c=bb.C,f=bb.F,d=bb.D,g=bb.G,u=bb.U,y=bb.Y,
-                            vars={bb.PARAMS:params},id="ball")
-
-    ball.set({"state":state,bb.PARAMS:params})
     dt.run(t=t, j=j)
 
     # create a figure

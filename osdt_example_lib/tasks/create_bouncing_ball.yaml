@@ -1,5 +1,5 @@
 task: "function"
-module: "osdt_example_lib.models.bouncing_ball"
+module: "osdt_example_lib.models.bouncing_ball.create"
 function: "create"
 args: []
 kwargs:

@@ -7,7 +7,7 @@ ball0:
   g: "osdt_example_lib.models.bouncing_ball.G"
   u: "osdt_example_lib.models.bouncing_ball.U"
   y: "osdt_example_lib.models.bouncing_ball.Y"
-  vars: {"PARAMS": "osdt_example_lib.models.bouncing_ball.Params"}
+  vars: {"'PARAMS'": "osdt_example_lib.models.bouncing_ball.Params"}
   x_vals:
     y_position: 5.0
     y_velocity: 1.0
