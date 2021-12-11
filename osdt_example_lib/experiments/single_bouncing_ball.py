@@ -16,7 +16,6 @@ def main(y_position=1.0,
 
     state = bb.State(y_position=y_position, y_velocity=y_velocity)
     params = bb.Params(gravity=gravity, restitution=restitution)
-
     ball = dt.create_system(x=state,c=bb.C,f=bb.F,d=bb.D,g=bb.G,u=bb.U,y=bb.Y,
                             vars={bb.PARAMS:params},id="ball")
 
@@ -37,7 +36,7 @@ def main(y_position=1.0,
 
 
 if __name__ == "__main__":
-    run()
+    main()
 
 
 

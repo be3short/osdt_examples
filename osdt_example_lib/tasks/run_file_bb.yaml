@@ -1,0 +1,11 @@
+task: "function"
+module: "osdt_example_lib.experiments.file_bouncing_ball"
+function: "main"
+args: []
+kwargs:
+  y_position: 1.0
+  y_velocity: 0.0
+  gravity: 9.81
+  restitution: .95
+  t: 15.0
+  j: 20

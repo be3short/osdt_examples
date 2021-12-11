@@ -1,8 +1,12 @@
 """Bouncing ball model"""
 
 import osdt
-PARAMS="PARAMS"
-class State(): # state class
+import yaml
+from osdt import PARAMS
+CONNECTOR="Test"
+class State(yaml.YAMLObject): # state class
+    yaml_tag = '!st'
+
     def __init__(self, y_position=1.0, y_velocity=0.0):
         self.y_position = y_position
         self.y_velocity = y_velocity
@@ -35,22 +39,11 @@ def Y(x, sys, *args, **argmap): # output map (determine output)
 def Y_dict(x, hs, *args, **argmap): # output map (determine output)
     return x.__dict__
 
-class BouncingBall(osdt.System):
-    def __init__(self, x=State, c=C, f=F, d=D, g=G, u=U, y=Y, p=Params(), id="ball"):
-        super().__init__(x=x, c=c, f=f, d=d, g=g, u=u, y=y, id=id,vars={PARAMS:p})
-        self.ads=State()
-def create(c=C, f=F, d=D, g=G, u=U, y=Y, id="ball",y_position=1.0, y_velocity=0.0,gravity=9.81, restitution=0.9):
-        state=State(y_position=y_position, y_velocity=y_velocity)
-        params=Params(gravity=gravity, restitution=restitution)
-        return BouncingBall(x=state, c=c, f=f, d=d, g=g, u=u, y=y, id=id,p=params)
+def create(c=C, f=F, d=D, g=G, u=U, y=Y, id="ball",x_vals={},p_vals={}):
+    state = State(**x_vals)
+    params = Params(**p_vals)
+    system = osdt.create_system(x=state, c=c, f=f, d=d, g=g, u=u, y=y,id=id,
+                              vars={PARAMS: params})
+    return system
 
-
-
-
-class ExtendedSystem(osdt.System):
-    def __init__(self, x, c=C, f=F, d=D, g=G, u=U, y=Y, p=Params(), id="sys"):
-        super().__init__(x=x, c=c, f=f, d=d, g=g, u=u, y=y, id=id, vars={Params:p})
-
-    def example_func(self):
-        return True
 
