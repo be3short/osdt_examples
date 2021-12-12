@@ -96,6 +96,6 @@ script1:
     ["osdt.edit_config", "data_file:config"],
     ["osdt.run"],
     ["osdt.save_env","data_file:env_save"],
-    ["osdt_example_lib.functions.bouncing_ball_sample_hold.figure1", "data_file:figure1"],
+    ["osdt_example_lib.functions.bouncing_ball.ball_sampled_figure", "data_file:figure1"],
     ["osdt.display"]
 ]

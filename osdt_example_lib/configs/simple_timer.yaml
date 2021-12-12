@@ -1,0 +1,25 @@
+timer:
+  id: "timer"
+  c: "osdt_example_lib.models.simple_timer.C"
+  f: "osdt_example_lib.models.simple_timer.F"
+  d: "osdt_example_lib.models.simple_timer.D"
+  g: "osdt_example_lib.models.simple_timer.G"
+  u: "osdt_example_lib.models.simple_timer.U"
+  y: "osdt_example_lib.models.simple_timer.Y"
+  x_vals:
+    value: 1.0
+  p_vals:
+    interval: 3.0
+
+config:
+  time: 10.0
+  jumps: 300
+
+run: 
+  actions: [
+    ["osdt_example_lib.models.simple_timer.create", "timer"],
+    ["osdt.edit_config", "config"],
+    ["osdt.run"],
+    ["osdt_example_lib.functions.simple_timer.timer_figure"],
+    ["osdt.display"]
+]

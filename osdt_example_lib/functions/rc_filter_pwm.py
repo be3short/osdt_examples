@@ -9,7 +9,7 @@ def figure1():
     fig.subplot(1).plot("v_out", max_points=4000)
     fig.subplot(2).plot("v_in", max_points=4000)
     fig.subplot(3).plot("toggle_timer", max_points=4000)
-
+    print(osdt.toolbox.global_operator.integrator._integrator.__dict__)
 def adjust_integrator_step(system_id):
     rc_sys=osdt.get_system(system_id)
     osdt.set_integrator("vode",max_step=(1.0/(rc_sys.get(rc_filter_pwm.PARAMS).frequency*100)))
