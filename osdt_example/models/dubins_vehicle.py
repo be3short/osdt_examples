@@ -13,7 +13,7 @@ class State:
 
 
 class ControlInput:
-    def __init__(self, turn_state=0, velocity=0):
+    def __init__(self, turn_state=0.0, velocity=0.0):
         self.turn_state = turn_state
         self.velocity = velocity
 
