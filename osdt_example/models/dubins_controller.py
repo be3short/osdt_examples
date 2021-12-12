@@ -16,34 +16,34 @@ class VehicleInput:
         self.y_position = y_position
         self.orientation = orientation
 
-def C(x, system):
+def C(x, system): # flow set (state in continuous domain)
     return False
 
 
-def F(x, x_dot, system):
+def F(x, x_dot, system): # flow map (continuous dynamics)
     pass
 
 
-def D(x, system):
+def D(x, system): # jump set (state in discrete domain)
     u = system.get_input()
     jump = u.x_position >= 1 and x.turn == 2 or u.x_position <= -1 and x.turn == 1
     return jump
 
 
-def G(x, x_plus, system):
+def G(x, x_plus, system): # jump map (discrete dynamics)
     u = system.get_input()
     if u.x_position >= 1 and x.turn == 2 or u.x_position <= -1 and x.turn == 1:
         x_plus.turn = 3 - x.turn
 
 
-def U(x, system,*args, **argmap):
+def U(x, system,*args, **argmap): # input map (determine input)
     """Input map where dubins controller is expecting to get a VehicleInput object from the vehicle"""
     vehicle = system.get(VEHICLE)
     vehicle_output = vehicle.get_output(system)
     return vehicle_output
 
 
-def U_convert(x, system,*args, **argmap):
+def U_convert(x, system,*args, **argmap): # input map (determine input)
     """Input map where dubins controller is getting dubins_vehicle.State and construct the VehicleInput object"""
     vehicle = system.get(VEHICLE)
     vehicle_state:dubins_vehicle.State = vehicle.get_output(system)
@@ -51,14 +51,14 @@ def U_convert(x, system,*args, **argmap):
                      orientation=vehicle_state.orientation)
     return u
 
-def Y(x, system,*args, **argmap):
+def Y(x, system,*args, **argmap): # output map (determine output)
     return x
 
-def Y_convert(x, system,*args, **argmap):
+def Y_convert(x, system,*args, **argmap):  # output map (determine output)
     y = dubins_vehicle.ControlInput(x.turn, x.velocity)
     return y
 
 
-def create(x,**model):
+def create(x,**model): # create a new system
     return osdt.create_system(x=x,**model)
 

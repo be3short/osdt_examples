@@ -43,5 +43,5 @@ def connect_input(sh_system,input_system):
 def initialize(system): # initialize the system when the environment starts
     pass
 
-def create(x,p,**model):
+def create(x,p,**model): # create a new system
     return osdt.create_system(x=x,vars={PARAMS: p},**model)

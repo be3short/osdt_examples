@@ -40,7 +40,7 @@ def Y_dict(x, hs, *args, **argmap): # output map (determine output)
 def initialize(systemtem): # initialize the systemtem when the environment starts
     pass
 
-def create(x:State,p:Params,**model):
+def create(x:State,p:Params,**model): # create a new system
     return osdt.create_system(x=x,vars={PARAMS: p},**model)
 
 
