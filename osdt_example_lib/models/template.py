@@ -1,6 +1,9 @@
 # model template
 # arguments: x = state, system = dynamical system, x_dot = state derivative,
 # x_plus = post-jump state, *args = non-keyword args, **argmap = keyword args
+import osdt
+
+PARAMS="PARAMS"
 
 class State: # state object
     def __init__(self, value_1=0.0):
@@ -20,7 +23,7 @@ def D(x, system): # jump set (state in discrete domain)
     return x.value1 <= 0.0
 
 def G(x, x_plus, system): # jump map (discrete dynamics)
-    x_plus.value1 = 1.0
+    x_plus.value1 = osdt.get(PARAMS)
 
 def U(x, system, *args, **argmap): # input map (determine input)
     return None
@@ -30,3 +33,11 @@ def Y(x, system, *args, **argmap): # output map (determine output)
 
 def initialize(system): # initialize the system when the environment starts
     pass
+
+
+def create(x_vals={},p_vals={},**model):
+    state = State(**x_vals)
+    params = Params(**p_vals)
+    system = osdt.create_system(x=state,vars={PARAMS: params},**model)
+    return system
+
