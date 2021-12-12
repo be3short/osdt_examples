@@ -1,5 +1,4 @@
 data_file: null
-
 ball:
   x:
     $class: "osdt_example_lib.models.bouncing_ball.State"
@@ -17,16 +16,12 @@ ball:
   u: "osdt_example_lib.models.bouncing_ball.U"
   y: "osdt_example_lib.models.bouncing_ball.Y_dict"
 
-
-config:
-  time: 9.0
-  jumps: 300
-
-main:
+main: 
+  arguments:
+    data_file: null
   actions: [
-    ["osdt_example_lib.models.bouncing_ball.create", "data_file:ball"],
-    ["osdt.edit_config", "data_file:config"],
-    ["osdt.run",{}],
-    ["osdt_example_lib.functions.bouncing_ball.ball_figure",{}],
-    ["osdt.display",{}]
-  ]
+    ["osdt_example_lib.models.bouncing_ball.createdev", "data_file:ball"],
+    ["osdt.run"],
+    ["osdt_example_lib.functions.bouncing_ball.ball_figure" ],
+    ["osdt.display"]
+]

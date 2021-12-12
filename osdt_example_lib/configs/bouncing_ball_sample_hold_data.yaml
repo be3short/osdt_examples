@@ -1,4 +1,12 @@
 ball:
+  x:
+    $class: "osdt_example_lib.models.bouncing_ball.State"
+    y_position: 2.0
+    y_velocity: 1.0
+  p:
+    $class: "osdt_example_lib.models.bouncing_ball.Params"
+    gravity: 9.81
+    restitution: .95
   id: "ball"
   c: "osdt_example_lib.models.bouncing_ball.C"
   f: "osdt_example_lib.models.bouncing_ball.F"
@@ -6,14 +14,16 @@ ball:
   g: "osdt_example_lib.models.bouncing_ball.G"
   u: "osdt_example_lib.models.bouncing_ball.U"
   y: "osdt_example_lib.models.bouncing_ball.Y_dict"
-  x_vals:
-    y_position: 12.0
-    y_velocity: 1.0
-  p_vals:
-    gravity: 9.81
-    restitution: .95
 
 pos_sh:
+  x:
+    $class: "osdt_example_lib.models.sample_hold_sensor.State"
+    value: 0.0
+    timer: 0.0
+  p:
+    $class: "osdt_example_lib.models.sample_hold_sensor.Params"
+    sample_period: 0.1
+    sample_field: "y_position"
   id: "pos_sampler"
   c: "osdt_example_lib.models.sample_hold_sensor.C"
   f: "osdt_example_lib.models.sample_hold_sensor.F"
@@ -21,14 +31,17 @@ pos_sh:
   g: "osdt_example_lib.models.sample_hold_sensor.G"
   u: "osdt_example_lib.models.sample_hold_sensor.U"
   y: "osdt_example_lib.models.sample_hold_sensor.Y"
-  x_vals:
-    value: 0.0
-    timer: 0.0
-  p_vals:
-    sample_period: 0.1
-    sample_field: "y_position"
+
 
 vel_sh:
+  x:
+    $class: "osdt_example_lib.models.sample_hold_sensor.State"
+    value: 0.0
+    timer: 0.0
+  p:
+    $class: "osdt_example_lib.models.sample_hold_sensor.Params"
+    sample_period: 0.1
+    sample_field: "y_velocity"
   id: "vel_sampler"
   c: "osdt_example_lib.models.sample_hold_sensor.C"
   f: "osdt_example_lib.models.sample_hold_sensor.F"
@@ -36,12 +49,7 @@ vel_sh:
   g: "osdt_example_lib.models.sample_hold_sensor.G"
   u: "osdt_example_lib.models.sample_hold_sensor.U"
   y: "osdt_example_lib.models.sample_hold_sensor.Y"
-  x_vals:
-    value: 0.0
-    timer: 0.0
-  p_vals:
-    sample_period: 0.1
-    sample_field: "y_velocity"
+
 
 config:
   time: 9.0

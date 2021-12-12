@@ -40,8 +40,8 @@ def Y(x, hs, *args, **argmap): # output map (determine output value)
 def connect_input(sh_system,input_system):
     osdt.get_system(sh_system).set(INPUT,osdt.get_system(input_system))
 
-def create(x_vals={},p_vals={},**model):
-    state = State(**x_vals)
-    params = Params(**p_vals)
-    system = osdt.create_system(x=state,vars={PARAMS: params},**model)
-    return system
+def initialize(system): # initialize the system when the environment starts
+    pass
+
+def create(x,p,**model):
+    return osdt.create_system(x=x,vars={PARAMS: p},**model)

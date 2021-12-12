@@ -1,5 +1,13 @@
 
 ball:
+  x:
+    $class: "osdt_example_lib.models.bouncing_ball.State"
+    y_position: 2.0
+    y_velocity: 1.0
+  p:
+    $class: "osdt_example_lib.models.bouncing_ball.Params"
+    gravity: 9.81
+    restitution: .95
   id: "ball"
   c: "osdt_example_lib.models.bouncing_ball.C"
   f: "osdt_example_lib.models.bouncing_ball.F"
@@ -7,12 +15,7 @@ ball:
   g: "osdt_example_lib.models.bouncing_ball.G"
   u: "osdt_example_lib.models.bouncing_ball.U"
   y: "osdt_example_lib.models.bouncing_ball.Y_dict"
-  x_vals:
-    y_position: 3.0
-    y_velocity: 1.0
-  p_vals:
-    gravity: 9.81
-    restitution: .95
+
 
 config:
   time: 19.0

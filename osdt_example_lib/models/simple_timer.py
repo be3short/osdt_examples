@@ -34,10 +34,5 @@ def Y(x, system, *args, **argmap): # output map (determine output)
 def initialize(system): # initialize the system when the environment starts
     pass
 
-
-def create(x_vals={},p_vals={},**model):
-    state = State(**x_vals)
-    params = Params(**p_vals)
-    system = osdt.create_system(x=state,vars={PARAMS: params},**model)
-    return system
-
+def create(x,p,**model):
+    return osdt.create_system(x=x,vars={PARAMS: p},**model)

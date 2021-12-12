@@ -63,11 +63,12 @@ lsoda_params:
 max_plot_points: -1
 real_time: false
 real_time_min_step: 0.001
+real_time_mode: false
 time: 9.0
 vode_params:
   atol: 1.0e-12
   first_step: 1.0e-05
-  max_step: 0.0001
+  max_step: 1.0
   method: adams
   min_step: 0.0
   nsteps: 500

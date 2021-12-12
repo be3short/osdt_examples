@@ -36,10 +36,11 @@ def Y(x, sys, *args, **argmap): # output map (determine output)
 def Y_dict(x, hs, *args, **argmap): # output map (determine output)
     return x.__dict__
 
-def create(x_vals={},p_vals={},**model):
-    state = State(**x_vals)
-    params = Params(**p_vals)
-    system = osdt.create_system(x=state,vars={PARAMS: params},**model)
-    return system
+def initialize(system): # initialize the system when the environment starts
+    pass
+
+def create(x,p,**model):
+    return osdt.create_system(x=x,vars={PARAMS: p},**model)
+
 
 
