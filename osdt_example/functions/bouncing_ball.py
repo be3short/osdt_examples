@@ -17,7 +17,7 @@ def ball_figure():
     # create a figure
     fig = osdt.create_figure(layout=[[1,3,4,4], [2,3,4,4]],title="Bouncing Ball",
                            width=1600, height=600)
-    fig.subplot(1).plot("y_position",max_points=200)
-    fig.subplot(2).plot("y_velocity",max_points=200)
-    fig.subplot(3).plot(["y_position", "y_velocity"],max_points=200)
-    fig.subplot(4).plot(x="y_velocity", y="y_position",max_points=200)
+    fig.subplot(1).plot("y_position")
+    fig.subplot(2).plot("y_velocity")
+    fig.subplot(3).plot(["y_position", "y_velocity"])
+    fig.subplot(4).plot(x="y_velocity", y="y_position")

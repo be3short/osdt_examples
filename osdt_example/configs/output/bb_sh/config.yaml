@@ -1,0 +1,85 @@
+log_level: INFO
+jumps: 300
+time: 9.0
+jump_flow_priority: JUMP_PRIORITY
+real_time_mode: false
+real_time_min_step: 0.001
+integrator_type: vode
+vode_params:
+  atol: 1.0e-12
+  rtol: 1.0e-06
+  method: adams
+  nsteps: 500
+  first_step: 0.0
+  min_step: 0.0
+  max_step: 0.0
+  order: 12
+zvode_params:
+  atol: 1.0e-12
+  rtol: 1.0e-06
+  method: adams
+  with_jacobian: false
+  nsteps: 500
+  first_step: 0.0
+  min_step: 0.0
+  max_step: 0.0
+  order: 12
+lsoda_params:
+  atol: 1.0e-12
+  rtol: 1.0e-06
+  nsteps: 500
+  first_step: 0.0
+  min_step: 0.0
+  max_step: 0.0
+  max_order_ns: 12
+  max_order_s: 5
+  max_hnilixpr: null
+dopri5_params:
+  atol: 1.0e-12
+  rtol: 1.0e-06
+  nsteps: 500
+  first_step: 0.0
+  max_step: 0.0
+  safety: 0.9
+  ifactor: 10.0
+  dfactor: 0.2
+  beta: 0.0
+  verbosity: -1
+dop853_params:
+  atol: 1.0e-12
+  rtol: 1.0e-06
+  nsteps: 500
+  first_step: 0.0
+  max_step: 0.0
+  safety: 0.9
+  ifactor: 6.0
+  dfactor: 0.3
+  beta: 0.0
+  verbosity: -1
+default_matplotlib_style: null
+jump_line_dash:
+- 2
+- 2
+- 10
+- 2
+default_series_colors:
+- blue
+- green
+- red
+- orange
+- purple
+- brown
+- pink
+- gray
+- olive
+- cyan
+max_plot_points: 10000
+log_msg_format: '%(asctime)s | %(levelname)-5.5s | %(message)s'
+log_msg_format_debug: '%(asctime)s | %(levelname)-5.5s | %(message)s | %(filename)s:%(lineno)s'
+log_date_format: '%Y-%m-%d %H:%M:%S'
+log_level_names:
+  CRITICAL: CRIT
+  WARNING: WARN
+log_to_file: true
+log_file_directory: null
+append_log_file: false

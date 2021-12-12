@@ -15,26 +15,26 @@ class Params: # parameters class
         self.sample_period = sample_period
         self.sample_field = sample_field
 
-def C(x, hs): # flow set (continuous domain)
+def C(x, system): # flow set (continuous domain)
     return x.timer >= 0.0
 
-def F(x, x_dot, hs): # flow map (continuous dynamics)
+def F(x, x_dot, system): # flow map (continuous dynamics)
     x_dot.timer = -1.0
 
-def D(x, hs): # jump set (discrete domain)
+def D(x, system): # jump set (discrete domain)
     return x.timer <= 0.0
 
-def G(x, x_plus, hs): # jump map (discrete dynamics)
-    x_plus.value = hs.get_input()
-    x_plus.timer = hs.get(PARAMS).sample_period
+def G(x, x_plus, system): # jump map (discrete dynamics)
+    x_plus.value = system.get_input()
+    x_plus.timer = system.get(PARAMS).sample_period
 
-def U(x, hs, *args, **argmap): # input map (determine input value)
-    signal_system = hs.get(INPUT)
-    sample_field = hs.get(PARAMS).sample_field
+def U(x, system, *args, **argmap): # input map (determine input value)
+    signal_system = system.get(INPUT)
+    sample_field = system.get(PARAMS).sample_field
     signal_value = signal_system.get_output()[sample_field]
     return signal_value
 
-def Y(x, hs, *args, **argmap): # output map (determine output value)
+def Y(x, system, *args, **argmap): # output map (determine output value)
     return x.value
 
 def connect_input(sh_system,input_system):

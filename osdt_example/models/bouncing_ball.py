@@ -3,6 +3,7 @@
 import osdt
 from osdt import PARAMS
 CONNECTOR="Test"
+
 class State(): # state class
     def __init__(self, y_position=1.0, y_velocity=0.0):
         self.y_position = y_position
@@ -13,33 +14,33 @@ class Params(): # parameters class
         self.gravity = gravity
         self.restitution = restitution
 
-def C(x, sys): # flow set (continuous domain)
+def C(x, system): # flow set (continuous domain)
     return x.y_position >= 0.0
 
-def F(x, x_dot, sys): # flow map (continuous dynamics)
+def F(x, x_dot, system): # flow map (continuous dynamics)
     x_dot.y_position = x.y_velocity
-    x_dot.y_velocity = -sys.get(PARAMS).gravity
+    x_dot.y_velocity = -system.get(PARAMS).gravity
 
-def D(x, sys): # jump set (discrete domain)
+def D(x, system): # jump set (discrete domain)
     return x.y_position <= 0.0 and x.y_velocity < 0.0
 
-def G(x, x_plus, sys): # jump map (discrete dynamics)
+def G(x, x_plus, system): # jump map (discrete dynamics)
     x_plus.y_position = 0.0  # x.y_position
-    x_plus.y_velocity = -sys.get(PARAMS).restitution*x.y_velocity
+    x_plus.y_velocity = -system.get(PARAMS).restitution*x.y_velocity
 
-def U(x, sys, *args, **argmap): # input map (determine input)
+def U(x, system, *args, **argmap): # input map (determine input)
     return None
 
-def Y(x, sys, *args, **argmap): # output map (determine output)
+def Y(x, system, *args, **argmap): # output map (determine output)
     return x
 
 def Y_dict(x, hs, *args, **argmap): # output map (determine output)
     return x.__dict__
 
-def initialize(system): # initialize the system when the environment starts
+def initialize(systemtem): # initialize the systemtem when the environment starts
     pass
 
-def create(x,p,**model):
+def create(x:State,p:Params,**model):
     return osdt.create_system(x=x,vars={PARAMS: p},**model)
 
 

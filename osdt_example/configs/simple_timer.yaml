@@ -1,0 +1,27 @@
+timer:
+  x:
+    $class: "osdt_example.models.simple_timer.State"
+    value: 1.0
+  p:
+    $class: "osdt_example.models.simple_timer.Params"
+    interval: 3.0
+  c: "osdt_example.models.simple_timer.C"
+  f: "osdt_example.models.simple_timer.F"
+  d: "osdt_example.models.simple_timer.D"
+  g: "osdt_example.models.simple_timer.G"
+  u: "osdt_example.models.simple_timer.U"
+  y: "osdt_example.models.simple_timer.Y"
+  id: "timer"
+
+config:
+  time: 10.0
+  jumps: 300
+
+main:
+  actions: [
+    ["osdt_example.models.simple_timer.create", "timer"],
+    ["osdt.edit_config", "config"],
+    ["osdt.run"],
+    ["osdt_example.functions.simple_timer.timer_figure"],
+    ["osdt.display"]
+]

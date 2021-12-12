@@ -1,0 +1,32 @@
+data_file: null
+
+ball:
+  x:
+    $class: "osdt_example.models.bouncing_ball.State"
+    y_position: 2.0
+    y_velocity: 1.0
+  p:
+    $class: "osdt_example.models.bouncing_ball.Params"
+    gravity: 9.81
+    restitution: .95
+  c: "osdt_example.models.bouncing_ball.C"
+  f: "osdt_example.models.bouncing_ball.F"
+  d: "osdt_example.models.bouncing_ball.D"
+  g: "osdt_example.models.bouncing_ball.G"
+  u: "osdt_example.models.bouncing_ball.U"
+  y: "osdt_example.models.bouncing_ball.Y_dict"
+  id: "ball"
+
+
+config:
+  time: 9.0
+  jumps: 300
+
+main:
+  actions: [
+    ["osdt_example.models.bouncing_ball.create", "data_file:ball"],
+    ["osdt.edit_config", "data_file:config"],
+    ["osdt.run",{}],
+    ["osdt_example.functions.bouncing_ball.ball_figure",{}],
+    ["osdt.display",{}]
+  ]
