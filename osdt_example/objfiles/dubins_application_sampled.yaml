@@ -1,0 +1,38 @@
+systems: {~~: "osdt.load_objfile", path: "::system_file"}
+
+
+vehicle: "::systems::vehicle"
+controller: "::systems::controller"
+
+: {~~: "::vehicle::set", key: "~~osdt_example.models.dubins_vehicle.CONTROLLER", value: "::controller"}
+: {~~: "::controller::set", key: "~~osdt_example.models.dubins_controller.VEHICLE", value: "::vehicle"}
+
+
+sample_and_hold1: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system.yaml", sample_input: "::vehicle", sample_field: "x_position"}
+sample_and_hold2: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system.yaml", sample_input: "::vehicle", sample_field: "y_position"}
+sh1: "::sample_and_hold1::system"
+sh2: "::sample_and_hold2::system"
+
+
+
+: {~~: "osdt.run", time: 50.0, jumps: 1000}
+
+
+
+fig2: {~~: "osdt.create_figure", layout: [[1,1,4,4],[2,2,4,4],[3,3,4,4]], width: 1600, height: 600, title: "Dubins Vehicle"}
+: {~~: "::fig2::configure", subplot: 1, title: "X Position", x_axis: "Time (s)", y_axis: "Position (m)"}
+: {~~: "::fig2::configure", subplot: 2, title: "Orientation",  x_axis: "Time (s)", y_axis: "Orientation (rad)"}
+: {~~: "::fig2::configure", subplot: 3, title: "Turn State",  x_axis: "Time (s)", y_axis: "Turn State"}
+: {~~: "::fig2::configure", subplot: 4, title: "X Position vs Y Position",  x_axis: "X Position (m)", y_axis: "Y Position (m)"}
+
+: {~~: "::fig2::plot", subplot: 1, y: "x_position"}
+: {~~: "::fig2::plot", subplot: 2, y: "orientation"} 
+: {~~: "::fig2::plot", subplot: 3, y: "turn"}
+: {~~: "::fig2::plot", subplot: 4, x: "x_position", y: "y_position"}
+
+
+fig1: {~~: "osdt.create_figure", layout: [[1]], width: 1200, height: 600, title: "Dubins Vehicle"}
+: {~~: "::fig1::plot", subplot: 1, y: "value",systems: ["::sh1"]}
+
+
+: {~~: "osdt.display"}

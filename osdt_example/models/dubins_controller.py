@@ -35,15 +35,15 @@ def G(x, x_plus, system): # jump map (discrete dynamics)
     if u.x_position >= 1 and x.turn == 2 or u.x_position <= -1 and x.turn == 1:
         x_plus.turn = 3 - x.turn
 
-
+'''
 def U(x, system,*args, **argmap): # input map (determine input)
     """Input map where dubins controller is expecting to get a VehicleInput object from the vehicle"""
     vehicle = system.get(VEHICLE)
     vehicle_output = vehicle.get_output(system)
     return vehicle_output
+'''
 
-
-def U_convert(x, system,*args, **argmap): # input map (determine input)
+def U(x, system,*args, **argmap): # input map (determine input)
     """Input map where dubins controller is getting dubins_vehicle.State and construct the VehicleInput object"""
     vehicle = system.get(VEHICLE)
     vehicle_state:dubins_vehicle.State = vehicle.get_output(system)

@@ -31,7 +31,9 @@ def G(x, x_plus, system): # jump map (discrete dynamics)
 def U(x, system, *args, **argmap): # input map (determine input value)
     signal_system = system.get(INPUT)
     sample_field = system.get(PARAMS).sample_field
-    signal_value = signal_system.get_output()[sample_field]
+    signal_input = signal_system.get_output()
+    if type(signal_input) is not dict: signal_input = signal_input.__dict__
+    signal_value = signal_input[sample_field]
     return signal_value
 
 def Y(x, system, *args, **argmap): # output map (determine output value)

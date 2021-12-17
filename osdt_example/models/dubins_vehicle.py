@@ -38,15 +38,15 @@ def D(x, system): # jump set (state in discrete domain)
 def G(x, x_plus, system): # jump map (discrete dynamics)
     pass
 
-
+'''
 def U(x, system, *args, **argmap): # input map (determine input)
     """Input map where dubins vehicle is expecting to get a ControlInput object from the controller"""
     controller = system.get(CONTROLLER)
     u = controller.get_output()
     return u
+'''
 
-
-def U_convert(x, system, *args, **argmap): # input map (determine input)
+def U(x, system, *args, **argmap): # input map (determine input)
     """Input map where dubins controller is getting dubins_controller.State and constructs the ControlInput object"""
     controller = system.get(CONTROLLER)
     controller_state:dubins_controller.State = controller.get_output(system)
