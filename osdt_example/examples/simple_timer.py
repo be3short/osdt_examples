@@ -14,24 +14,21 @@ timer_sys = osdt.create_system(
     vars={simple_timer.PARAMS: params}, id="timer")
 
 
-osdt.run(time=10.0, jumps=20)
+osdt.run(time=5.0, jumps=20)
 
 # create a figure
-fig = osdt.create_figure(layout=[[1],[2]], title="Simple Timer",
-                         width=500, height=500, relative_title=False)
-fig.configure(1, title="Timer1", x_axis="Time (sec)", y_axis="Timer Value")
+fig = osdt.create_figure(layout=[[1]], title="Timer", width=4000, height=4000,dpi=1000)
+fig.configure(1, x_axis="Time (sec)", y_axis="Timer Value")
 #fig.configure(2, title="Timer2", x_axis="Time (sec)", y_axis="Timer Value")
 
 fig.plot(1, "value")
-fig.subplot(2).plot("value")
 #fig.subplot(3).plot("value")
 
 #fig.subplot(1).edit_config(x_axis_label="Time (sec)",
                           # y_axis_label="Timer Value")
 #fig.subplot(1).plot("value")
-fig.export("files/simple_timer")
+fig.export("files/simple_timer",format="png")
 
-osdt.display()
-fig.export("files/simple_timer_after")
+#osdt.display()
 
 osdt.save_environment("files/saved_environment")
