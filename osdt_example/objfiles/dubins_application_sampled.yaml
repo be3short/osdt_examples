@@ -4,15 +4,20 @@ systems: {~~: "osdt.load_objfile", path: "::system_file"}
 vehicle: "::systems::vehicle"
 controller: "::systems::controller"
 
-: {~~: "::vehicle::set", key: "~~osdt_example.models.dubins_vehicle.CONTROLLER", value: "::controller"}
-: {~~: "::controller::set", key: "~~osdt_example.models.dubins_controller.VEHICLE", value: "::vehicle"}
+#sample_and_hold1: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system.yaml", sample_input: "::vehicle", sample_field: "x_position"}
+#sample_and_hold2: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system.yaml", sample_input: "::vehicle", sample_field: "y_position"}
+#sh1: "::sample_and_hold1::system"
+#sh2: "::sample_and_hold2::system"
+
+sample_and_hold_vehicle: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system_multi.yaml", sample_input: "::vehicle", sample_fields: ["x_position","y_position","orientation"]}
+sample_and_hold_controller: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system_multi.yaml", sample_input: "::controller", sample_fields: ["turn","velocity"]}
+
+sh_vehicle: "::sample_and_hold_vehicle::system"
+sh_controller: "::sample_and_hold_controller::system"
 
 
-sample_and_hold1: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system.yaml", sample_input: "::vehicle", sample_field: "x_position"}
-sample_and_hold2: {~~: "osdt.load_objfile", path: "osdt_example/objfiles/sample_and_hold_system.yaml", sample_input: "::vehicle", sample_field: "y_position"}
-sh1: "::sample_and_hold1::system"
-sh2: "::sample_and_hold2::system"
-
+: {~~: "::vehicle::set", key: "~~osdt_example.models.dubins_vehicle.CONTROLLER", value: "::sh_controller"}
+: {~~: "::controller::set", key: "~~osdt_example.models.dubins_controller.VEHICLE", value: "::sh_vehicle"}
 
 
 : {~~: "osdt.run", time: 50.0, jumps: 1000}
@@ -31,8 +36,8 @@ fig2: {~~: "osdt.create_figure", layout: [[1,1,4,4],[2,2,4,4],[3,3,4,4]], width:
 : {~~: "::fig2::plot", subplot: 4, x: "x_position", y: "y_position"}
 
 
-fig1: {~~: "osdt.create_figure", layout: [[1]], width: 1200, height: 600, title: "Dubins Vehicle"}
-: {~~: "::fig1::plot", subplot: 1, y: "value",systems: ["::sh1"]}
+#fig1: {~~: "osdt.create_figure", layout: [[1]], width: 1200, height: 600, title: "Dubins Vehicle"}
+#: {~~: "::fig1::plot", subplot: 1, y: "value",system: ["::sh_"]}
 
 
 : {~~: "osdt.display"}

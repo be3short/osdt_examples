@@ -49,8 +49,13 @@ def U(x, system, *args, **argmap): # input map (determine input)
 def U(x, system, *args, **argmap): # input map (determine input)
     """Input map where dubins controller is getting dubins_controller.State and constructs the ControlInput object"""
     controller = system.get(CONTROLLER)
-    controller_state:dubins_controller.State = controller.get_output(system)
-    u = ControlInput(turn_state=controller_state.turn,
+    output = controller.get_output()
+    if type(output) is dict:
+        u = ControlInput(turn_state=output["turn"],
+                         velocity=output["velocity"])
+    else:
+        controller_state:dubins_controller.State = controller.get_output(system)
+        u = ControlInput(turn_state=controller_state.turn,
                      velocity=controller_state.velocity)
     return u
 

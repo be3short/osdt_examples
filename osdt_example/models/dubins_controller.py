@@ -46,8 +46,14 @@ def U(x, system,*args, **argmap): # input map (determine input)
 def U(x, system,*args, **argmap): # input map (determine input)
     """Input map where dubins controller is getting dubins_vehicle.State and construct the VehicleInput object"""
     vehicle = system.get(VEHICLE)
-    vehicle_state:dubins_vehicle.State = vehicle.get_output(system)
-    u = VehicleInput(x_position=vehicle_state.x_position,y_position=vehicle_state.y_position,
+    output = vehicle.get_output()
+    if type(output) is dict:
+        u = VehicleInput(x_position=output["x_position"],
+                         y_position=output["y_position"],
+                         orientation=output["orientation"])
+    else:
+        vehicle_state:dubins_vehicle.State = vehicle.get_output()
+        u = VehicleInput(x_position=vehicle_state.x_position,y_position=vehicle_state.y_position,
                      orientation=vehicle_state.orientation)
     return u
 
