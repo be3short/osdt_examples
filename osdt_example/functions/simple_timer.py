@@ -8,8 +8,8 @@ def run():
 
 def timer_figure():
     # create a figure
-    fig = osdt.create_figure(layout=[[1]], title="Simple Timer",
-                           width=500, height=500)
+    fig = osdt.create_figure(width=800, height=600, layout=[[1]],
+                             title="Simple Timer")
     fig.subplot(1).edit_config(x_axis_label="Time (sec)",y_axis_label="Timer Value")
     fig.subplot(1).plot("value")
 

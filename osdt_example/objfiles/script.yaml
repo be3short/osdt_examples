@@ -1,0 +1,7 @@
+script: 
+  ~~: "osdt.load_objfile"
+  path: "overview_run_portion_voids.yaml"
+  data_part:
+    ~~: "osdt.load_objfile"
+    path: "::data_path" 
+

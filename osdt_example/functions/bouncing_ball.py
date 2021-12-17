@@ -16,8 +16,10 @@ def ball_sampled_figure(pos_sensor, vel_sensor):
 def ball_figure():
     # create a figure
     fig = osdt.create_figure(layout=[[1,3,4,4], [2,3,4,4]],title="Bouncing Ball",
-                           width=1600, height=600)
+                           width=1600, height=500)
     fig.subplot(1).plot("y_position")
     fig.subplot(2).plot("y_velocity")
     fig.subplot(3).plot(["y_position", "y_velocity"])
     fig.subplot(4).plot(x="y_velocity", y="y_position")
+    fig.export("files/bouncing_ball_overview_example_multi",format="png")
+    return fig

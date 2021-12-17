@@ -1,0 +1,28 @@
+timer:
+  ~~: "osdt.create_system"
+  x:
+    ~~: "test_libs.models.simple_timer.State"
+    value: 1.0
+  c: "test_libs.models.simple_timer.C"
+  f: "test_libs.models.simple_timer.F"
+  d: "test_libs.models.simple_timer.D"
+  g: "test_libs.models.simple_timer.G"
+  vars:
+    ~~test_lib.models.simple_timer.PARAMS:
+      ~~: "test_libs.models.simple_timer.Params"
+      interval: 1.0
+
+run:
+  ~~: "osdt.run"
+  time: 5.0
+  jumps: 20.0
+
+plot:
+  ~~: "osdt_example.functions.simple_timer.timer_figure"
+
+
+test: [
+  testdict1: "eee",
+
+  testdict2: "eee",
+]

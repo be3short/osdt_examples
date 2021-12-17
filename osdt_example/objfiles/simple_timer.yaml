@@ -19,3 +19,10 @@ run:
 
 plot:
   ~~: "osdt_example.functions.simple_timer.timer_figure"
+
+
+
+test: [
+  testdict1: "eee",
+  testdict2: "eee"
+]
