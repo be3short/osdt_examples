@@ -1,0 +1,5 @@
+args:
+  file_path: "Path to file"
+
+: {~~: "~~osdt.load_objfile", path: "randomized_bouncing_ball.yaml"}
+

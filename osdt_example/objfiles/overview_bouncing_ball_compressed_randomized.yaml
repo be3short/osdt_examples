@@ -1,0 +1,51 @@
+# get input value num_balls
+ball_count: {~~: "osdt.to_int", value: "::num_balls"}
+
+loaded_systems: {~~: "~~osdt.load_objfile", path: "randomized_bouncing_ball.yaml"}
+
+system: "::loaded_systems::ball"
+
+: {~~: "osdt.extras.loop", count: "::ball_count", function: "~~osdt.load_objfile", path: "randomized_bouncing_ball.yaml"}
+
+: {~~: "osdt.set_integrator", integrator_type: "vode", max_step: 0.1}
+: {~~: "osdt.set_configuration", max_plot_points: 1000}
+
+: {~~: "osdt.run", time: 10.0, jumps: 20.0}
+
+fig: {~~: "osdt.create_figure", layout: [[1,2,3]], width: 1000, height: 500, title: "Bouncing Ball"}
+
+: {~~: "::fig::configure", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
+: {~~: "::fig::configure", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}
+
+: {~~: "::fig::plot", subplot: 1, y: "y_position"}
+: {~~: "::fig::plot", subplot: 2, y: "y_velocity"} 
+: {~~: "::fig::plot", subplot: 3, y: "y_velocity"} 
+
+fig2: {~~: "osdt.create_figure", layout: [[1,2],[3,3]], width: 1200, height: 600, title: "Bouncing Ball",style: "matplotlib.style"}
+: {~~: "::fig2::set_style", style: "matplotlib.style"}
+
+: {~~: "::fig2::configure", title: "Title", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
+: {~~: "::fig2::configure", title: "Title", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}
+: {~~: "::fig2::configure",  title: "Title",subplot: 3, x_axis: "Time (s)", y_axis: "Position (m)"}
+#: {~~: "::fig2::configure",  title: "Title",subplot: 4, x_axis: "Time (s)" }
+: {~~: "::fig2::plot", subplot: 1, y: "y_position"}
+: {~~: "::fig2::plot", subplot: 2, y: "y_velocity"} 
+: {~~: "::fig2::plot", subplot: 3, y: "y_position"}
+#: {~~: "::fig2::plot", subplot: 4, y: "y_velocity"} 
+
+fig3: {~~: "osdt.create_figure", layout: [[1],[2]], width: 1200, height: 500, title: "Bouncing Ball"}
+
+: {~~: "::fig3::configure", title: "Title", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
+: {~~: "::fig3::configure", title: "Title", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}
+: {~~: "::fig3::plot", subplot: 1, y: "y_position"}
+: {~~: "::fig3::plot", subplot: 2, y: "y_velocity"} 
+
+
+: {~~: "osdt.display"}
+: {~~: "::fig2::export", path: "files/bouncing_ball", format: "png"}
+
+data: {~~: "::system::get_data"}
+
+: {~~: "::data::to_csv", path: "files/system_data_csv"}
+: {~~: "osdt.save", object: "::system", path: "files/saved_system"}
+: {~~: "osdt.save_environment", path: "files/saved_environment"}

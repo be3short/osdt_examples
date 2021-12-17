@@ -1,0 +1,24 @@
+figure.titlesize:    20.0
+#figure.subplot.left:   0.1  # the left side of the subplots of the figure
+#figure.subplot.right:  0.9    # the right side of the subplots of the figure
+#figure.subplot.bottom: 0.11   # the bottom of the subplots of the figure
+#figure.subplot.top:    0.88   # the top of the subplots of the figure
+#figure.subplot.wspace: 0.2    # the amount of width reserved for space between subplots,
+                               # expressed as a fraction of the average axis width
+#figure.subplot.hspace: 0.2    # the amount of height reserved for space between subplots,
+                               # expressed as a fraction of the average axis height
+
+
+#figure.constrained_layout.use: True  # When True, automatically make plot
+                                       # elements fit on the figure. (Not
+                                       # compatible with `autolayout`, above).
+#figure.constrained_layout.h_pad:  0.04167  # Padding around axes objects. Float representing
+#figure.constrained_layout.w_pad:  0.04167  # inches. Default is 3/72 inches (3 points)
+#figure.constrained_layout.hspace: 0.02     # Space between subplot groups. Float representing
+#figure.constrained_layout.wspace: 0.02     # a fraction of the subplot widths being separated.
+
+#axes.titlepad: 30.0
+#axes.titley:   .3    # position title (axes relative units).  None implies auto
+
+
+#"C:/Users/17074/osdt/defaults/matplotlib_style.txt"

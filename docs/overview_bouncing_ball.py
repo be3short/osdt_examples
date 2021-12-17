@@ -1,7 +1,7 @@
 import sys, os
 
 import osdt
-
+import random
 from osdt_example.models import bouncing_ball as bb
 from osdt_example.functions.bouncing_ball import ball_figure
 
@@ -15,7 +15,7 @@ system = osdt.create_system(x=state, c=bb.C, f=bb.F, d=bb.D, g=bb.G, u=bb.U,
 # set integrator and/or edit configuration if different from the defaults (optional)
 osdt.set_integrator("vode",max_step=0.1)
 osdt.set_configuration(max_plot_points=1000)
-
+random.randrange(1,3)
 
 osdt.run(time=10.0, jumps=20)
 ball_figure()

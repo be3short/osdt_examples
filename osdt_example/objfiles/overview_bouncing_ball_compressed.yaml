@@ -13,24 +13,24 @@ system:
       ~~: "osdt_example.models.bouncing_ball.Params"
       gravity: 9.81
 
-:{~~: "osdt.set_integrator", integrator_type: "vode", max_step: 0.1}
-:{~~: "osdt.set_configuration", max_plot_points: 1000}
+: {~~: "osdt.set_integrator", integrator_type: "vode", max_step: 0.1}
+: {~~: "osdt.set_configuration", max_plot_points: 1000}
 
-:{~~: "osdt.run", time: 5.0, jumps: 20.0}
+: {~~: "osdt.run", time: 5.0, jumps: 20.0}
 
 fig: {~~: "osdt.create_figure", layout: [[1,2]], width: 1000, height: 500, title: "Bouncing Ball"}
 
-:{~~: "::fig::configure", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
-:{~~: "::fig::configure", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}
+: {~~: "::fig::configure", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
+: {~~: "::fig::configure", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}
 
-:{~~: "::fig::plot", subplot: 1, y: "y_position"}
-:{~~: "::fig::plot", subplot: 2, y: "y_velocity"} 
+: {~~: "::fig::plot", subplot: 1, y: "y_position"}
+: {~~: "::fig::plot", subplot: 2, y: "y_velocity"} 
 
-:{~~: "osdt.display"}
-:{~~: "::fig::export", path: "files/bouncing_ball", format: "png"}
+: {~~: "osdt.display"}
+: {~~: "::fig::export", path: "files/bouncing_ball", format: "png"}
 
 data: {~~: "::system::get_data"}
 
-:{~~: "::data::to_csv", path: "files/system_data_csv"}
-:{~~: "osdt.save", object: "::system", path: "files/saved_system"}
-:{~~: "osdt.save_environment", path: "files/saved_environment"}
+: {~~: "::data::to_csv", path: "files/system_data_csv"}
+: {~~: "osdt.save", object: "::system", path: "files/saved_system"}
+: {~~: "osdt.save_environment", path: "files/saved_environment"}
