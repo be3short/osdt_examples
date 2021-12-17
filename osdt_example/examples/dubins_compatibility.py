@@ -19,7 +19,7 @@ def run():
     controller2.set(dubins_controller.VEHICLE,vehicle2)
 
     # run the environment
-    osdt.run(t=50.0, j=60)
+    osdt.run(time=50.0, jumps=60)
 
     # create a figure
     fig = osdt.create_figure(layout=[[1,2,5,5],[3,4,5,5] ],title="Thermostat Controlled Temperature",

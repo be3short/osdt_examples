@@ -11,7 +11,7 @@ ball = osdt.create_system(x=state, c=bb.C, f=bb.F, d=bb.D, g=bb.G, u=bb.U,
                           y=bb.Y, vars={bb.PARAMS: params}, id="ball")
 
 
-osdt.run(t=10.0, j=20)
+osdt.run(time=10.0, jumps=20)
 
 # create a figure
 fig = osdt.create_figure(layout=[[1, 3, 4, 4], [2, 3, 4, 4]],
