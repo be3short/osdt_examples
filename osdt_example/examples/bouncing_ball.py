@@ -15,7 +15,7 @@ osdt.run(time=10.0, jumps=20)
 
 # create a figure
 fig = osdt.create_figure(layout=[[1,3,4,4], [2,3,4,4]],width=1200, height=600,
-                         title="Bouncing Ball")
+                         title="Bouncing Ball",dpi=130)
 fig.configure(1,)
 fig.subplot(1).plot("y_position", max_points=200)
 fig.subplot(2).plot("y_velocity", max_points=200)
@@ -23,7 +23,7 @@ fig.subplot(3).plot(["y_position", "y_velocity"], max_points=200)
 fig.subplot(4).plot(x="y_velocity", y="y_position", max_points=200)
 
 # create a figure
-fig2 = osdt.create_figure(width=800, height=600, layout=[[1],[2]], title="Bouncing Ball")
+fig2 = osdt.create_figure(width=800, height=600, layout=[[1],[2]], title="Bouncing Ball",dpi=130)
 fig2.configure(1,x_axis="Time (s)", y_axis="Position (m)")
 fig2.configure(2,x_axis="Time (s)", y_axis="Velocity (m/s)")
 fig2.plot(1,"y_position")

@@ -12,13 +12,14 @@ system:
     ~~osdt_example.models.bouncing_ball.PARAMS:
       ~~: "osdt_example.models.bouncing_ball.Params"
       gravity: 9.81
+      restitution: .98
 
 : {~~: "osdt.set_integrator", integrator_type: "vode", max_step: 0.1}
 : {~~: "osdt.set_configuration", max_plot_points: 1000}
 
 : {~~: "osdt.run", time: 5.0, jumps: 20.0}
 
-fig: {~~: "osdt.create_figure", layout: [[1],[2]], width: 2000, height: 1000, style: "increase_font_size.style"}
+fig: {~~: "osdt.create_figure", title: "Bouncing Ball", layout: [[1],[2]], width: 1200, height: 600, dpi: 130}
 
 : {~~: "::fig::configure", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
 : {~~: "::fig::configure", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}

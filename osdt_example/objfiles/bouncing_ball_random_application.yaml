@@ -17,5 +17,5 @@ fig: {~~: "osdt.create_figure", layout: [[1],[2]], width: 2000, height: 1000,  s
 : {~~: "::fig::plot", subplot: 1, y: "y_position"}
 : {~~: "::fig::plot", subplot: 2, y: "y_velocity"} 
 
-#: {~~: "osdt.display"}
+: {~~: "osdt.display"}
 : {~~: "::fig::export", path: "files/bouncing_ball_random", format: "png", overwrite: false}

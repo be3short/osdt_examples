@@ -1,0 +1,15 @@
+system_file: "osdt_example/objfiles/dubins/dubins_systems.yaml"
+
+systems: {~~: "osdt.load_objfile", path: "::system_file"}
+
+vehicle: "::systems::vehicle"
+controller: "::systems::controller"
+
+: {~~: "::vehicle::set", key: "~~osdt_example.models.dubins_vehicle.CONTROLLER", value: "::controller"}
+: {~~: "::controller::set", key: "~~osdt_example.models.dubins_controller.VEHICLE", value: "::vehicle"}
+
+: {~~: "osdt.run", time: 40.0, jumps: 1000}
+
+: {~~: "~~osdt.load_objfile", path: "osdt_example/objfiles/dubins/dubins_figure_1.yaml"}
+
+: {~~: "osdt.display"}
