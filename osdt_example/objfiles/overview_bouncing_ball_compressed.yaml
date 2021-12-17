@@ -18,7 +18,7 @@ system:
 
 : {~~: "osdt.run", time: 5.0, jumps: 20.0}
 
-fig: {~~: "osdt.create_figure", layout: [[1,2]], width: 1000, height: 500, title: "Bouncing Ball"}
+fig: {~~: "osdt.create_figure", layout: [[1],[2]], width: 2000, height: 1000, style: "increase_font_size.style"}
 
 : {~~: "::fig::configure", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
 : {~~: "::fig::configure", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}
@@ -27,7 +27,7 @@ fig: {~~: "osdt.create_figure", layout: [[1,2]], width: 1000, height: 500, title
 : {~~: "::fig::plot", subplot: 2, y: "y_velocity"} 
 
 : {~~: "osdt.display"}
-: {~~: "::fig::export", path: "files/bouncing_ball", format: "png"}
+: {~~: "::fig::export", path: "files/bouncing_ball", format: "png", overwrite: false}
 
 data: {~~: "::system::get_data"}
 

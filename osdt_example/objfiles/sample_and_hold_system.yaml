@@ -1,6 +1,7 @@
 sample_period: 1.0
 sample_field: "value"
 sample_input: null
+sampler_id: "Sample & Hold"
 
 system:
   ~~: "osdt.create_system"
@@ -14,6 +15,7 @@ system:
   g: "osdt_example.models.sample_hold_sensor.G"
   u: "osdt_example.models.sample_hold_sensor.U"
   y: "osdt_example.models.sample_hold_sensor.Y"
+  id: "::sampler_id"
   vars:
     ~~osdt_example.models.sample_hold_sensor.PARAMS:
       ~~: "osdt_example.models.sample_hold_sensor.Params"

@@ -12,6 +12,7 @@ system:
     ~~osdt_example.models.bouncing_ball.PARAMS:
       ~~: "osdt_example.models.bouncing_ball.Params"
       gravity: 9.81
+      restitution: .99
 
 void:   
   ~~: "osdt.set_integrator"

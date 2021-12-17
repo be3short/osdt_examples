@@ -6,23 +6,23 @@ controller: "::systems::controller"
 : {~~: "::vehicle::set", key: "~~osdt_example.models.dubins_vehicle.CONTROLLER", value: "::controller"}
 : {~~: "::controller::set", key: "~~osdt_example.models.dubins_controller.VEHICLE", value: "::vehicle"}
 
-: {~~: "osdt.run", time: 50.0, jumps: 1000}
+: {~~: "osdt.run", time: 40.0, jumps: 1000}
 
 fig: {~~: "osdt.create_figure", layout: [[1,2,5,5],[3,4,5,5]], width: 1600, height: 600, title: "Dubins Vehicle"}
 
-: {~~: "::fig::configure", subplot: 1, title: "X Position", x_axis: "Time (s)", y_axis: "Position (m)"}
-: {~~: "::fig::configure", subplot: 2, title: "Y Position",  x_axis: "Time (s)", y_axis: "Position (m)"}
-: {~~: "::fig::configure", subplot: 3, title: "Orientation",  x_axis: "Time (s)", y_axis: "Orientation (rad)"}
-: {~~: "::fig::configure", subplot: 4, title: "Turn State",  x_axis: "Time (s)", y_axis: "Turn State"}
-: {~~: "::fig::configure", subplot: 5, title: "X Position vs Y Position",  x_axis: "X Position (m)", y_axis: "Y Position (m)"}
+#: {~~: "::fig::configure", subplot: 1, title: "X Position", x_axis: "Time (s)", y_axis: "Position (m)"}
+#: {~~: "::fig::configure", subplot: 2, title: "Y Position",  x_axis: "Time (s)", y_axis: "Position (m)"}
+#: {~~: "::fig::configure", subplot: 3, title: "Orientation",  x_axis: "Time (s)", y_axis: "Orientation (rad)"}
+#: {~~: "::fig::configure", subplot: 4, title: "Turn State",  x_axis: "Time (s)", y_axis: "Turn State"}
+#: {~~: "::fig::configure", subplot: 5, title: "X Position vs Y Position",  x_axis: "X Position (m)", y_axis: "Y Position (m)"}
 
-: {~~: "::fig::plot", subplot: 1, y: "x_position"}
-: {~~: "::fig::plot", subplot: 2, y: "y_position"} 
-: {~~: "::fig::plot", subplot: 3, y: "orientation"} 
-: {~~: "::fig::plot", subplot: 4, y: "turn"}
-: {~~: "::fig::plot", subplot: 5, x: "x_position", y: "y_position"}
+#: {~~: "::fig::plot", subplot: 1, y: "x_position"}
+#: {~~: "::fig::plot", subplot: 2, y: "y_position"} 
+#: {~~: "::fig::plot", subplot: 3, y: "orientation"} 
+#: {~~: "::fig::plot", subplot: 4, y: "turn"}
+#: {~~: "::fig::plot", subplot: 5, x: "x_position", y: "y_position"}
 
-fig2: {~~: "osdt.create_figure", layout: [[1,1,4,4],[2,2,4,4],[3,3,4,4]], width: 1600, height: 600, title: "Dubins Vehicle"}
+fig2: {~~: "osdt.create_figure", layout: [[1,1,4,4],[2,2,4,4],[3,3,4,4]], width: 2000, height: 1000, pad_h: 2.0, pad_w: 2.0, title: "::systems::figure_title",   style: "increase_font_size_dubins.style" }
 : {~~: "::fig2::configure", subplot: 1, title: "X Position", x_axis: "Time (s)", y_axis: "Position (m)"}
 : {~~: "::fig2::configure", subplot: 2, title: "Orientation",  x_axis: "Time (s)", y_axis: "Orientation (rad)"}
 : {~~: "::fig2::configure", subplot: 3, title: "Turn State",  x_axis: "Time (s)", y_axis: "Turn State"}
@@ -34,3 +34,4 @@ fig2: {~~: "osdt.create_figure", layout: [[1,1,4,4],[2,2,4,4],[3,3,4,4]], width:
 : {~~: "::fig2::plot", subplot: 4, x: "x_position", y: "y_position"}
 
 : {~~: "osdt.display"}
+: {~~: "::fig2::export", path: "files/dubins", format: "png",overwrite: false}

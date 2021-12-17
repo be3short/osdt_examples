@@ -1,3 +1,6 @@
+vehicle_id: "Vehicle"
+controller_id: "Controller"
+
 vehicle:
   ~~: "osdt.create_system"
   x:
@@ -9,6 +12,7 @@ vehicle:
   f: "osdt_example.models.dubins_vehicle.F"
   u: "osdt_example.models.dubins_vehicle.U"
   y: "osdt_example.models.dubins_vehicle.Y"
+  id: "::vehicle_id"
 
 controller:
   ~~: "osdt.create_system"
@@ -20,6 +24,7 @@ controller:
   g: "osdt_example.models.dubins_controller.G"
   u: "osdt_example.models.dubins_controller.U"
   y: "osdt_example.models.dubins_controller.Y"
+  id: "::controller_id"
 
   
 
