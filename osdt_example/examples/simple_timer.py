@@ -18,7 +18,7 @@ osdt.run(time=5.0, jumps=20)
 
 # create a figure
 fig = osdt.create_figure(layout=[[1]], title="Timer", width=4000, height=4000,dpi=1000)
-fig.configure(1, x_axis="Time (sec)", y_axis="Timer Value")
+fig.configure_subplot(1, x_axis="Time (sec)", y_axis="Timer Value")
 #fig.configure(2, title="Timer2", x_axis="Time (sec)", y_axis="Timer Value")
 
 fig.plot(1, "value")

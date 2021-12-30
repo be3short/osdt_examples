@@ -2,8 +2,12 @@ figure_title: "Dubins Vehicle with Sensors"
 export_path: null
 export_format: "png"
 overwrite: false
-style: null
-#style: "increase_font_size_dubins.style"
+
+style:
+  axes.labelsize: 16.0
+  figure.titlesize: 20.0
+  axes.titlesize: 18.0
+  legend.fontsize: 14.0
 
 fig: {~~: "osdt.create_figure", layout: [[1,1,4,4],[2,2,4,4],[3,3,4,4]], width: 2000, height: 1000, 
 pad_h: 2.0, pad_w: 2.0, title: "::figure_title",   style: "::style"}

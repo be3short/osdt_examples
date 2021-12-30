@@ -1,4 +1,4 @@
-sample_period: 0.005
+sample_period: 1.0
 figure_title: null
 vehicle_id: "Vehicle"
 controller_id: "Controller"
