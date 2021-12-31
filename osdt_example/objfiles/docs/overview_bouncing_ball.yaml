@@ -12,23 +12,25 @@ system:
     ~~osdt_example.models.bouncing_ball.PARAMS:
       ~~: "osdt_example.models.bouncing_ball.Params"
       gravity: 9.81
-      restitution: .98
 
 : {~~: "osdt.set_integrator", integrator_type: "vode", max_step: 0.1}
 : {~~: "osdt.set_configuration", max_plot_points: 1000}
 
 : {~~: "osdt.run", time: 5.0, jumps: 20.0}
 
-fig: {~~: "osdt.create_figure", title: "Bouncing Ball", layout: [[1],[2]], width: 1200, height: 600, dpi: 130}
+fig: {~~: "osdt.create_figure", layout: [[1,2]], width: 1000,
+    height: 500, title: "Bouncing Ball"}
 
-: {~~: "::fig::configure", subplot: 1, x_axis: "Time (s)", y_axis: "Position (m)"}
-: {~~: "::fig::configure", subplot: 2, x_axis: "Time (s)", y_axis: "Velocity (m/s)"}
+: {~~: "::fig::configure_subplot", subplot: 1, x_axis: "Time (s)",
+    y_axis: "Position (m)"}
+: {~~: "::fig::configure_subplot", subplot: 2, x_axis: "Time (s)",
+    y_axis: "Velocity (m/s)"}
 
 : {~~: "::fig::plot", subplot: 1, y: "y_position"}
-: {~~: "::fig::plot", subplot: 2, y: "y_velocity"} 
+: {~~: "::fig::plot", subplot: 2, y: "y_velocity"}
 
 : {~~: "osdt.display"}
-: {~~: "::fig::export", path: "files/bouncing_ball", format: "png", overwrite: false}
+: {~~: "::fig::export", path: "files/bouncing_ball", format: "png"}
 
 data: {~~: "::system::get_data"}
 
