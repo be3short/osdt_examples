@@ -1,0 +1,33 @@
+#?args
+export_path: null
+export_format: "png"
+overwrite: false
+style: null
+#?args
+
+figure_title: "Dubins Vehicle with Sensors"
+
+#style:
+#  axes.labelsize: 16.0
+#  figure.titlesize: 20.0
+#  axes.titlesize: 18.0
+#  legend.fontsize: 14.0
+
+fig: {~~: "osdt.create_figure", layout: [[1,1,5,5],[2,2,5,5],[3,3,5,5],[4,4,5,5]], width: 1200, height: 800,
+pad_h: 2.0, pad_w: 2.0, title: "::figure_title",   style: "::style"}
+
+: {~~: "::fig::configure_subplot", subplot: 1, title: "X Position", x_axis: "Time (s)", y_axis: "Position (m)", legend: false}
+: {~~: "::fig::configure_subplot", subplot: 2, title: "Y Position",  x_axis: "Time (s)", y_axis: "Orientation (rad)", legend: false}
+: {~~: "::fig::configure_subplot", subplot: 3, title: "Orientation",  x_axis: "Time (s)", y_axis: "Orientation (rad)", legend: false}
+: {~~: "::fig::configure_subplot", subplot: 4, title: "Turn State",  x_axis: "Time (s)", y_axis: "Turn State"}
+: {~~: "::fig::configure_subplot", subplot: 5, title: "X Position vs Y Position",  x_axis: "X Position (m)", y_axis: "Y Position (m)",color: [""]}
+
+: {~~: "::fig::plot", subplot: 1, y: "x_position"}
+: {~~: "::fig::plot", subplot: 2, y: "y_position"}
+: {~~: "::fig::plot", subplot: 3, y: "orientation"}
+: {~~: "::fig::plot", subplot: 4, y: "turn", color: ["purple", "orange", "cyan"]}
+: {~~: "::fig::plot", subplot: 5, x: "x_position", y: "y_position"}
+
+: {~~: "::fig::export", path: "::export_path", format: "::export_format",overwrite: "::overwrite"}
+
+: {~~: "osdt.display"}

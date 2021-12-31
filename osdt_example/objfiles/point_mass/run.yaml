@@ -1,0 +1,13 @@
+#? runs the point mass trial
+
+#?args
+#?external
+systems_file: "osdt_example/objfiles/point_mass/point_mass_systems.yaml"
+trial_file: "osdt_example/objfiles/point_mass/point_mass_trial.yaml"
+figures_file: "osdt_example/objfiles/point_mass/point_mass_figures.yaml"
+#?external
+#?args
+
+: {~~: "osdt.load_objfiles", pass_args: true,
+   path: ["::systems_file","::trial_file","::figures_file"]}
+

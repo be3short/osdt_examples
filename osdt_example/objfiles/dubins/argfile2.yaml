@@ -1,0 +1,25 @@
+#-------------------------------- .\run.yaml ----------------------------------
+
+# ---- args ----
+systems_file: "osdt_example/objfiles/dubins/dubins_systems.yaml"
+trial_file: "osdt_example/objfiles/dubins/dubins_trial.yaml"
+figures_file: "osdt_example/objfiles/dubins/dubins_figures.yaml"
+# ---- file args ----
+systems_file_args:
+   x_position: 0.2
+   y_position: 0.3
+   orientation: 0.5
+   velocity: 0.5
+trial_file_args:
+   time: 1000000.0
+   jumps: 20
+figures_file_args:
+   export_path: "ddddd"
+   export_format: "png"
+   overwrite: false
+   style: null
+
+# ---- info ----
+# runs the point mass trial
+
+#------------------------------------------------------------------------------

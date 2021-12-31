@@ -28,6 +28,6 @@ sh_controller: "::sample_and_hold_controller::system"
 
 : {~~: "osdt.run", time: 40.0, jumps: 10000}
 
-: {~~: "~~osdt.load_objfile", path: "osdt_example/objfiles/dubins/dubins_figure_1.yaml"}
+: {~~: "~~osdt.load_objfile", path: "osdt_example/objfiles/dubins/dubins_figures.yaml"}
 
 : {~~: "osdt.display"}

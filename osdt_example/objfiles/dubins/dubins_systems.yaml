@@ -1,5 +1,10 @@
-sample_period: 1.0
-figure_title: null
+#?args
+x_position: 0.0
+y_position: 0.0
+orientation: 0.5
+velocity: 0.5
+#?args
+
 vehicle_id: "Vehicle"
 controller_id: "Controller"
 
@@ -7,9 +12,9 @@ vehicle:
   ~~: "osdt.create_system"
   x:
     ~~: "osdt_example.models.dubins_vehicle.State"
-    x_position: 0.0
-    y_position: 0.0
-    orientation: 0.5
+    x_position: "::x_position"
+    y_position: "::y_position"
+    orientation: "::orientation"
   c: "osdt_example.models.dubins_vehicle.C"
   f: "osdt_example.models.dubins_vehicle.F"
   u: "osdt_example.models.dubins_vehicle.U"
@@ -21,11 +26,16 @@ controller:
   x:
     ~~: "osdt_example.models.dubins_controller.State"
     turn: 1.0
-    velocity: 0.5
+    velocity: "::velocity"
   d: "osdt_example.models.dubins_controller.D"
   g: "osdt_example.models.dubins_controller.G"
   u: "osdt_example.models.dubins_controller.U"
   y: "osdt_example.models.dubins_controller.Y"
   id: "::controller_id"
+
+
+: {~~: "::vehicle::set", key: "~~osdt_example.models.dubins_vehicle.CONTROLLER", object: "::controller"}
+: {~~: "::controller::set", key: "~~osdt_example.models.dubins_controller.VEHICLE", object: "::vehicle"}
+
 
   

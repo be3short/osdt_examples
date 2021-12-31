@@ -10,6 +10,6 @@ controller: "::systems::controller"
 
 : {~~: "osdt.run", time: 40.0, jumps: 1000}
 
-: {~~: "~~osdt.load_objfile", path: "osdt_example/objfiles/dubins/dubins_figure_1.yaml"}
+: {~~: "~~osdt.load_objfile", path: "osdt_example/objfiles/dubins/dubins_figures.yaml"}
 
 : {~~: "osdt.display"}

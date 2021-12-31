@@ -1,0 +1,16 @@
+# ---- args ----
+systems_file: "osdt_example/objfiles/dubins/dubins_systems.yaml"
+trial_file: "osdt_example/objfiles/dubins/dubins_trial.yaml"
+figures_file: "osdt_example/objfiles/dubins/dubins_figures.yaml"
+# ---- systems_file args ----
+x_position: 1.0
+y_position: 11.0
+orientation: 0.5
+velocity: 0.5
+# ---- trial_file args ----
+time: 1000000.0
+jumps: 20
+# ---- figures_file args ----
+export_path: null
+export_format: "png"
+overwrite: false

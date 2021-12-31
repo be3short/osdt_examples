@@ -1,0 +1,55 @@
+
+mass0:
+  ~~: "osdt.create_system"
+  x:
+    ~~: "osdt_example.models.point_mass.State"
+    x_position: 0.0
+    y_position: 0.0
+    x_velocity: 0.0
+    y_velocity: 0.0
+  c: "osdt_example.models.point_mass.C"
+  f: "osdt_example.models.point_mass.F"
+  u: "osdt_example.models.point_mass.U"
+  vars:
+    ~~osdt_example.models.point_mass.PARAMS:
+      ~~: "osdt_example.models.point_mass.Params"
+      mass: 1000000000000.0
+  id: "mass"
+
+mass1:
+  ~~: "osdt.create_system"
+  x:
+    ~~: "osdt_example.models.point_mass.State"
+    x_position: 1000.0
+    y_position: 1000.0
+    x_velocity: -0.1
+    y_velocity: 0.1
+  c: "osdt_example.models.point_mass.C"
+  f: "osdt_example.models.point_mass.F"
+  u: "osdt_example.models.point_mass.U"
+  vars:
+    ~~osdt_example.models.point_mass.PARAMS:
+      ~~: "osdt_example.models.point_mass.Params"
+      mass: 10000000.0
+  id: "mass"
+
+
+
+mass2:
+  ~~: "osdt.create_system"
+  x:
+    ~~: "osdt_example.models.point_mass.State"
+    x_position: -1000.0
+    y_position: -1000.0
+    x_velocity: -0.1
+    y_velocity: 0.1
+  c: "osdt_example.models.point_mass.C"
+  f: "osdt_example.models.point_mass.F"
+  u: "osdt_example.models.point_mass.U"
+  vars:
+    ~~osdt_example.models.point_mass.PARAMS:
+      ~~: "osdt_example.models.point_mass.Params"
+      mass: 100000.0
+  id: "mass"
+  
+

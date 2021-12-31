@@ -1,0 +1,39 @@
+#?args
+figure1_export_path: null
+figure1_export_format: "png"
+close_figure1: true
+figure2_export_path: null
+figure2_export_format: "png"
+close_figure2: true
+#?args
+
+
+figure_1: {~~: "osdt.create_figure", layout: [[1]], width: 800, height: 800}
+
+: {~~: "::figure_1::configure_subplot", subplot: 1, x_axis: "X Position (m)", y_axis: "Y Position (m)"}
+
+: {~~: "::figure_1::plot", subplot: 1, x: "x_position", y: "y_position"}
+
+: {~~: "::figure_1::close", flag: "::close_figure1" }
+
+: {~~: "::figure_1::export", path: "::figure1_export_path", format: "::figure1_export_format", overwrite: false}
+
+
+
+figure_2: {~~: "osdt.create_figure", layout: [[1,2],[3,4]], width: 800, height: 800}
+
+: {~~: "::figure_2::configure_subplot", subplot: 1, x_axis: "Time (sec)", y_axis: "X Position (m)"}
+: {~~: "::figure_2::configure_subplot", subplot: 2, x_axis: "Time (sec)", y_axis: "Y Position (m)"}
+: {~~: "::figure_2::configure_subplot", subplot: 3, x_axis: "Time (sec)", y_axis: "X Velocity (m)"}
+: {~~: "::figure_2::configure_subplot", subplot: 4, x_axis: "Time (sec)", y_axis: "Y Velocity (m)"}
+
+: {~~: "::figure_2::plot", subplot: 1, y: "x_position"}
+: {~~: "::figure_2::plot", subplot: 2, y: "y_position"}
+: {~~: "::figure_2::plot", subplot: 3, y: "x_velocity"}
+: {~~: "::figure_2::plot", subplot: 4, y: "y_velocity"}
+
+: {~~: "::figure_2::close", flag: "::close_figure2"}
+
+: {~~: "::figure_2::export", path: "::figure2_export_path", format: "::figure2_export_format", overwrite: false}
+
+: {~~: "osdt.display" }

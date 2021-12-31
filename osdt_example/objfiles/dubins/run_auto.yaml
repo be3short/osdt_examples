@@ -1,0 +1,9 @@
+#? runs the point mass trial
+
+#?files
+systems_file: "osdt_example/objfiles/dubins/dubins_systems.yaml"
+trial_file: "osdt_example/objfiles/dubins/dubins_trial.yaml"
+figures_file: "osdt_example/objfiles/dubins/dubins_figures.yaml"
+#?files
+
+: {~~: "osdt.run_files"}
