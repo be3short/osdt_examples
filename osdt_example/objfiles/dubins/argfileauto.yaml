@@ -14,10 +14,12 @@ trial_file_args:
    time: 1000000.0
    jumps: 20
 figures_file_args:
-   export_path: null
-   export_format: "png"
-   overwrite: false
-   style: null
+   figure1_export_path: "output/fig1"
+   figure1_export_format: "png"
+   figure2_export_path: "output/fig2"
+   figure2_export_format: "png"
+   overwrite: true
+   close_figures: false
 
 # ---- info ----
 # runs the point mass trial
