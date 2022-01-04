@@ -1,0 +1,13 @@
+args:
+  value1: 1
+  value2: 2
+  funcval: o:osdt.display
+
+
+test:
+  one: [f: v:args:funcval, qqq,  o:osdt.TIME] 
+
+
+
+: {~~: osdt_example.functions.scripttest.fill_object, object_val: v:test:one, objectfile: {~~: osdt.load_objfile,path: "test3.yaml"}}
+

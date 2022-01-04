@@ -1,0 +1,9 @@
+args:
+  value1: 1
+  value2: 2
+  funcval: o:osdt.display
+
+
+test:
+  one: [f: v:args:funcval, qqq,  o:osdt.TIME] 
+
