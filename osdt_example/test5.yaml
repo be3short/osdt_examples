@@ -11,6 +11,7 @@ ball: [f: osdt.create_system, [l: bbargs.yaml]]
 run: [f: osdt.run]
 
 fig: [l: figtest.yaml, args: [l: timer_bb_fig.yaml]]
-fig2: [l: figtest.yaml, args: [l: timer_bb_fig2.yaml]]
+
+fig2: [f: osdt_example.functions.simple_timer.objfile_figure, [l: timer_bb_fig2.yaml]]
 
 disp: [f: osdt.display]
