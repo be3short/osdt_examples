@@ -1,8 +1,8 @@
-fig_args:
+args:
   figure: 
     width: 800
     height: 800
-    title: New Title
+    title: Title
     layout: [[1],[2]]
   subplots:
     1:
@@ -16,4 +16,11 @@ fig_args:
     format: png
   display: true
 
-return: v:fig_args
+figure: [f: osdt_example.functions.simple_timer.objfile_figure_dict, dictionary: v:args]
+
+
+return: v:figure
+
+
+
+

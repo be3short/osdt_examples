@@ -19,14 +19,14 @@ def C(x, system): # flow set (continuous domain)
 
 def F(x, x_dot, system): # flow map (continuous dynamics)
     x_dot.y_position = x.y_velocity
-    x_dot.y_velocity = -system.get(PARAMS).gravity
+    x_dot.y_velocity = -system.get(Params).gravity
 
 def D(x, system): # jump set (discrete domain)
     return x.y_position <= 0.0 and x.y_velocity < 0.0
 
 def G(x, x_plus, system): # jump map (discrete dynamics)
     x_plus.y_position = 0.0  # x.y_position
-    x_plus.y_velocity = -system.get(PARAMS).restitution*x.y_velocity
+    x_plus.y_velocity = -system.get(Params).restitution*x.y_velocity
 
 def U(x, system, *args, **argmap): # input map (determine input)
     return None

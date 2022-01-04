@@ -1,0 +1,16 @@
+vals:
+  v1: 1
+  v2: timerargs2.yaml
+extval: [l: test6.yaml, random_args: {r1: 1}]
+
+timer: [f: osdt.create_system, [l: timerargs.yaml]]
+timer1: [f: osdt.create_system, [l: v:vals:v2]]
+timer2: [l: simpletimer.yaml]
+ball: [f: osdt.create_system, [l: bbargs.yaml]]
+
+run: [f: osdt.run]
+
+fig: [l: figtest.yaml, args: [l: timer_bb_fig.yaml]]
+fig2: [l: figtest.yaml, args: [l: timer_bb_fig2.yaml]]
+
+disp: [f: osdt.display]

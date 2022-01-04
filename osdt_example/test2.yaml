@@ -4,14 +4,14 @@ args:
   funcval: o:osdt.display
 
 
-test:
-  one: [f: v:args:funcval, qqq,  o:osdt.TIME] 
+#test:
+#  one: [call: v:args:funcval, qqq,  o:osdt.TIME] 
 
 
 
-: {~~: osdt_example.functions.scripttest.run_if_func, object_val: v:test:one, objectfile: {~~: osdt.load_objfile,path: "test3.yaml"}}
+#: {~~: osdt_example.functions.scripttest.run_if_func, object_val: v:test:one, objectfile: {~~: osdt.load_objfile,path: "test3.yaml"}}
 
-: [f: osdt.display]
+#: [f: osdt.display]
 
 
 
@@ -19,7 +19,10 @@ test:
 
 # load / call file - 
 
-val: [load: test3.yaml, v:args, return: [variables]]
+val: [l: test3.yaml, args: {val1: 1}]
+
+
+
 
 
 

@@ -9,8 +9,7 @@ import osdt,sys
 #else:
 #    dat=osdt.utils.run_script(*sys.argv[1:])
 #print(dat)
-
-
+import yaml
 
 FUNCTION_PREFIX= "f"
 VARIABLE_PREFIX= "v:"
@@ -96,4 +95,14 @@ def call_script(path,args):#"osdt_example/testargs.yaml"):
 
 
 
+def readfile(path=None):
+    if path is None:
+        path = sys.argv[1]
+
+    final_contents=osdt.opfile.load_opfile(path)
+
+    print(final_contents)
+
+
+readfile()
 #call_script("osdt_example/test.yaml")

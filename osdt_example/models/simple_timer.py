@@ -26,6 +26,7 @@ def D(x, system): # jump set (state in discrete domain)
     return x.value <= 0.0
 
 def G(x, x_plus, system): # jump map (discrete dynamics)
+    osdt.get_logger().info(system.get(None))
     x_plus.value = system.get(Params).interval
 
 def U(x, system, *args, **argmap): # input map (determine input)
