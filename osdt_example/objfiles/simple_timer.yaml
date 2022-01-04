@@ -7,7 +7,7 @@ timer:
   f: "osdt_example.models.simple_timer.F"
   d: "osdt_example.models.simple_timer.D"
   g: "osdt_example.models.simple_timer.G"
-  vars:
+  p:
     ~~osdt_example.models.simple_timer.PARAMS:
       ~~: "osdt_example.models.simple_timer.Params"
       interval: 1.0

@@ -1,6 +1,10 @@
 import osdt
 
 
+osdt.utils.generate_system_file("test_sys_file","osdt_example.models.simple_timer","State","Params","Params2")
+print(osdt.load_objfile("test_sys_file.yaml"))
+osdt.load_objfile("runtest.yaml")
+
 def run():
     print(osdt.get_system("system").get("PARAMS"))
     osdt.run()

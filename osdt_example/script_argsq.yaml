@@ -1,0 +1,50 @@
+args:
+  system1:
+    value: 0.0
+    interval: 4.0
+    params1: null
+  system2:
+    value: 0.0
+    interval: 4.0
+    params1: null
+    params2: 
+      ~~: osdt_example.models.simple_timer.Params
+      interval: 3.0
+    c: osdt_example.models.simple_timer.C
+    f: osdt_example.models.simple_timer.F
+    d: osdt_example.models.simple_timer.D
+    g: osdt_example.models.simple_timer.G
+    u: osdt_example.models.simple_timer.U
+    y: osdt_example.models.simple_timer.Y
+    initialize: osdt_example.models.simple_timer.initialize
+  system3:
+    value: 0.0
+    interval: 1.5
+    params1: null
+    params2:
+      ~~: osdt_example.models.simple_timer.Params
+      interval: 3.0
+    c: osdt_example.models.simple_timer.C
+    f: osdt_example.models.simple_timer.F
+    d: osdt_example.models.simple_timer.D
+    g: osdt_example.models.simple_timer.G
+    u: osdt_example.models.simple_timer.U
+    y: osdt_example.models.simple_timer.Y
+    initialize: osdt_example.models.simple_timer.initialize
+  subsys3:
+    value: 0.0
+    interval: 0.5
+    params1: null
+    params2:
+      ~~: osdt_example.models.simple_timer.Params
+      interval: 3.0
+    c: osdt_example.models.simple_timer.C
+    f: osdt_example.models.simple_timer.F
+    d: osdt_example.models.simple_timer.D
+    g: osdt_example.models.simple_timer.G
+    u: osdt_example.models.simple_timer.U
+    y: osdt_example.models.simple_timer.Y
+    initialize: osdt_example.models.simple_timer.initialize 
+
+
+

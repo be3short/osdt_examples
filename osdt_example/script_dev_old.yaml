@@ -1,0 +1,21 @@
+test_sys: test_sys_file.yaml
+figures: figs.yaml
+
+
+<<components:
+  system1: ::test_sys
+  system2: ::test_sys
+  figure1: ::figures
+  run: runtest.yaml
+
+system1: <>: ::test_sys: system1_data
+system2: <<::test_sys
+
+run: <<run
+figure1: <<figure1
+
+: {~~: "osdt.display"}
+
+
+
+

@@ -1,0 +1,41 @@
+
+
+value: 0.0
+Params_interval: 1.0
+c: osdt_example.models.simple_timer.C
+f: osdt_example.models.simple_timer.F
+d: osdt_example.models.simple_timer.D
+g: osdt_example.models.simple_timer.G
+u: osdt_example.models.simple_timer.U
+y: null
+system:
+  x:
+    ~~: osdt_example.models.simple_timer.State
+    value: ::value
+  p:
+  - ~~: osdt_example.models.simple_timer.Params
+    interval: ::Params_interval
+  c: ::c
+  f: ::f
+  d: ::d
+  g: ::g
+  u: ::u
+  y: ::y
+
+
+timer:
+  ~~: "osdt.create_system"
+  x:
+    ~~: "osdt_example.models.simple_timer.State"
+    value: 1.0
+  c: "osdt_example.models.simple_timer.C"
+  f: "osdt_example.models.simple_timer.F"
+  d: "osdt_example.models.simple_timer.D"
+  g: "osdt_example.models.simple_timer.G"
+  p:
+  - ~~: "osdt_example.models.simple_timer.Params"
+    interval: 1.0
+
+
+
+  

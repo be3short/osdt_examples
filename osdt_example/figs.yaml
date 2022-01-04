@@ -1,0 +1,9 @@
+
+figure_1: {~~: "osdt.create_figure", layout: [[1]], width: 800, height: 800,
+pad_h: 2.0, pad_w: 2.0, title: "Dubins Vehicle"}
+
+: {~~: "::figure_1::configure_subplot", subplot: 1, title: "X Position vs Y Position",  x_axis: "X Position (m)", y_axis: "Y Position (m)",color: [""]}
+
+: {~~: "::figure_1::plot", subplot: 1,  y: "value"}
+
+

@@ -1,0 +1,4 @@
+run:
+  ~~: "osdt.run"
+  time: 12.0
+  jumps: 200.0
