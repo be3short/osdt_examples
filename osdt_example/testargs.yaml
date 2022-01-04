@@ -1,0 +1,17 @@
+fig_args:
+  figure: 
+    width: 800
+    height: 800
+    title: New Title
+    layout: [[1],[2]]
+  subplots:
+    1:
+      title: Subplot Title
+    2:
+      title: Subplot Title
+  data:
+    1: [{y: value}]
+  export:
+    path: null
+    format: png
+  display: true

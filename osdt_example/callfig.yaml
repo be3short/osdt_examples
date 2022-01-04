@@ -1,0 +1,49 @@
+args:
+  value: 0.0
+  interval: 1.0
+  params1: null
+  params2:
+    ~~: osdt_example.models.simple_timer.Params
+    interval: 1.0
+  c: osdt_example.models.simple_timer.C
+  f: osdt_example.models.simple_timer.F
+  d: osdt_example.models.simple_timer.D
+  g: osdt_example.models.simple_timer.G
+  u: osdt_example.models.simple_timer.U
+  y: osdt_example.models.simple_timer.Y
+  initialize: osdt_example.models.simple_timer.initialize
+  #?args
+
+system:
+  ~~: osdt.create_system
+  x:
+    ~~: osdt_example.models.simple_timer.State
+    value: ::value
+  p:
+  - ~~: osdt_example.models.simple_timer.Params
+    interval: ::interval
+  - ~~: osdt_example.models.simple_timer.Params2
+    params1: ::params1
+    params2: ::params2
+  c: ::c
+  f: ::f
+  d: ::d
+  g: ::g
+  u: ::u
+  y: ::y
+  initialize: ::initialize
+
+
+
+rrr: {~~: osdt.run, time: 5}
+
+figargs: {~~: osdt.load_objfile, path: "osdt_example/testargs.yaml"}
+
+figure1: {~~: osdt_example.functions.scripttest.call_script, path: osdt_example/test.yaml, args: "::figargs::fig_args"}
+
+figure1_data:
+  <f>: osdt.call_file
+  <*>: 
+  - osdt_example/test.yaml
+  - {<v>: figargs::fig_args}
+

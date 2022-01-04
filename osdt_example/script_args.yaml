@@ -2,7 +2,7 @@ system1_data:
   value: 0.0
   interval: 1.0
   params1: null
-  params2:
+  params2: 
     ~~: osdt_example.models.simple_timer.Params
     interval: 1.0
   c: osdt_example.models.simple_timer.C
