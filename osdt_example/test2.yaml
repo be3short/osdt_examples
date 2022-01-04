@@ -11,4 +11,15 @@ test:
 
 : {~~: osdt_example.functions.scripttest.run_if_func, object_val: v:test:one, objectfile: {~~: osdt.load_objfile,path: "test3.yaml"}}
 
-: [~~: osdt.display]
+: [f: osdt.display]
+
+
+
+
+
+# load / call file - 
+
+val: [load: test3.yaml, v:args, return: [variables]]
+
+
+
