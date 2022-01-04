@@ -1,9 +1,27 @@
+#args:
+#  value1: 1
+#  value2: 2
+aa:
+  funcval: o:osdt.load_objfile
 args:
-  value1: 1
-  value2: 2
-  funcval: o:osdt.display
-
+  figure: 
+    width: 800
+    height: 800
+    title: New Title
+    layout: [[1],[2]]
+  subplots:
+    1:
+      title: Subplot Title
+    2:
+      title: Subplot Title
+  data:
+    1: [{y: value}]
+  export:
+    path: null
+    format: png
+  display: true
 
 test:
-  one: [f: v:args:funcval, qqq,  o:osdt.TIME] 
+  one: [f: v:aa:funcval, test.yaml,  args: v:args] 
 
+: [~~: osdt.display]

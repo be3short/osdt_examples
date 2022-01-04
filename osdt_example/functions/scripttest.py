@@ -12,14 +12,24 @@ import osdt,sys
 
 
 
-FUNCTION_PREFIX= "f:"
+FUNCTION_PREFIX= "f"
 VARIABLE_PREFIX= "v:"
 OBJECT_PREFIX= "o:"
 SEPARATION_SPLITTER = ":"
 PREFIXES=[FUNCTION_PREFIX,VARIABLE_PREFIX,OBJECT_PREFIX]
 
-
-
+def run_if_func(object_val,objectfile):
+    fcomp=fill_object(object_val,objectfile)
+    func = fcomp[0][FUNCTION_PREFIX]
+    args = []
+    kwargs={}
+    for ind in range(1,len(fcomp)):
+        if type(fcomp[ind]) is dict:
+            for key in fcomp[ind]:
+                kwargs[key]=fcomp[ind][key]
+        else:
+            args.append(fcomp[ind])
+    func(*args,**kwargs)
 def fill_object(object_val,objectfile):
     object_val_filled =object_val
     if type(object_val) is str:

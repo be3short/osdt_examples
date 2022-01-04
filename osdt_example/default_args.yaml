@@ -1,15 +1,3 @@
-system1:
-  ~~: osdt.create_system
-  x:
-    ~~: osdt_example.models.simple_timer.State
-    value: ::value
-  p:
-  - ~~: osdt_example.models.simple_timer.Params
-    interval: ::interval
-  c: ::c
-  f: ::f
-  d: ::d
-  g: ::g
-  u: ::u
-  y: ::y
-  initialize: ::initialize
+value1: 1
+value2: 2
+funcval: !!python/name:osdt.toolbox.load_objfile ''

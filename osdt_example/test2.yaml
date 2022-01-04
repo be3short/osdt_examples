@@ -9,5 +9,6 @@ test:
 
 
 
-: {~~: osdt_example.functions.scripttest.fill_object, object_val: v:test:one, objectfile: {~~: osdt.load_objfile,path: "test3.yaml"}}
+: {~~: osdt_example.functions.scripttest.run_if_func, object_val: v:test:one, objectfile: {~~: osdt.load_objfile,path: "test3.yaml"}}
 
+: [~~: osdt.display]
