@@ -1,5 +1,5 @@
 args:
-  x: [f: osdt_example.models.bouncing_ball.State, y_position: 1.0]
+  x: [f: osdt_example.models.bouncing_ball.State, y_position: [f: osdt.random, 1.0, 5.0]]
   p: [f: osdt_example.models.bouncing_ball.Params]
   c: osdt_example.models.bouncing_ball.C
   f: osdt_example.models.bouncing_ball.F

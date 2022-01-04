@@ -30,7 +30,7 @@ def objfile_figure_dict(dictionary):
     return objfile_figure(**dictionary)
 
 def objfile_figure(figure={}, subplots={}, data={}, export={}, display=True):
-    
+
     fig = osdt.create_figure(**figure)
     for subplot in subplots:
         fig.configure_subplot(subplot=subplot,**subplots[subplot])
