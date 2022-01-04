@@ -6,7 +6,11 @@ import osdt
 #osdt.load_objfile("runtest.yaml")
 
 
+def generate_system_default(module_name, state, params=[],model={"c":"C","f":"F","d":"D","g":"G","u":"U","y":"Y","initialize":"initialize"}):
+    return osdt.utils.generate_system_args(module_name,state,params=params,model=model)
 
+def output_default_file(file_path, default_args):
+    osdt.utils.write_yaml_file(default_args,file_path)
 
 def run():
     print(osdt.get_system("system").get("PARAMS"))
@@ -45,3 +49,4 @@ def objfile_figure(figure={}, subplots={}, data={}, export={}, display=True):
 def call_func():
     kwdict = dictionary
     return kwdict
+
