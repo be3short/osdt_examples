@@ -104,5 +104,5 @@ def readfile(path=None):
     print(final_contents)
 
 
-readfile()
+#readfile()
 #call_script("osdt_example/test.yaml")

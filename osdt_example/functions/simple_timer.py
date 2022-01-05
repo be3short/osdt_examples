@@ -1,7 +1,7 @@
 import osdt
 
 
-#osdt.utils.generate_system_file("test_sys_file","osdt_example.models.simple_timer","State","Params","Params2")
+osdt.utils.generate_system_file("sampler","osdt_example.models.sample_hold_sensor","State","Params")
 #print(osdt.load_objfile("test_sys_file.yaml"))
 #osdt.load_objfile("runtest.yaml")
 

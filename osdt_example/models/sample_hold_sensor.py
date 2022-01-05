@@ -38,7 +38,7 @@ def D(x, system): # jump set (discrete domain)
 
 def G(x, x_plus, system): # jump map (discrete dynamics)
     x_plus.value = system.get_input()
-    x_plus.timer = system.get(PARAMS).sample_period
+    x_plus.timer = system.get(Params).sample_period
 
 
 def G_multi(x, x_plus, system): # jump map (discrete dynamics)
@@ -46,22 +46,22 @@ def G_multi(x, x_plus, system): # jump map (discrete dynamics)
     for signal in signal_input:
         signal_value = signal_input[signal]
         x_plus.__dict__[signal]=signal_value
-    x_plus.timer = system.get(PARAMS).sample_period
+    x_plus.timer = system.get(Params).sample_period
 
 def U(x, system, *args, **argmap): # input map (determine input value)
     signal_system = system.get(INPUT)
-    sample_field = system.get(PARAMS).sample_field
+    sample_field = system.get(Params).sample_field
     signal_input = signal_system.get_output()
     if type(signal_input) is not dict: signal_input = signal_input.__dict__
     signal_value = signal_input[sample_field]
     return signal_value
 
 def U_multi(x, system, *args, **argmap): # input map (determine input value)
-    signal_system = system.get(INPUT)
+    signal_system = system.get(Params)
     signal_input = signal_system.get_output()
     if type(signal_input) is not dict: signal_input = signal_input.__dict__
     signal_values = {}
-    for sample_field in system.get(PARAMS).sample_fields:
+    for sample_field in system.get(Params).sample_fields:
         signal_values[sample_field] = signal_input[sample_field]
     return signal_values
 

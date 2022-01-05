@@ -1,28 +1,11 @@
-args:
-  value1: 1
-  value2: 2
-  funcval: o:osdt.display
 
-
-#test:
-#  one: [call: v:args:funcval, qqq,  o:osdt.TIME] 
-
-
-
-#: {~~: osdt_example.functions.scripttest.run_if_func, object_val: v:test:one, objectfile: {~~: osdt.load_objfile,path: "test3.yaml"}}
-
-#: [f: osdt.display]
-
-
-
-
-
-# load / call file - 
-
-val: [l: test3.yaml, args: {val1: 1}]
-
-
-
-
-
+x: [f: osdt_example.models.simple_timer.State, value: 0.0]
+p: [f: osdt_example.models.simple_timer.Params, interval: [f: osdt.random, 1.5,3.0]]
+c: osdt_example.models.simple_timer.C
+f: osdt_example.models.simple_timer.F
+d: osdt_example.models.simple_timer.D
+g: osdt_example.models.simple_timer.G
+u: osdt_example.models.simple_timer.U
+y: osdt_example.models.simple_timer.Y
+initialize: osdt_example.models.simple_timer.initialize
 

@@ -1,0 +1,29 @@
+args:
+  pos_sampler: null
+  vel_sampler: null
+
+figure_data:
+  figure: 
+    width: 800
+    height: 800
+    title: Multifig
+    layout: [[1],[2],[3]]
+  subplots:
+    1:
+      title: Subplot Title
+    2:
+      title: Subplot Title
+    3:
+      title: Velocity
+  data:
+    1: [{y: timer}]
+    2: [{y: y_position},{y: value, system: v:args:pos_sampler}]
+    3: [{y: y_velocity},{y: value, system: v:args:vel_sampler}]
+  export:
+    path: null
+    format: png
+  display: true
+
+return: v:figure_data
+
+
