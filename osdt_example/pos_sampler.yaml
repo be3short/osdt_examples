@@ -5,4 +5,5 @@ f: osdt_example.models.sample_hold_sensor.F
 d: osdt_example.models.sample_hold_sensor.D
 g: osdt_example.models.sample_hold_sensor.G
 u: osdt_example.models.sample_hold_sensor.U
+id: pos_sensor
 #?args

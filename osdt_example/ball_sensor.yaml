@@ -3,18 +3,20 @@ args:
   pos_sensor: [o: pos_sampler.yaml]
   vel_sensor: [o: vel_sampler.yaml]
   figure1: ball_sampled_fig.yaml
-  
+  display: true
+  w: 800.0
+
 ball: [f: osdt.create_system, v:args:ball]
 pos_sensor: [f: osdt.create_system, v:args:pos_sensor]
-c1: [f: v:pos_sensor:set, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
 vel_sensor: [f: osdt.create_system, v:args:vel_sensor]
-c2: [f: v:vel_sensor:set, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
 
+c1: [f: v:pos_sensor:set, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+c2: [f: v:vel_sensor:set, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
 
 run: [f: osdt.run]
 
-figure1: [f: osdt_example.functions.simple_timer.objfile_figure, [o: v:args:figure1, pos_sampler: v:pos_sensor, vel_sampler: v:vel_sensor]]
+figure1: [f: osdt_example.functions.simple_timer.objfile_figure, 
+[o: v:args:figure1, pos_sampler: v:pos_sensor, vel_sampler: v:vel_sensor, display: v:args:display, w: v:args:w]]
 
 disp: [f: osdt.display]
 
-#figz: [o: test6.yaml]

@@ -1,0 +1,5 @@
+systems:
+  system: sys_system.odst
+  pos_sensor: sys_pos_sensor.odst
+  vel_sensor: sys_vel_sensor.odst
+objects: {}

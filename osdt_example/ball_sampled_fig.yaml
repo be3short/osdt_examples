@@ -1,10 +1,12 @@
 args:
   pos_sampler: null
   vel_sampler: null
+  display: true
+  w: 800
 
 figure_data:
   figure: 
-    width: 800
+    width: v:args:w
     height: 800
     title: Multifig
     layout: [[1],[2],[3]]
@@ -17,12 +19,12 @@ figure_data:
       title: Velocity
   data:
     1: [{y: timer}]
-    2: [{y: y_position},{y: value, system: v:args:pos_sampler}]
-    3: [{y: y_velocity},{y: value, system: v:args:vel_sampler}]
+    2: [{y: y_position},{y: value, system: [f: osdt.get_system, pos_sensor]}]
+    3: [{y: y_velocity},{y: value, system: [f: osdt.get_system, vel_sensor]}]
   export:
     path: null
     format: png
-  display: true
+  display: v:args:display
 
 return: v:figure_data
 
