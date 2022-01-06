@@ -1,0 +1,61 @@
+timer1:
+  x: [f: osdt_example.models.simple_timer.State, value: 0.0]
+  p: [f: osdt_example.models.simple_timer.Params, interval: 1.0]
+  c: osdt_example.models.simple_timer.C
+  f: osdt_example.models.simple_timer.F
+  d: osdt_example.models.simple_timer.D
+  g: osdt_example.models.simple_timer.G
+  u: osdt_example.models.simple_timer.U
+  y: osdt_example.models.simple_timer.Y
+  initialize: osdt_example.models.simple_timer.initialize
+
+timer2:
+  x: [f: osdt_example.models.simple_timer.State, 
+  value: 0.0]
+  p: [f: osdt_example.models.simple_timer.Params, 
+  interval: [f: osdt.random, 9.5, 13.0]]
+  c: osdt_example.models.simple_timer.C
+  f: osdt_example.models.simple_timer.F
+  d: osdt_example.models.simple_timer.D
+  g: osdt_example.models.simple_timer.G
+  u: osdt_example.models.simple_timer.U
+  y: osdt_example.models.simple_timer.Y
+  initialize: osdt_example.models.simple_timer.initialize
+
+ball:
+  x: [f: osdt_example.models.bouncing_ball.State, y_position: [f: osdt.random, 10.0, 15.0]]
+  p: [f: osdt_example.models.bouncing_ball.Params]
+  c: osdt_example.models.bouncing_ball.C
+  f: osdt_example.models.bouncing_ball.F
+  d: osdt_example.models.bouncing_ball.D
+  g: osdt_example.models.bouncing_ball.G
+  u: osdt_example.models.bouncing_ball.U
+  y: osdt_example.models.bouncing_ball.Y
+  initialize: osdt_example.models.bouncing_ball.initialize
+
+figure1:
+  figure: 
+    width: 800
+    height: 800
+    title: Multifig
+    layout: [[1],[2],[3]]
+  subplots:
+    1:
+      title: Subplot Title
+    2:
+      title: Subplot Title
+    3:
+      title: Velocity
+  data:
+    1: [{y: value}]
+    2: [{y: y_position}]
+    3: [{y: y_velocity}]
+  export:
+    path: null
+    format: png
+  display: true
+
+
+
+
+

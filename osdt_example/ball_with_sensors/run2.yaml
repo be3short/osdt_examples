@@ -1,0 +1,9 @@
+void:
+# main program
+- o: run.yaml
+# arguments
+- ball: components/ball.yaml
+- pos_sensor: components/pos_sensor.yaml
+- vel_sensor: components/vel_sensor.yaml
+- figure1: components/figure1.yaml
+

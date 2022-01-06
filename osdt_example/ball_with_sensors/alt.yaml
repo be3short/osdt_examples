@@ -1,0 +1,19 @@
+args:
+  systems: systems.yaml
+  figures: figures.yaml
+
+sys: [o: v:args:systems]
+
+ball: [f: osdt.create_system, v:sys:ball]
+pos_sensor: [f: osdt.create_system, v:sys:pos_sensor, id: pos_sensor]
+vel_sensor: [f: osdt.create_system, v:sys:vel_sensor, id: vel_sensor]
+
+c1: [f: v:pos_sensor:set, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+c2: [f: v:vel_sensor:set, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+
+run: [f: osdt.run]
+
+figure1: [f: osdt.generate_figure, [o: v:args:figures]]
+
+disp: [f: osdt.display]
+

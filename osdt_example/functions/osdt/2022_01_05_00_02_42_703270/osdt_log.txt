@@ -1,0 +1,9 @@
+2022-01-05 00:02:43 | INFO  | osdt initialized, invoked by: C:\Users\17074\Documents\Github\osdt_example_project\osdt_example\functions\temp.py  | utils.py:388
+2022-01-05 00:02:43 | ERROR | failed to export object to yaml: <class 'dict'> -> C:\Users\17074\Documents\Github\osdt_example_project\osdt_example\functions\dddddd.yaml
+Traceback (most recent call last):
+  File "c:\users\17074\documents\github\osdt_dev\osdt\utils.py", line 438, in write_yaml_file
+    yaml.dump(export_obj,fopen,sort_keys=sort_keys,**yaml_args)
+  File "C:\Users\17074\AppData\Local\Programs\Python\Python38\lib\site-packages\yaml\__init__.py", line 290, in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+TypeError: dump_all() got an unexpected keyword argument 'overwrite'
+ | utils.py:445

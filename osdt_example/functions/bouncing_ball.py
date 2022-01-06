@@ -1,6 +1,11 @@
 import osdt
 
 
+
+
+
+
+
 def ball_sampled_figure(pos_sensor, vel_sensor):
     # create a figure
     fig = osdt.create_figure(layout=[[1, 2]], title="Bouncing Ball with Sensors",

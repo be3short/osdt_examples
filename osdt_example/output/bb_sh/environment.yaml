@@ -1,5 +1,0 @@
-objects: {}
-systems:
-  ball: sys_ball.osdt
-  pos_sampler: sys_pos_sampler.osdt
-  vel_sampler: sys_vel_sampler.osdt

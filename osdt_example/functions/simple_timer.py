@@ -29,23 +29,6 @@ def timer_figure():
 def objfile_figure_dict(dictionary):
     return objfile_figure(**dictionary)
 
-def objfile_figure(figure={}, subplots={}, data={}, export={}, display=True):
-
-    fig = osdt.create_figure(**figure)
-    for subplot in subplots:
-        fig.configure_subplot(subplot=subplot,**subplots[subplot])
-    for subplot in data:
-        plot_data = data[subplot]
-        for dat in plot_data:
-            fig.plot(subplot, **dat)
-    try:
-        path = export["path"]
-        if path is not None:
-            fig.export(**export)
-    except:
-        pass
-    if not display:
-        fig.close()
 
 def call_func():
     kwdict = dictionary

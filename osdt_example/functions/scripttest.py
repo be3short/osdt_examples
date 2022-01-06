@@ -81,9 +81,12 @@ def get_variable_value(object_val, objectfile):
     return final_val
 
 
-
-
-
+setup = {"ball":"osdt_example.models.bouncing_ball","pos_sensor":"osdt_example.models.sample_hold_sensor","vel_sensor":"osdt_example.models.sample_hold_sensor"}
+constructor={}
+for s in setup:
+    constructor[s]=osdt.utils.generate_sys_args(setup[s],"State","Params")
+osdt.utils.write_yaml_file(constructor,"systems")
+#print(a)
 
 
 def call_script(path,args):#"osdt_example/testargs.yaml"):

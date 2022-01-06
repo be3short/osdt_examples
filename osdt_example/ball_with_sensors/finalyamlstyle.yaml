@@ -1,0 +1,30 @@
+
+ball1: 
+  x:
+    <f: osdt_example.models.bouncing_ball.State
+    y_position: 1.0
+    y_velocity: 2.0
+  vars:
+    p:osdt_example.models.bouncing_ball.Params: 
+      <f: osdt_example.models.bouncing_ball.Params
+      gravity: 9.81
+      restitution: .95
+  c: osdt_example.models.bouncing_ball.C
+  f: osdt_example.models.bouncing_ball.F
+  d: osdt_example.models.bouncing_ball.D
+  g: osdt_example.models.bouncing_ball.G
+  u: osdt_example.models.bouncing_ball.U
+  y: osdt_example.models.bouncing_ball.Y
+
+
+ball1sys:
+  <f: osdt.create_system
+  <**: v:ball1
+
+:
+  <f: osdt.run
+  time: 20.0
+  jumps: 20
+
+: 
+  <f: osdt_example.python_examples.bouncing_ball.create_figures

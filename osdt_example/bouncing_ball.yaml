@@ -1,0 +1,13 @@
+x:
+  y_position: 1.0
+  y_velocity: 0.0
+p:
+- gravity: 9.81
+  restitution: 0.9
+c: osdt_example.models.bouncing_ball.C
+f: osdt_example.models.bouncing_ball.F
+d: osdt_example.models.bouncing_ball.D
+g: osdt_example.models.bouncing_ball.G
+u: osdt_example.models.bouncing_ball.U
+y: osdt_example.models.bouncing_ball.Y
+initialize: osdt_example.models.bouncing_ball.initialize
