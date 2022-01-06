@@ -1,16 +1,14 @@
-opfile.args:
-  ball_y: 3.0
 ball: 
   <f: osdt.create_system
   x:
     <f: osdt_example.models.bouncing_ball.State
-    y_position: a:ball_y
-    y_velocity: 2.0
+    y_position: 1.0
+    y_velocity: 0.0
   vars:
     p:osdt_example.models.bouncing_ball.Params: 
       <f: osdt_example.models.bouncing_ball.Params
       gravity: 9.81
-      restitution: .98
+      restitution: .95
   c: osdt_example.models.bouncing_ball.C
   f: osdt_example.models.bouncing_ball.F
   d: osdt_example.models.bouncing_ball.D
@@ -27,7 +25,7 @@ pos_sensor:
   vars:
     p:osdt_example.models.sample_hold_sensor.Params:
       <f: osdt_example.models.sample_hold_sensor.Params
-      sample_period: 0.1
+      sample_period: 1.0
       sample_field: y_position
   c: osdt_example.models.sample_hold_sensor.C
   f: osdt_example.models.sample_hold_sensor.F
@@ -46,7 +44,7 @@ vel_sensor:
   vars:
     p:osdt_example.models.sample_hold_sensor.Params:
       <f: osdt_example.models.sample_hold_sensor.Params
-      sample_period: 0.1
+      sample_period: 1.0
       sample_field: y_velocity
   c: osdt_example.models.sample_hold_sensor.C
   f: osdt_example.models.sample_hold_sensor.F
@@ -56,20 +54,23 @@ vel_sensor:
   y: osdt_example.models.sample_hold_sensor.Y
   id: vel_sensor
 :
-  <f: osdt_example.python_examples.ball_with_sensors.setup
-  <*: [v:ball, v:pos_sensor, v:vel_sensor]
-: 
+  <f: v:pos_sensor:set
+  <*: [p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+:
+  <f: v:vel_sensor:set
+  <*: [p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+:
   <f: osdt.set_integrator
   integrator_type: "vode"
   max_step: 0.01
 :
   <f: osdt.run
-  time: 6.0
-  jumps: 2000
+  time: 20.0
+  jumps: 20
 : 
-  <f: osdt_example.python_examples.ball_with_sensors.figure1
-  display: true
+  <o: osdt_example/opfile/ball_with_sensors/additional_examples/figure1.yaml
   export_path: null
   export_format: png
-:
+  display: false
+: 
   <f: osdt.display

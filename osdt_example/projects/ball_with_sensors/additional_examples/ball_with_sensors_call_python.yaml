@@ -1,12 +1,9 @@
-opfile.args:
-  y_position: 1.0
-
 ball: 
   <f: osdt.create_system
   x:
     <f: osdt_example.models.bouncing_ball.State
-    y_position: a:y_position
-    y_velocity: 2.0
+    y_position: 1.0
+    y_velocity: 0.0
   vars:
     p:osdt_example.models.bouncing_ball.Params: 
       <f: osdt_example.models.bouncing_ball.Params
@@ -36,6 +33,7 @@ pos_sensor:
   g: osdt_example.models.sample_hold_sensor.G
   u: osdt_example.models.sample_hold_sensor.U
   y: osdt_example.models.sample_hold_sensor.Y
+  id: pos_sensor
 
 vel_sensor:
   <f: osdt.create_system
@@ -54,15 +52,15 @@ vel_sensor:
   g: osdt_example.models.sample_hold_sensor.G
   u: osdt_example.models.sample_hold_sensor.U
   y: osdt_example.models.sample_hold_sensor.Y
+  id: vel_sensor
 :
-  <f: v:pos_sensor:set
-  <*: [p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
-:
-  <f: v:vel_sensor:set
-  <*: [p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+  <f: osdt_example.projects.ball_with_sensors.setup
+  <*: [v:ball, v:pos_sensor, v:vel_sensor]
 :
   <f: osdt.run
   time: 20.0
   jumps: 20
 : 
-  <f: osdt_example.python_examples.bouncing_ball.create_figures
+  <f: osdt_example.projects.ball_with_sensors.figure1
+:
+  <f: osdt.display
