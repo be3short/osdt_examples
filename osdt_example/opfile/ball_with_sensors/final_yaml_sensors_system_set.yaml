@@ -1,0 +1,72 @@
+opfile.args:
+  y_position: 1.0
+
+ball: 
+  <f: osdt.create_system
+  x:
+    <f: osdt_example.models.bouncing_ball.State
+    y_position: a:y_position
+    y_velocity: 2.0
+  vars:
+    p:osdt_example.models.bouncing_ball.Params: 
+      <f: osdt_example.models.bouncing_ball.Params
+      gravity: 9.81
+      restitution: .95
+  c: osdt_example.models.bouncing_ball.C
+  f: osdt_example.models.bouncing_ball.F
+  d: osdt_example.models.bouncing_ball.D
+  g: osdt_example.models.bouncing_ball.G
+  u: osdt_example.models.bouncing_ball.U
+  y: osdt_example.models.bouncing_ball.Y
+
+pos_sensor:
+  <f: osdt.create_system
+  x:
+    <f: osdt_example.models.sample_hold_sensor.State
+    value: 0.0
+    timer: 0.0
+  vars:
+    p:osdt_example.models.sample_hold_sensor.Params:
+      <f: osdt_example.models.sample_hold_sensor.Params
+      sample_period: 1.0
+      sample_field: y_position
+  c: osdt_example.models.sample_hold_sensor.C
+  f: osdt_example.models.sample_hold_sensor.F
+  d: osdt_example.models.sample_hold_sensor.D
+  g: osdt_example.models.sample_hold_sensor.G
+  u: osdt_example.models.sample_hold_sensor.U
+  y: osdt_example.models.sample_hold_sensor.Y
+  id: pos_sensor
+
+vel_sensor:
+  <f: osdt.create_system
+  x:
+    <f: osdt_example.models.sample_hold_sensor.State
+    value: 0.0
+    timer: 0.0
+  vars:
+    p:osdt_example.models.sample_hold_sensor.Params:
+      <f: osdt_example.models.sample_hold_sensor.Params
+      sample_period: 1.0
+      sample_field: y_velocity
+  c: osdt_example.models.sample_hold_sensor.C
+  f: osdt_example.models.sample_hold_sensor.F
+  d: osdt_example.models.sample_hold_sensor.D
+  g: osdt_example.models.sample_hold_sensor.G
+  u: osdt_example.models.sample_hold_sensor.U
+  y: osdt_example.models.sample_hold_sensor.Y
+  id: vel_sensor
+:
+  <f: osdt.system_set
+  <*: 
+  - [v:pos_sensor, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+  - [v:vel_sensor, p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+:
+  <f: osdt.run
+  time: 20.0
+  jumps: 20
+: 
+  <f: osdt_example.python_examples.ball_with_sensors.figure1
+
+:
+  <f: osdt.display

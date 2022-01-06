@@ -7,7 +7,7 @@ PARAMS="PARAMS"
 
 class State(): # state class
     def __init__(self, value=0.0, timer=0.0):
-        self.values = value
+        self.value = value
         self.timer = timer
 
 class Params: # parameters class

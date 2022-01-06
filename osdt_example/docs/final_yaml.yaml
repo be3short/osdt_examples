@@ -1,5 +1,8 @@
 final yaml format
 
+notes:
+  DO NOT USE : IN YOUR KEYS UNLESS USING SPECIAL STRING
+
 special dictionary entries:
   :f: function call
   :o: opfile call
