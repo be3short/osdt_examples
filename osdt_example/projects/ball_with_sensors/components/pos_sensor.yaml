@@ -1,9 +1,0 @@
-x: [f: osdt_example.models.sample_hold_sensor.State, value: 0.0, timer: 0.0]
-p: [[f: osdt_example.models.sample_hold_sensor.Params, sample_period: .1, sample_field: "y_position"]]
-c: osdt_example.models.sample_hold_sensor.C
-f: osdt_example.models.sample_hold_sensor.F
-d: osdt_example.models.sample_hold_sensor.D
-g: osdt_example.models.sample_hold_sensor.G
-u: osdt_example.models.sample_hold_sensor.U
-id: pos_sensor
-#?args

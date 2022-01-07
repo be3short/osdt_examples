@@ -25,7 +25,7 @@ pos_sensor:
   vars:
     p:osdt_example.models.sensor.Params:
       <f: osdt_example.models.sensor.Params
-      sample_period: 1.0
+      sample_period: 0.1
       sample_field: y_position
   c: osdt_example.models.sensor.C
   f: osdt_example.models.sensor.F
@@ -44,7 +44,7 @@ vel_sensor:
   vars:
     p:osdt_example.models.sensor.Params:
       <f: osdt_example.models.sensor.Params
-      sample_period: 1.0
+      sample_period: 0.1
       sample_field: y_velocity
   c: osdt_example.models.sensor.C
   f: osdt_example.models.sensor.F
