@@ -1,0 +1,34 @@
+ball1: # create the ball system 
+  <f: osdt.create_system
+  x:
+    <f: osdt_example.models.timer.State
+    value: 0.0
+  vars:
+    p:osdt_example.models.timer.Params: 
+      <f: osdt_example.models.timer.Params
+      interval: 1.0
+  c: osdt_example.models.timer.C
+  f: osdt_example.models.timer.F
+  d: osdt_example.models.timer.D
+  g: osdt_example.models.timer.G
+
+: # run the simulation
+  <f: osdt.run
+  time: 5.0
+  jumps: 20
+
+figure: # create the figure
+  <f: osdt.create_figure
+  width: 800
+  height: 600
+  layout: [[1]]
+  title: Timer
+
+# plot data (compressed yaml form)
+: {<f: v:figure:plot, subplot: 1, y: value}
+
+: # export the figure
+  <f: v:figure:export
+  path: figure1
+  format: png
+  display: true

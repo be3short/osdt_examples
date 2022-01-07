@@ -2,7 +2,7 @@ import sys, os
 
 import osdt
 import random
-from osdt_example.models import simple_timer
+from osdt_example.models import timer
 from osdt_example.functions.bouncing_ball import ball_figure
 
 import osdt

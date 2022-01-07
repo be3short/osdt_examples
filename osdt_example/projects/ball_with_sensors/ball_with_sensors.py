@@ -1,7 +1,8 @@
 import osdt
-from osdt_example.models import sensor as sensor
-from osdt_example.models import ball as ball
-def run():
+from osdt_example.models import sensor
+from osdt_example.models import ball
+
+def main():
     ball_state = ball.State(y_position=1.0,y_velocity=0.0)
     ball_params = ball.Params(gravity=9.81,restitution=.95)
     ball_system = osdt.create_system(x=ball_state,c=ball.C,f=ball.F,d=ball.D,g=ball.G,y=ball.Y_dict,id="ball",vars={ball.Params: ball_params})

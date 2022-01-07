@@ -3,7 +3,7 @@ import sys, os
 import osdt
 #osdt.import_library("osdt_example")
 
-from osdt_example.models import simple_timer
+from osdt_example.models import timer
 import osdt
 
 # create a figure

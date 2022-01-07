@@ -1,5 +1,5 @@
 import osdt
-from osdt_example.models import simple_timer
+from osdt_example.models import timer
 
 state = simple_timer.State(value=1.0)
 params = simple_timer.Params(interval=1.0)
