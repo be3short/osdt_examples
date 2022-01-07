@@ -2,7 +2,7 @@ import sys, os
 
 import osdt
 import random
-from osdt_example.models import bouncing_ball as bb
+from osdt_example.models import ball as bb
 from osdt_example.functions.bouncing_ball import ball_figure
 
 import osdt

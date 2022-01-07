@@ -1,6 +1,6 @@
 import osdt
-from osdt_example.models import sample_hold_sensor as sensor
-from osdt_example.models import bouncing_ball as ball
+from osdt_example.models import sensor as sensor
+from osdt_example.models import ball as ball
 def run():
     ball_state = ball.State(y_position=1.0,y_velocity=0.0)
     ball_params = ball.Params(gravity=9.81,restitution=.95)

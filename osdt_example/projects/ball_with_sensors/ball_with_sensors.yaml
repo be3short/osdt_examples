@@ -1,64 +1,64 @@
 ball: 
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.bouncing_ball.State
+    <f: osdt_example.models.ball.State
     y_position: 1.0
     y_velocity: 0.0
   vars:
-    p:osdt_example.models.bouncing_ball.Params: 
-      <f: osdt_example.models.bouncing_ball.Params
+    p:osdt_example.models.ball.Params: 
+      <f: osdt_example.models.ball.Params
       gravity: 9.81
       restitution: .95
-  c: osdt_example.models.bouncing_ball.C
-  f: osdt_example.models.bouncing_ball.F
-  d: osdt_example.models.bouncing_ball.D
-  g: osdt_example.models.bouncing_ball.G
-  u: osdt_example.models.bouncing_ball.U
-  y: osdt_example.models.bouncing_ball.Y
+  c: osdt_example.models.ball.C
+  f: osdt_example.models.ball.F
+  d: osdt_example.models.ball.D
+  g: osdt_example.models.ball.G
+  u: osdt_example.models.ball.U
+  y: osdt_example.models.ball.Y
 
 pos_sensor:
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.sample_hold_sensor.State
+    <f: osdt_example.models.sensor.State
     value: 0.0
     timer: 0.0
   vars:
-    p:osdt_example.models.sample_hold_sensor.Params:
-      <f: osdt_example.models.sample_hold_sensor.Params
+    p:osdt_example.models.sensor.Params:
+      <f: osdt_example.models.sensor.Params
       sample_period: 1.0
       sample_field: y_position
-  c: osdt_example.models.sample_hold_sensor.C
-  f: osdt_example.models.sample_hold_sensor.F
-  d: osdt_example.models.sample_hold_sensor.D
-  g: osdt_example.models.sample_hold_sensor.G
-  u: osdt_example.models.sample_hold_sensor.U
-  y: osdt_example.models.sample_hold_sensor.Y
+  c: osdt_example.models.sensor.C
+  f: osdt_example.models.sensor.F
+  d: osdt_example.models.sensor.D
+  g: osdt_example.models.sensor.G
+  u: osdt_example.models.sensor.U
+  y: osdt_example.models.sensor.Y
   id: pos_sensor
 
 vel_sensor:
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.sample_hold_sensor.State
+    <f: osdt_example.models.sensor.State
     value: 0.0
     timer: 0.0
   vars:
-    p:osdt_example.models.sample_hold_sensor.Params:
-      <f: osdt_example.models.sample_hold_sensor.Params
+    p:osdt_example.models.sensor.Params:
+      <f: osdt_example.models.sensor.Params
       sample_period: 1.0
       sample_field: y_velocity
-  c: osdt_example.models.sample_hold_sensor.C
-  f: osdt_example.models.sample_hold_sensor.F
-  d: osdt_example.models.sample_hold_sensor.D
-  g: osdt_example.models.sample_hold_sensor.G
-  u: osdt_example.models.sample_hold_sensor.U
-  y: osdt_example.models.sample_hold_sensor.Y
+  c: osdt_example.models.sensor.C
+  f: osdt_example.models.sensor.F
+  d: osdt_example.models.sensor.D
+  g: osdt_example.models.sensor.G
+  u: osdt_example.models.sensor.U
+  y: osdt_example.models.sensor.Y
   id: vel_sensor
 :
   <f: v:pos_sensor:set
-  <*: [p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+  <*: [p:osdt_example.models.sensor.INPUT, v:ball]
 :
   <f: v:vel_sensor:set
-  <*: [p:osdt_example.models.sample_hold_sensor.INPUT, v:ball]
+  <*: [p:osdt_example.models.sensor.INPUT, v:ball]
 :
   <f: osdt.set_integrator
   integrator_type: "vode"
@@ -68,7 +68,7 @@ vel_sensor:
   time: 20.0
   jumps: 20
 
-figure:
+figure: # create the figure
   <f: osdt.create_figure
   width: 1200
   height: 800
@@ -80,10 +80,12 @@ figure:
 : {<f: v:figure:plot, subplot: 1, y: value, system: pos_sensor}
 : {<f: v:figure:plot, subplot: 2, y: y_velocity}
 : {<f: v:figure:plot, subplot: 2, y: value, system: vel_sensor}
-:
+
+: # export the figure
   <f: v:figure:export
   path: figure1
   format: png
   display: true
-: 
+
+: # display figures
   <f: osdt.display

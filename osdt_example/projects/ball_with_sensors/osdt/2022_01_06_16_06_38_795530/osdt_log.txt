@@ -1,0 +1,30 @@
+2022-01-06 16:06:39 | INFO  | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'runop', '.\\ball_with_sensors.yaml' | utils.py:388
+2022-01-06 16:06:39 | INFO  | created new system: system <osdt.system.System object at 0x000001F1AD68E130> | system.py:112
+2022-01-06 16:06:39 | INFO  | system added to environment: system <osdt.system.System object at 0x000001F1AD68E130> | environment.py:77
+2022-01-06 16:06:39 | INFO  | created new system: pos_sensor <osdt.system.System object at 0x000001F1AD68E580> | system.py:112
+2022-01-06 16:06:39 | INFO  | system added to environment: pos_sensor <osdt.system.System object at 0x000001F1AD68E580> | environment.py:77
+2022-01-06 16:06:39 | INFO  | created new system: vel_sensor <osdt.system.System object at 0x000001F1AD6858E0> | system.py:112
+2022-01-06 16:06:39 | INFO  | system added to environment: vel_sensor <osdt.system.System object at 0x000001F1AD6858E0> | environment.py:77
+2022-01-06 16:06:39 | INFO  | adding variable INPUT -> <osdt.system.System object at 0x000001F1AD68E130> | system.py:234
+2022-01-06 16:06:39 | INFO  | adding variable INPUT -> <osdt.system.System object at 0x000001F1AD68E130> | system.py:234
+2022-01-06 16:06:39 | INFO  | integrator type set: vode | toolbox.py:618
+2022-01-06 16:06:39 | INFO  | integrator parameter set: (vode) max_step = 0.01 | toolbox.py:623
+2022-01-06 16:06:39 | INFO  | updating config{} | toolbox.py:562
+2022-01-06 16:06:39 | INFO  | starting environment...  | operator.py:220
+2022-01-06 16:06:39 | INFO  | simulation     0% complete : time (  0.00 / 20.0 ) : jumps (  1 / 20 ) | operator.py:215
+2022-01-06 16:06:39 | INFO  | simulation  10.0% complete : time (  1.00 / 20.0 ) : jumps (  3 / 20 ) | operator.py:215
+2022-01-06 16:06:39 | INFO  | simulation  20.0% complete : time (  2.00 / 20.0 ) : jumps (  5 / 20 ) | operator.py:215
+2022-01-06 16:06:39 | INFO  | simulation  30.0% complete : time (  2.93 / 20.0 ) : jumps (  7 / 20 ) | operator.py:215
+2022-01-06 16:06:40 | INFO  | simulation  40.0% complete : time (  3.68 / 20.0 ) : jumps (  9 / 20 ) | operator.py:215
+2022-01-06 16:06:40 | INFO  | simulation  50.0% complete : time (  4.40 / 20.0 ) : jumps ( 11 / 20 ) | operator.py:215
+2022-01-06 16:06:40 | INFO  | simulation  60.0% complete : time (  5.09 / 20.0 ) : jumps ( 13 / 20 ) | operator.py:215
+2022-01-06 16:06:40 | INFO  | simulation  70.0% complete : time (  6.00 / 20.0 ) : jumps ( 15 / 20 ) | operator.py:215
+2022-01-06 16:06:40 | INFO  | simulation  80.0% complete : time (  6.37 / 20.0 ) : jumps ( 16 / 20 ) | operator.py:215
+2022-01-06 16:06:40 | INFO  | simulation  90.0% complete : time (  7.00 / 20.0 ) : jumps ( 18 / 20 ) | operator.py:215
+2022-01-06 16:06:40 | INFO  | environment stopped - run time = 0.7690482139587402 | operator.py:245
+2022-01-06 16:06:40 | INFO  | new figure created: figure #0 (Bouncing Ball with Sensors) | figure.py:435
+2022-01-06 16:06:40 | DEBUG | new series plotted: system -> figure #0 (Bouncing Ball with Sensors) subplot #1 | figure.py:311
+2022-01-06 16:06:40 | DEBUG | new series plotted: pos_sensor -> figure #0 (Bouncing Ball with Sensors) subplot #1 | figure.py:311
+2022-01-06 16:06:40 | DEBUG | new series plotted: system -> figure #0 (Bouncing Ball with Sensors) subplot #2 | figure.py:311
+2022-01-06 16:06:40 | DEBUG | new series plotted: vel_sensor -> figure #0 (Bouncing Ball with Sensors) subplot #2 | figure.py:311
+2022-01-06 16:06:41 | INFO  | exporting figure: figure #0 (Bouncing Ball with Sensors) -> C:\Users\17074\GitHub\osdt_example_project\osdt_example\projects\ball_with_sensors\osdt\2022_01_06_16_06_38_795530\figure1.png | figure.py:663

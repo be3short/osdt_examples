@@ -2,8 +2,8 @@ import inspect
 
 import osdt.utils
 
-from osdt_example.models import bouncing_ball
-from osdt_example.models import sample_hold_sensor
+from osdt_example.models import ball
+from osdt_example.models import sensor
 
 class Const:
     def __init__(self):

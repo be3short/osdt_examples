@@ -1,0 +1,20 @@
+2022-01-06 16:11:36 | INFO  | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'runop', '.\\ball.yaml' | utils.py:388
+2022-01-06 16:11:36 | INFO  | created new system: system <osdt.system.System object at 0x000002AFE13A0130> | system.py:112
+2022-01-06 16:11:36 | INFO  | system added to environment: system <osdt.system.System object at 0x000002AFE13A0130> | environment.py:77
+2022-01-06 16:11:36 | INFO  | updating config{} | toolbox.py:562
+2022-01-06 16:11:36 | INFO  | starting environment...  | operator.py:220
+2022-01-06 16:11:36 | INFO  | simulation     0% complete : time (  0.00 / 20.0 ) : jumps (  0 / 20 ) | operator.py:215
+2022-01-06 16:11:36 | INFO  | simulation  10.0% complete : time (  2.00 / 20.0 ) : jumps (  2 / 20 ) | operator.py:215
+2022-01-06 16:11:36 | INFO  | simulation  20.0% complete : time (  4.00 / 20.0 ) : jumps (  4 / 20 ) | operator.py:215
+2022-01-06 16:11:36 | INFO  | simulation  30.0% complete : time (  5.83 / 20.0 ) : jumps (  7 / 20 ) | operator.py:215
+2022-01-06 16:11:36 | INFO  | simulation  40.0% complete : time (  7.27 / 20.0 ) : jumps (  9 / 20 ) | operator.py:215
+2022-01-06 16:11:37 | INFO  | simulation  50.0% complete : time (  8.58 / 20.0 ) : jumps ( 11 / 20 ) | operator.py:215
+2022-01-06 16:11:37 | INFO  | simulation  60.0% complete : time (  9.79 / 20.0 ) : jumps ( 13 / 20 ) | operator.py:215
+2022-01-06 16:11:37 | INFO  | simulation  70.0% complete : time ( 10.89 / 20.0 ) : jumps ( 15 / 20 ) | operator.py:215
+2022-01-06 16:11:37 | INFO  | simulation  80.0% complete : time ( 11.41 / 20.0 ) : jumps ( 16 / 20 ) | operator.py:215
+2022-01-06 16:11:37 | INFO  | simulation  90.0% complete : time ( 12.38 / 20.0 ) : jumps ( 18 / 20 ) | operator.py:215
+2022-01-06 16:11:37 | INFO  | environment stopped - run time = 0.6640396118164062 | operator.py:245
+2022-01-06 16:11:37 | INFO  | new figure created: figure #0 (Bouncing Ball) | figure.py:435
+2022-01-06 16:11:37 | DEBUG | new series plotted: system -> figure #0 (Bouncing Ball) subplot #1 | figure.py:311
+2022-01-06 16:11:37 | DEBUG | new series plotted: system -> figure #0 (Bouncing Ball) subplot #2 | figure.py:311
+2022-01-06 16:11:37 | INFO  | exporting figure: figure #0 (Bouncing Ball) -> C:\Users\17074\GitHub\osdt_example_project\osdt_example\projects\ball\osdt\2022_01_06_16_11_35_728002\figure1.png | figure.py:663
