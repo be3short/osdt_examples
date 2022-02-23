@@ -14,7 +14,7 @@ ball1: # create the ball system
 
 : # run the simulation
   <f: osdt.run
-  time: 6.0
+  time: 5.0
   jumps: 20
 
 figure: # create the figure
