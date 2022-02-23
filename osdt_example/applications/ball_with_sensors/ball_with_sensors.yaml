@@ -2,7 +2,7 @@ ball:
   <f: osdt.create_system
   x:
     <f: osdt_example.models.ball.State
-    y_position: 1.0
+    y_position: 3.0
     y_velocity: 0.0
   vars:
     p:osdt_example.models.ball.Params: 
