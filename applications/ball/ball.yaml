@@ -1,20 +1,20 @@
 ball1: # create the ball system 
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.ball.State
+    <f: osdt_examples.models.ball.State
     y_position: 3.0
     y_velocity: 2.0
   vars:
-    p:osdt_example.models.ball.Params: 
-      <f: osdt_example.models.ball.Params
+    p:osdt_examples.models.ball.Params: 
+      <f: osdt_examples.models.ball.Params
       gravity: 9.81
       restitution: .95
-  c: osdt_example.models.ball.C
-  f: osdt_example.models.ball.F
-  d: osdt_example.models.ball.D
-  g: osdt_example.models.ball.G
-  u: osdt_example.models.ball.U
-  y: osdt_example.models.ball.Y
+  c: osdt_examples.models.ball.C
+  f: osdt_examples.models.ball.F
+  d: osdt_examples.models.ball.D
+  g: osdt_examples.models.ball.G
+  u: osdt_examples.models.ball.U
+  y: osdt_examples.models.ball.Y
 
 : # adjust the integrator
   <f: osdt.set_integrator

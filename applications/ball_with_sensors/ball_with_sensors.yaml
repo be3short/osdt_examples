@@ -1,64 +1,64 @@
 ball: 
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.ball.State
+    <f: osdt_examples.models.ball.State
     y_position: 3.0
     y_velocity: 0.0
   vars:
-    p:osdt_example.models.ball.Params: 
-      <f: osdt_example.models.ball.Params
+    p:osdt_examples.models.ball.Params: 
+      <f: osdt_examples.models.ball.Params
       gravity: 9.81
       restitution: .95
-  c: osdt_example.models.ball.C
-  f: osdt_example.models.ball.F
-  d: osdt_example.models.ball.D
-  g: osdt_example.models.ball.G
-  u: osdt_example.models.ball.U
-  y: osdt_example.models.ball.Y
+  c: osdt_examples.models.ball.C
+  f: osdt_examples.models.ball.F
+  d: osdt_examples.models.ball.D
+  g: osdt_examples.models.ball.G
+  u: osdt_examples.models.ball.U
+  y: osdt_examples.models.ball.Y
 
 pos_sensor:
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.sensor.State
+    <f: osdt_examples.models.sensor.State
     value: 0.0
     timer: 0.0
   vars:
-    p:osdt_example.models.sensor.Params:
-      <f: osdt_example.models.sensor.Params
+    p:osdt_examples.models.sensor.Params:
+      <f: osdt_examples.models.sensor.Params
       sample_period: 0.1
       sample_field: y_position
-  c: osdt_example.models.sensor.C
-  f: osdt_example.models.sensor.F
-  d: osdt_example.models.sensor.D
-  g: osdt_example.models.sensor.G
-  u: osdt_example.models.sensor.U
-  y: osdt_example.models.sensor.Y
+  c: osdt_examples.models.sensor.C
+  f: osdt_examples.models.sensor.F
+  d: osdt_examples.models.sensor.D
+  g: osdt_examples.models.sensor.G
+  u: osdt_examples.models.sensor.U
+  y: osdt_examples.models.sensor.Y
   id: pos_sensor
 
 vel_sensor:
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.sensor.State
+    <f: osdt_examples.models.sensor.State
     value: 0.0
     timer: 0.0
   vars:
-    p:osdt_example.models.sensor.Params:
-      <f: osdt_example.models.sensor.Params
+    p:osdt_examples.models.sensor.Params:
+      <f: osdt_examples.models.sensor.Params
       sample_period: 0.1
       sample_field: y_velocity
-  c: osdt_example.models.sensor.C
-  f: osdt_example.models.sensor.F
-  d: osdt_example.models.sensor.D
-  g: osdt_example.models.sensor.G
-  u: osdt_example.models.sensor.U
-  y: osdt_example.models.sensor.Y
+  c: osdt_examples.models.sensor.C
+  f: osdt_examples.models.sensor.F
+  d: osdt_examples.models.sensor.D
+  g: osdt_examples.models.sensor.G
+  u: osdt_examples.models.sensor.U
+  y: osdt_examples.models.sensor.Y
   id: vel_sensor
 :
   <f: v:pos_sensor:set
-  <*: [p:osdt_example.models.sensor.INPUT, v:ball]
+  <*: [p:osdt_examples.models.sensor.INPUT, v:ball]
 :
   <f: v:vel_sensor:set
-  <*: [p:osdt_example.models.sensor.INPUT, v:ball]
+  <*: [p:osdt_examples.models.sensor.INPUT, v:ball]
 :
   <f: osdt.set_integrator
   integrator_type: "vode"

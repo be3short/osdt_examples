@@ -1,16 +1,16 @@
 ball1: # create the ball system 
   <f: osdt.create_system
   x:
-    <f: osdt_example.models.timer.State
+    <f: osdt_examples.models.timer.State
     value: 0.0
   vars:
-    p:osdt_example.models.timer.Params: 
-      <f: osdt_example.models.timer.Params
+    p:osdt_examples.models.timer.Params: 
+      <f: osdt_examples.models.timer.Params
       interval: 1.0
-  c: osdt_example.models.timer.C
-  f: osdt_example.models.timer.F
-  d: osdt_example.models.timer.D
-  g: osdt_example.models.timer.G
+  c: osdt_examples.models.timer.C
+  f: osdt_examples.models.timer.F
+  d: osdt_examples.models.timer.D
+  g: osdt_examples.models.timer.G
 
 : # run the simulation
   <f: osdt.run
