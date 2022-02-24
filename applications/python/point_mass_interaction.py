@@ -35,6 +35,8 @@ xyfig.plot(1,x="x_position",y="y_position")
 #xyfig.plot(1,"y_position")
 
 osdt.display()
+
+
 '''
 # create a figure
 fig = osdt.create_figure(layout=[[1,3,4,4], [2,3,4,4]],width=1200, height=600,
@@ -53,3 +55,6 @@ fig2.plot(1,"y_position")
 fig2.plot(2,"y_velocity")
 osdt.display()
 '''
+
+
+

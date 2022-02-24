@@ -1,0 +1,50 @@
+# input arguments for the file
+opfile.args:
+  export_path: null
+  export_format: png
+
+# create the figure
+figure:
+  <f: osdt.create_figure
+  width: 1200
+  height: 800
+  layout: [[1],[2]]
+  title: Figure Title
+  style: # style can be dictionary of attributes or path
+    axes.labelsize: 12.0
+    figure.titlesize: 15.0
+
+
+: # subplot configuration
+  <f: v:figure:configure_subplot
+  subplot: 1
+  title: Subplot 1 Title
+  x_axis: X Axis
+  y_axis: Y Axis
+  legend: false
+
+# subplot configuration in compact form
+: {<f: v:figure:configure_subplot, subplot: 2, title: Subplot 2 Title, x_axis: X Axis, y_axis: Y Axis, legend: false}
+
+: # plot data
+  <f: v:figure:plot
+  subplot: 1
+  y: y_field
+  x: osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+# plot data compact
+: {<f: v:figure:plot, subplot: 2, y: [], x: x_field, system: null, label: null, color: null, dash_style: null, field_label: False, max_points: null}
+
+: # export based on args
+  <f: v:figure:export
+  path: a:export_path
+  format: a:export_format
+
+# return the figure
+opfile.return: v:figure

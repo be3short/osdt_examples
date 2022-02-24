@@ -1,0 +1,20 @@
+system: # create the system
+  <f: osdt.create_system
+  x:
+    <f: system_model.State
+    # state variables here
+  vars:
+    variable_key:
+        <f: system_model.Params
+        # param variables here
+  c: system_model.C
+  f: system_model.F
+  d: system_model.D
+  g: system_model.G
+  u: system_model.U
+  y: system_model.Y
+  initialize: system_model.initialize
+  routine: system_model.routine
+  id: system_id
+
+opfile.return: v:system
