@@ -1,0 +1,102 @@
+# generated opfile 
+ball:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.ball.State
+    y_position: 1.0
+    y_velocity: 0.0
+  vars:
+    p:osdt_examples.models.ball.Params:
+      <f: osdt_examples.models.ball.Params
+      gravity: 9.81
+      restitution: 0.9
+  c: osdt_examples.models.ball.C
+  f: osdt_examples.models.ball.F
+  d: osdt_examples.models.ball.D
+  g: osdt_examples.models.ball.G
+  u: osdt_examples.models.ball.U
+  y: osdt_examples.models.ball.Y
+  routine: osdt_examples.models.ball.routine
+  initialize: osdt_examples.models.ball.initialize
+
+ball2:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.ball.State
+    y_position: 1.0
+    y_velocity: 0.0
+  vars:
+    params2:
+      <f: osdt_examples.models.ball.Params
+      gravity: 9.81
+      restitution: 0.9
+    p:osdt_examples.models.ball.Params:
+      <f: osdt_examples.models.ball.Params
+      gravity: 9.81
+      restitution: 0.9
+  c: osdt_examples.models.ball.C
+  f: osdt_examples.models.ball.F
+  d: osdt_examples.models.ball.D
+  g: osdt_examples.models.ball.G
+  u: osdt_examples.models.ball.U
+  y: osdt_examples.models.ball.Y
+  routine: osdt_examples.models.ball.routine
+  initialize: osdt_examples.models.ball.initialize
+
+pos_sensor:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.sensor.State
+    value: 0.0
+    timer: 0.0
+  vars:
+    p:osdt_examples.models.sensor.Params:
+      <f: osdt_examples.models.sensor.Params
+      sample_period: 1.0
+      sample_field: y_position
+  c: osdt_examples.models.sensor.C
+  f: osdt_examples.models.sensor.F
+  d: osdt_examples.models.sensor.D
+  g: osdt_examples.models.sensor.G
+  u: osdt_examples.models.sensor.U
+  y: osdt_examples.models.sensor.Y
+  routine: osdt_examples.models.sensor.routine
+  initialize: osdt_examples.models.sensor.initialize
+
+vel_sensor:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.sensor.State
+    value: 0.0
+    timer: 0.0
+  vars:
+    p:osdt_examples.models.sensor.Params:
+      <f: osdt_examples.models.sensor.Params
+      sample_period: 1.0
+      sample_field: y_velocity
+  c: osdt_examples.models.sensor.C
+  f: osdt_examples.models.sensor.F
+  d: osdt_examples.models.sensor.D
+  g: osdt_examples.models.sensor.G
+  u: osdt_examples.models.sensor.U
+  y: osdt_examples.models.sensor.Y
+  routine: osdt_examples.models.sensor.routine
+  initialize: osdt_examples.models.sensor.initialize
+
+:
+  <f: osdt.environment.create_connections
+  connection_matrix:
+  - ['v:pos_sensor', 'p:osdt_examples.models.sensor.INPUT', 'v:ball']
+  - ['v:vel_sensor', 'p:osdt_examples.models.sensor.INPUT', 'v:ball']
+
+:
+  <f: osdt.toolbox.run
+  time: -1.0
+  jumps: -1
+
+fig:
+  <o: osdt_examples/fig10.yaml
+  export_path: null
+  export_format: png
+  pos_system: []
+  vel_system: []
