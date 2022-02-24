@@ -1,5 +1,5 @@
 import osdt
-from osdt_example.models import rc_filter_pwm
+from osdt_examples.models import rc_filter_pwm
 
 def figure1():
     # create a figure
@@ -13,4 +13,4 @@ def figure1():
 
 def adjust_integrator_step(system_id):
     rc_sys=osdt.get_system(system_id)
-    osdt.set_integrator("vode",max_step=(1.0/(rc_sys.get(rc_filter_pwm.PARAMS).frequency*100)))
+    osdt.set_integrator("vode",max_step=(1.0/(rc_sys.get(rc_filter_pwm.Params).frequency*100)))

@@ -20,8 +20,6 @@ rc_filter: # create the ball system
   y: "osdt_examples.models.rc_filter_pwm.Y"
   id: "rc_pwm"
 
-opfile.return: v:rc_filter
-
 : # adjust the integrator
   <f: osdt_examples.applications.rc_filter_pwm.adjust_integrator_step
   system_id:  "rc_pwm"
