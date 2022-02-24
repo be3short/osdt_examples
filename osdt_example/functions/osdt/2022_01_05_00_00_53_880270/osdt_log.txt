@@ -1,1 +1,0 @@
-2022-01-05 00:00:54 | INFO  | osdt initialized, invoked by: C:\Users\17074\Documents\Github\osdt_example_project\osdt_example\functions\temp.py  | utils.py:388

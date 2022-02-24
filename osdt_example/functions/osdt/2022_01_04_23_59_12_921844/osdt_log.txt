@@ -1,4 +1,0 @@
-2022-01-04 23:59:13 | INFO  | osdt initialized, invoked by: C:\Users\17074\Documents\Github\osdt_example_project\osdt_example\functions\temp.py  | utils.py:388
-2022-01-04 23:59:13 | INFO  | exported object to yaml: dict -> C:\Users\17074\Documents\Github\osdt_example_project\osdt_example\functions\dtttttt.yaml | utils.py:440
-2022-01-04 23:59:13 | INFO  | exported object to yaml: dict -> C:\Users\17074\Documents\Github\osdt_example_project\osdt_example\functions\dtttttt.yaml | utils.py:440
-2022-01-04 23:59:13 | INFO  | exported object to yaml: dict -> C:\Users\17074\Documents\Github\osdt_example_project\osdt_example\functions\dtttttt.yaml | utils.py:440

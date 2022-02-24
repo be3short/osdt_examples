@@ -1,2 +1,0 @@
-2022-02-23 17:30:34 | INFO  | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'new_lib', 'something_test' | utils.py:390
-2022-02-23 17:30:34 | INFO  | exported object to yaml: ProjectFile -> C:\Users\17074\Desktop\osdt_home\something_test\osdt.yaml | utils.py:442

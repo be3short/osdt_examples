@@ -1,6 +1,0 @@
-
-fig: [o: figtest.yaml,  [o: timer_bb_fig.yaml]]
-
-fig2: [f: osdt_example.functions.simple_timer.objfile_figure, [o: timer_bb_fig2.yaml]]
-
-disp: [f: osdt.display]

@@ -1,9 +1,0 @@
-x: [f: osdt_example.models.simple_timer.State, value: 0.0]
-p: [f: osdt_example.models.simple_timer.Params, interval: 5.5]
-c: osdt_example.models.simple_timer.C
-f: osdt_example.models.simple_timer.F
-d: osdt_example.models.simple_timer.D
-g: osdt_example.models.simple_timer.G
-u: osdt_example.models.simple_timer.U
-y: osdt_example.models.simple_timer.Y
-initialize: osdt_example.models.simple_timer.initialize
