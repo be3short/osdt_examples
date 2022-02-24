@@ -1,3 +1,4 @@
-name: "osdt_example"
-created: 1639700580.7039309
-organization: "osdt_lib"
+include_all: true
+name: osdt_example
+created_date: 1645666352.254844
+external_libs: [ ]

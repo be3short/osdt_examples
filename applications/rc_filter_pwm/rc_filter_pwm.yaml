@@ -1,33 +1,34 @@
-rc_filter: # create the ball system
+rc_filter: # create the rc filter pwm system
   <f: osdt.create_system
   x:
-    <f: osdt_examples.models.ball.State
-    y_position: 1.0
-    y_velocity: 2.0
+    <f: osdt_examples.models.rc_filter_pwm.State
+    v_in: 0.0
+    v_out: 0.0
+    toggle_timer: 0.0
   vars:
     p:osdt_examples.models.rc_filter_pwm.Params:
-        <f: "osdt_examples.models.rc_filter_pwm.Params"
+        <f: osdt_examples.models.rc_filter_pwm.Params
         resistor: 1500.0
         capacitor: 10.0e-6
         max_voltage: 3.3
         frequency: 5000.0
         duty_cycle: .3
-  c: "osdt_examples.models.rc_filter_pwm.C"
-  f: "osdt_examples.models.rc_filter_pwm.F"
-  d: "osdt_examples.models.rc_filter_pwm.D"
-  g: "osdt_examples.models.rc_filter_pwm.G"
-  u: "osdt_examples.models.rc_filter_pwm.U"
-  y: "osdt_examples.models.rc_filter_pwm.Y"
-  id: "rc_pwm"
+  c: osdt_examples.models.rc_filter_pwm.C
+  f: osdt_examples.models.rc_filter_pwm.F
+  d: osdt_examples.models.rc_filter_pwm.D
+  g: osdt_examples.models.rc_filter_pwm.G
+  u: osdt_examples.models.rc_filter_pwm.U
+  y: osdt_examples.models.rc_filter_pwm.Y
+  id: rc_pwm
 
 : # adjust the integrator
-  <f: osdt_examples.applications.rc_filter_pwm.adjust_integrator_step
-  system_id:  "rc_pwm"
+  <f: osdt_examples.applications.rc_filter_pwm.rc_filter_pwm.adjust_integrator_step
+  system_id:  rc_pwm
 
 
 : # run the simulation
   <f: osdt.run
-  time: 2.0
+  time: 0.5
   jumps: 2000000
 
 figure: # create the figure

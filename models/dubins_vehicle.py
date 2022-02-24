@@ -1,6 +1,6 @@
 import math
 import osdt
-from osdt_example.models import dubins_controller
+from osdt_examples.models import dubins_controller
 
 CONTROLLER = "CONTROLLER"
 VEHICLE = "VEHICLE"

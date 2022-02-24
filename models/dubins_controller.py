@@ -1,6 +1,6 @@
 import math
 import osdt
-from osdt_example.models import dubins_vehicle
+from osdt_examples.models import dubins_vehicle
 
 VEHICLE = "VEHICLE"
 
