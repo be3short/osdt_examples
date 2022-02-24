@@ -1,0 +1,27 @@
+
+
+
+figure_1: # create the figure
+  <f: osdt.create_figure
+  width: 1200
+  height: 800
+  layout: [[1,1,5,5],[2,2,5,5],[3,3,5,5],[4,4,5,5]]
+  title: Dubins Vehicle,
+  pad_h: 2.0
+  pad_w: 2.0
+
+:
+  {<f: v:figure_1:configure_subplot, subplot: 1, title: X Position, x_axis: Time (s), y_axis: Position (m), legend: false}
+: {<f: v:figure_1:configure_subplot, subplot: 2, title: Y Position,  x_axis: Time (s), y_axis: Orientation (rad), legend: false}
+: {<f: v:figure_1:configure_subplot, subplot: 3, title: Orientation,  x_axis: Time (s), y_axis: Orientation (rad), legend: false}
+: {<f: v:figure_1:configure_subplot, subplot: 4, title: Turn State,  x_axis: Time (s), y_axis: Turn State}
+: {<f: v:figure_1:configure_subplot, subplot: 5, title: X Position vs Y Position,  x_axis: X Position (m), y_axis: Y Position (m),color: []}
+
+: {<f: v:figure_1:plot, subplot: 1, y: x_position}
+: {<f: v:figure_1:plot, subplot: 2, y: y_position}
+: {<f: v:figure_1:plot, subplot: 3, y: orientation}
+: {<f: v:figure_1:plot, subplot: 4, y: turn, color: [purple, orange, cyan]}
+: {<f: v:figure_1:plot, subplot: 5, x: x_position, y: y_position}
+
+
+#: {<f: v:figure_1:export, path: :figure1_export_path, format: :figure1_export_format,overwrite: :overwrite}

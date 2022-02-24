@@ -49,5 +49,5 @@ figure: # create the figure
   format: png
   display: true
 
-: # display figures
+: # display figures.yaml
   <f: osdt.display

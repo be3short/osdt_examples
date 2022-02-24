@@ -25,9 +25,9 @@ controller:
   id: dubins_controller
 
 :
-  <f: v:dubins_controller:set
-  <*: [p:osdt_examples.models.dubins_controller.VEHICLE, v:dubins_vehicle]
+  <f: v:controller:set
+  <*: [p:osdt_examples.models.dubins_controller.VEHICLE, v:vehicle]
 :
-  <f: v:dubins_vehicle:set
-  <*: [p:osdt_examples.models.dubins_vehicle.CONTROLLER, v:dubins_controller]
+  <f: v:vehicle:set
+  <*: [p:osdt_examples.models.dubins_vehicle.CONTROLLER, v:controller]
   

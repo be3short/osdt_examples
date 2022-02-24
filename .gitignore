@@ -23,4 +23,6 @@ history/*
 Open_Source_Dynamics_Toolbox.egg-info
 */osdt/*
 
-osdt/*
+osdt_output/*
+
+*/osdt_output/*
