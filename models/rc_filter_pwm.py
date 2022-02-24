@@ -7,7 +7,6 @@
 # arguments: x = state, system = dynamical system, x_dot = state derivative,
 # x_plus = post-jump state, *args = non-keyword args, **argmap = keyword args
 import osdt
-PARAMS="RC_FILTER_PWM_PARAMS"
 
 
 class State: # state object
@@ -30,7 +29,7 @@ def C(x, system): # flow set (state in continuous domain)
 
 def F(x, x_dot, system): # flow map (continuous dynamics)
     x_dot.v_in=0.0
-    params = system.get(PARAMS)
+    params = system.get(Params)
     x_dot.v_out=(x.v_in-x.v_out)/(params.resistor*params.capacitor)
     x_dot.toggle_timer = -1.0
 
@@ -38,7 +37,7 @@ def D(x, system): # jump set (state in discrete domain)
     return x.toggle_timer <= 0.0
 
 def G(x, x_plus, system): # jump map (discrete dynamics)
-    params = system.get(PARAMS)
+    params = system.get(Params)
     cycle_length = 1/params.frequency
     if  x.v_in > 0:
         toggle_length = (1-params.duty_cycle) * cycle_length
@@ -58,4 +57,4 @@ def initialize(system): # initialize the system when the environment starts
     pass
 
 def create(x,p,**model): # create a new system
-    return osdt.create_system(x=x,vars={PARAMS: p},**model)
+    return osdt.create_system(x=x,vars={Params: p},**model)

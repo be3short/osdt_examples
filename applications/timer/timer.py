@@ -1,7 +1,7 @@
 import osdt
 from osdt_examples.models import timer
 
-def run():
+def main():
     timer_state = timer.State(value=0.0)
     timer_params = timer.Params(interval=1.0)
     timer_system = osdt.create_system(x=timer_state,c=timer.C,f=timer.F,d=timer.D,g=timer.G,id="timer",vars={timer.Params: timer_params})
