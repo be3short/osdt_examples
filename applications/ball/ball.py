@@ -1,5 +1,10 @@
 import osdt
-from osdt_examples.models import ball
+import yaml
+from osdt_examples.models import ball,sensor,timer
+
+osdt.constructor.set_default_sys_opfile(ball,ball.State(), p={ball.Params: ball.Params()})
+osdt.constructor.set_default_sys_opfile(timer,timer.State(), p={timer.Params: timer.Params()})
+osdt.constructor.set_default_sys_opfile(sensor,sensor.State(), p={sensor.Params: sensor.Params()})
 
 def main():
     ball_state = ball.State(y_position=1.0,y_velocity=0.0)
@@ -16,7 +21,22 @@ def figure1(export_path=None,export_format="png"):
     figure1.export(export_path,format=export_format)
     return figure1
 
+conns={sys1:[key], sys2[key]}
+
+def create_opfile():
+    systems = {
+        "ball1": ball,
+        "sensor1":sensor,
+        "timer1":timer
+    }
+    opfile_map = {}
+    for system in systems:
+        opfile = osdt.constructor.get_default_opfile(systems[system])
+        opfile_map[system]=opfile["system"]
+
+    print(yaml.safe_dump(opfile_map,sort_keys=False))
+
 if __name__ == "__main__":
-    main()
+    create_opfile()
 
 

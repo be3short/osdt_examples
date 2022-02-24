@@ -1,0 +1,42 @@
+# generated figure constructor opfile
+
+figure:
+  <f: osdt.create_figure
+  dpi: 100.0
+  height: 800
+  layout: [1]
+  pad_h: 1.08
+  pad_w: 1.08
+  style:
+    axes.labelsize: 12.0
+    figure.titlesize: 15.0
+  title: Figure Title
+  width: 1200
+
+:
+  <f: v:figure:configure_subplot
+  colors: null
+  legend: false
+  subplot: 1
+  title: Plot 1
+  x_axis: X Axis
+  y_axis: Y Axis
+
+:
+  <f: v:figure:plot
+  color: null
+  dash_style: null
+  field_label: false
+  label: null
+  max_points: null
+  subplot: 1
+  system: null
+  x: osdt.TIME
+  y: y_field
+
+export:
+  <f: v:figure:export
+  format: a:export_format
+  path: a:export_path
+
+opfile.return: v:figure

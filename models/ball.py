@@ -2,6 +2,7 @@
 
 import osdt
 from osdt import PARAMS
+
 CONNECTOR="Test"
 
 class State(): # state class
@@ -43,5 +44,6 @@ def initialize(systemtem): # initialize the systemtem when the environment start
 def create(x:State,p:Params,**model): # create a new system
     return osdt.create_system(x=x,vars={PARAMS: p},**model)
 
+opfile = osdt.create_system_opfile(__name__,State(), p={Params: Params()})
 
 

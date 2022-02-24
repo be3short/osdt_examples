@@ -11,7 +11,6 @@ def create_ball():
     params = bb.Params(gravity=9.81, restitution=.95)
     system = osdt.create_system(x=state, c=bb.C, f=bb.F, d=bb.D, g=bb.G, u=bb.U,
                               y=bb.Y, vars={bb.PARAMS: params}, id="ball")
-
     osdt.run(time=10.0, jumps=20)
     create_figures()
 

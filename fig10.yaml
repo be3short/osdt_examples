@@ -1,0 +1,67 @@
+# generated figure constructor opfile
+
+opfile.args:
+  export_path: null
+  export_format: png
+  pos_system: []
+  vel_system: []
+
+figure:
+  <f: osdt.create_figure
+  width: 1200
+  height: 800
+  layout: [[1], [2]]
+  title: null
+  dpi: 100.0
+  pad_w: 1.08
+  pad_h: 1.08
+  style: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 1
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 2
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:plot
+  subplot: 1
+  y: [y_position,value]
+  x: p:osdt.TIME
+  system: a:pos_system
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 2
+  y: [y_velocity,value]
+  x: p:osdt.TIME
+  system: a:vel_system
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+export:
+  <f: v:figure:export
+  path: a:export_path
+  format: a:export_format
+
+opfile.return: v:figure

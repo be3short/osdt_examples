@@ -2,6 +2,16 @@ import osdt
 from osdt_examples.models import sensor
 from osdt_examples.models import ball
 
+def create_opfiles():
+    systems = {
+        "ball1": ball.opfile,
+        "ball2": ball.opfile
+    }
+    figures = {
+        "figure1": [[1],[2]],
+        "figure2": [[1],[2]]
+    }
+
 def main():
     ball_state = ball.State(y_position=1.0,y_velocity=0.0)
     ball_params = ball.Params(gravity=9.81,restitution=.95)

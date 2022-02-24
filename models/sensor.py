@@ -79,3 +79,6 @@ def initialize(system): # initialize the system when the environment starts
 
 def create(x,p,**model): # create a new system
     return osdt.create_system(x=x,vars={PARAMS: p},**model)
+
+
+opfile = osdt.create_system_opfile(__name__,State(), p={Params: Params()})
