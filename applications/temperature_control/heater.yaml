@@ -1,0 +1,58 @@
+# generated opfile 
+temperature:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.temperature_system.State
+    temperature: 60.0
+  vars:
+    p:osdt_examples.models.temperature_system.Params:
+      <f: osdt_examples.models.temperature_system.Params
+      heater_capacity: 90.0
+      outside_temperature: 40.0
+  c: osdt_examples.models.temperature_system.C
+  f: osdt_examples.models.temperature_system.F
+  d: osdt_examples.models.temperature_system.D
+  g: osdt_examples.models.temperature_system.G
+  u: osdt_examples.models.temperature_system.U
+  y: osdt_examples.models.temperature_system.Y
+  routine: osdt_examples.models.temperature_system.routine
+  initialize: osdt_examples.models.temperature_system.initialize
+
+controller:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.thermostat_controller.State
+    thermostat_on: 0.0
+    set_temperature: 60.0
+    measured_temp: 0.0
+    _non_dynamic:
+    - measured_temp
+  vars:
+    p:osdt_examples.models.thermostat_controller.Params:
+      <f: osdt_examples.models.thermostat_controller.Params
+      hysteresis_range: 5.0
+  c: osdt_examples.models.thermostat_controller.C
+  f: osdt_examples.models.thermostat_controller.F
+  d: osdt_examples.models.thermostat_controller.D
+  g: osdt_examples.models.thermostat_controller.G
+  u: osdt_examples.models.thermostat_controller.U
+  y: osdt_examples.models.thermostat_controller.Y
+  routine: osdt_examples.models.thermostat_controller.routine
+  initialize: osdt_examples.models.thermostat_controller.initialize
+
+:
+  <f: osdt.environment.create_connections
+  connection_matrix:
+  - ['v:temperature', 'p:osdt_examples.models.temperature_system.CONTROLLER', 'v:controller']
+  - ['v:controller', 'p:osdt_examples.models.thermostat_controller.TEMPERATURE', 'v:temperature']
+  yaml_args: {sort_keys: false, default_flow_style: null}
+
+:
+  <f: osdt.toolbox.run
+  time: -1.0
+  jumps: -1
+
+figure:
+  <o: osdt_examples/applications/temperature_control/figure1.yaml
+  export_path: null
+  export_format: png

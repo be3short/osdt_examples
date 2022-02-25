@@ -14,5 +14,13 @@ def figure1(export_path=None,export_format="png"):
     figure1.export(export_path,format=export_format)
     return figure1
 
+def create_opfile():
+    op = osdt.constructor.OpfileBuilder()
+    op.add_sys("timer",timer,timer.State(),vars={timer.Params: timer.Params()})
+    op.add_func(None, osdt.run)
+    op.add_file("figure","osdt_examples/timer_fig.yaml")
+    op.create_opfile("timer_opfile")
+
 if __name__ == "__main__":
-    main()
+    create_opfile()
+    #main()

@@ -26,10 +26,6 @@ ball2:
     y_position: 1.0
     y_velocity: 0.0
   vars:
-    params2:
-      <f: osdt_examples.models.ball.Params
-      gravity: 9.81
-      restitution: 0.9
     p:osdt_examples.models.ball.Params:
       <f: osdt_examples.models.ball.Params
       gravity: 9.81

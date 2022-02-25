@@ -1,0 +1,28 @@
+# generated opfile 
+timer:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.timer.State
+    value: 0.0
+  vars:
+    p:osdt_examples.models.timer.Params:
+      <f: osdt_examples.models.timer.Params
+      interval: 1.0
+  c: osdt_examples.models.timer.C
+  f: osdt_examples.models.timer.F
+  d: osdt_examples.models.timer.D
+  g: osdt_examples.models.timer.G
+  u: osdt_examples.models.timer.U
+  y: osdt_examples.models.timer.Y
+  routine: osdt_examples.models.timer.routine
+  initialize: osdt_examples.models.timer.initialize
+
+:
+  <f: osdt.toolbox.run
+  time: -1.0
+  jumps: -1
+
+figure:
+  <o: osdt_examples/timer_fig.yaml
+  export_path: null
+  export_format: png

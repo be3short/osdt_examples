@@ -1,0 +1,27 @@
+# generated opfile 
+pendulum:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.simple_pendulum.State
+    angle: 1.0
+    velocity: 0.0
+  vars:
+    p:osdt_examples.models.simple_pendulum.Params:
+      <f: osdt_examples.models.simple_pendulum.Params
+      length: 1.0
+      mass: 1.0
+      gravity: 9.81
+  c: osdt_examples.models.simple_pendulum.C
+  f: osdt_examples.models.simple_pendulum.F
+  u: osdt_examples.models.simple_pendulum.U
+  y: osdt_examples.models.simple_pendulum.Y
+
+:
+  <f: osdt.toolbox.run
+  time: 5.0
+  jumps: -1
+
+figure:
+  <o: osdt_examples/applications/pendulum/figure1.yaml
+  export_path: null
+  export_format: png
