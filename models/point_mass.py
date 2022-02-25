@@ -48,7 +48,7 @@ def F(x, x_dot, sys):
    # print("envtime="+str(osdt.get_environment_time())+" "+str(x.__dict__))
 
 def CEarth(x, sys):
-    system = sys.connection(id=sys.get(PARAMS).mass_connection_key)
+    system = sys.get(ALL_MASSES)[0]
     earth = system.x()
     dist = compute_distance(x, earth)
     if dist < 6361000:# and x.y_velocity==0.0:
@@ -58,7 +58,7 @@ def CEarth(x, sys):
 
 
 def D(x,sys):
-    system=sys.connection(id=sys.get(PARAMS).mass_connection_key)
+    system=sys.get(ALL_MASSES)[0]
     earth=system.x()
     dist=compute_distance(x,earth)
     if dist < 6361000 and x.y_velocity>0:
@@ -68,7 +68,7 @@ def D(x,sys):
 
 
 def G(x,x_plus,sys):
-    system=sys.connection(id=sys.get(PARAMS).mass_connection_key)
+    system=sys.get(ALL_MASSES)[0]
     earth=system.x()
     dist=compute_distance(x,earth)
     #if dist < 6361000:
@@ -111,7 +111,7 @@ def FDrag(x,x_dot,sys):
     point_masses = sys.input()
     x_force_total = 0
     y_force_total = 0
-    system = sys.connection(id=sys.get(PARAMS).mass_connection_key)
+    system = sys.get(ALL_MASSES)[0]
     earth = system.x()
     dist = compute_distance(x, earth)
    # if dist >= 6350000:

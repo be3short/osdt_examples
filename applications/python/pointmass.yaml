@@ -1,0 +1,370 @@
+# generated opfile 
+point_mass_0:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 481.5289248315907
+    y_position: 163.95107124277587
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_1:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 431.2217203518453
+    y_position: 613.6682901655489
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_2:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 651.879437755671
+    y_position: 174.72320170807967
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_3:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 603.9644109325686
+    y_position: 798.7495634872107
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_4:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 254.36011635221323
+    y_position: 636.9260092265281
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_5:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 494.80545505291036
+    y_position: 485.09169195606955
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_6:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 251.37487647234877
+    y_position: 483.78541928343526
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_7:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 185.89231903687005
+    y_position: 407.4174870583729
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_8:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 394.5391337991418
+    y_position: 415.69856329504864
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+point_mass_9:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.point_mass.State
+    x_position: 267.034079993164
+    y_position: 612.4753691161626
+    x_velocity: 0.0
+    y_velocity: 0.0
+  vars:
+    PARAMS:
+      <f: osdt_examples.models.point_mass.Params
+      mass: 1.0
+      gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: osdt_examples.models.point_mass.Y
+  routine: osdt_examples.models.point_mass.routine
+  initialize: osdt_examples.models.point_mass.initialize
+
+:
+  <f: osdt_examples.models.point_mass.connect_all_masses
+
+:
+  <f: osdt.toolbox.run
+  time: -1.0
+  jumps: -1
+
+# generated figure constructor opfile
+
+figure:
+  <f: osdt.create_figure
+  width: 1200
+  height: 800
+  layout: [[1, 2, 3, 3], [4, 5, 3, 3]]
+  title: null
+  dpi: 100.0
+  pad_w: 1.08
+  pad_h: 1.08
+  style: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 1
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 2
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 3
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 4
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 5
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:plot
+  subplot: 1
+  y: y_field
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 2
+  y: y_field
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 1
+  y: x_position
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 2
+  y: y_position
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 3
+  y: x_velocity
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 4
+  y: y_velocity
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 5
+  y: y_position
+  x: x_position
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null

@@ -1,0 +1,162 @@
+# generated opfile 
+vehicle1:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.dubins_vehicle.State
+    x_position: 0.0
+    y_position: 0.0
+    orientation: 0.5
+  vars: {}
+  c: osdt_examples.models.dubins_vehicle.C
+  f: osdt_examples.models.dubins_vehicle.F
+  d: osdt_examples.models.dubins_vehicle.D
+  g: osdt_examples.models.dubins_vehicle.G
+  u: osdt_examples.models.dubins_vehicle.U
+  y: osdt_examples.models.dubins_vehicle.Y
+  routine: osdt_examples.models.dubins_vehicle.routine
+  initialize: osdt_examples.models.dubins_vehicle.initialize
+
+controller1:
+  <f: osdt.create_system
+  x:
+    <f: osdt_examples.models.dubins_controller.State
+    turn: 1.0
+    velocity: 0.5
+  vars: {}
+  c: osdt_examples.models.dubins_controller.C
+  f: osdt_examples.models.dubins_controller.F
+  d: osdt_examples.models.dubins_controller.D
+  g: osdt_examples.models.dubins_controller.G
+  u: osdt_examples.models.dubins_controller.U
+  y: osdt_examples.models.dubins_controller.Y
+  routine: osdt_examples.models.dubins_controller.routine
+  initialize: osdt_examples.models.dubins_controller.initialize
+
+:
+  <f: osdt.create_connections
+  connection_matrix:
+  - ["v:vehicle1", "p:osdt_examples.models.dubins_vehicle.CONTROLLER", "v:controller1"]
+  - ["v:controller1", "p:osdt_examples.models.dubins_controller.VEHICLE", "v:vehicle1"]
+
+:
+  <f: osdt.toolbox.run
+  time: -1.0
+  jumps: -1
+
+# generated figure constructor opfile
+
+figure:
+  <f: osdt.create_figure
+  width: 1200
+  height: 800
+  layout: [[1, 2, 5, 5], [3, 4, 5, 5]]
+  title: null
+  dpi: 100.0
+  pad_w: 1.08
+  pad_h: 1.08
+  style: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 1
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 2
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 3
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 4
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:configure_subplot
+  subplot: 5
+  title: null
+  x_axis: null
+  y_axis: null
+  legend: false
+  colors: null
+
+:
+  <f: v:figure:plot
+  subplot: 1
+  y: x_position
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 2
+  y: y_position
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 3
+  y: orientation
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 4
+  y: turn
+  x: p:osdt.TIME
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null
+
+:
+  <f: v:figure:plot
+  subplot: 5
+  y: y_position
+  x: x_position
+  system: null
+  label: null
+  color: null
+  dash_style: null
+  field_label: false
+  max_points: null

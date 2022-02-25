@@ -1,8 +1,8 @@
 import sys, os
 
 import osdt
-
-from osdt_example.models import point_mass as pm
+from osdt_examples.models import point_mass
+from osdt_examples.models import point_mass as pm
 import osdt
 V_0=.1
 state1 = pm.State(x_position=1000.0, y_position=1000.0, x_velocity=-V_0, y_velocity = V_0)
@@ -29,14 +29,22 @@ system0 = osdt.create_system(x=state0, c=pm.C, f=pm.F, u=pm.U, vars={pm.PARAMS: 
 
 pm.connect_all_masses()
 osdt.set_integrator(osdt.get_configuration().integrator_type, max_step=100.0)
-osdt.run(time=100000.0, jumps=20)
+#osdt.run(time=100000.0, jumps=20)
 xyfig = osdt.create_figure(width=800, height=600, layout=[[1]], title="Point Mass Interaction",dpi=130)
 xyfig.plot(1,x="x_position",y="y_position")
 #xyfig.plot(1,"y_position")
 
 osdt.display()
 
-
+def create_opfile():
+    fb = osdt.get_opfile_builder()
+    for index in range(0,10):
+        fb.add_sys("point_mass_"+str(index),point_mass,point_mass.State(x_position=osdt.random(100,1000),y_position=osdt.random(100,1000)),PARAMS=point_mass.Params)
+    fb.add_func(None,point_mass.connect_all_masses)
+    fb.add_func(None,osdt.run)
+    fb.add_fig("figure",layout=[[1,2,3,3],[4,5,3,3]])
+    fb.create_opfile("applications/python/pointmass.yaml")
+create_opfile()
 '''
 # create a figure
 fig = osdt.create_figure(layout=[[1,3,4,4], [2,3,4,4]],width=1200, height=600,
