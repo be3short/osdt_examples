@@ -36,7 +36,7 @@ figure:
 :
   <f: v:figure:plot
   subplot: 1
-  y: angle
+  y: y_field
   x: p:osdt.TIME
   system: null
   label: null
@@ -48,7 +48,7 @@ figure:
 :
   <f: v:figure:plot
   subplot: 2
-  y: velocity
+  y: y_field
   x: p:osdt.TIME
   system: null
   label: null

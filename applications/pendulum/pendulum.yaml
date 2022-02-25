@@ -13,15 +13,22 @@ pendulum:
       gravity: 9.81
   c: osdt_examples.models.simple_pendulum.C
   f: osdt_examples.models.simple_pendulum.F
+  d: osdt_examples.models.simple_pendulum.D
+  g: osdt_examples.models.simple_pendulum.G
   u: osdt_examples.models.simple_pendulum.U
   y: osdt_examples.models.simple_pendulum.Y
+  routine: osdt_examples.models.simple_pendulum.routine
+  initialize: osdt_examples.models.simple_pendulum.initialize
 
 :
   <f: osdt.toolbox.run
-  time: 5.0
+  time: -1.0
   jumps: -1
 
 figure:
-  <o: osdt_examples/applications/pendulum/figure1.yaml
+  <o: D:\osdt_home\osdt_examples/applications/pendulum/figure1.yaml
   export_path: null
   export_format: png
+
+:
+  <f: osdt_examples.models.simple_pendulum2.get_pendulum_output
