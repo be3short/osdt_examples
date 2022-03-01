@@ -5,20 +5,14 @@ import yaml
 from osdt_examples.models import ball
 
 def main(
-        y_position = 1.0,
-        y_velocity = 0.0,
-        gravity = 9.81,
-        restitution = .95,
-        time=10.0,
-        jumps=20,
+        argument_file = "osdt_examples/applications/ball/ball_args.yaml"
     ):
+    args = osdt.get_file_args(argument_file)
+    state = ball.State(y_position=args["y_position"], y_velocity=args["y_velocity"])
+    params = ball.Params(gravity=args["gravity"], restitution=args["restitution"])
+    system = osdt.create_system(x=state, vars={ball.Params: params}, id="ball", **args["model"])
 
-    state = ball.State(y_position=y_position, y_velocity=y_velocity)
-    params = ball.Params(gravity=gravity, restitution=restitution)
-    system = osdt.create_system(x=state, c=ball.C, f=ball.F, d=ball.D, g=ball.G, u=ball.U,
-                              y=ball.Y, vars={ball.Params: params}, id="ball")
-
-    osdt.run(time=time,jumps=jumps)
+    osdt.run(time=args["time"],jumps=args["jumps"])
 
     # create a figure
     fig = osdt.create_figure(layout=[[1,3,4,4], [2,3,4,4]],width=1200, height=600,

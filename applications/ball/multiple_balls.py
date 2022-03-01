@@ -5,6 +5,7 @@ import yaml
 from osdt_examples.models import ball
 
 def main(
+        count = 3,
         y_position = 1.0,
         y_velocity = 0.0,
         gravity = 9.81,
@@ -13,10 +14,11 @@ def main(
         jumps=20,
     ):
 
-    state = ball.State(y_position=y_position, y_velocity=y_velocity)
-    params = ball.Params(gravity=gravity, restitution=restitution)
-    system = osdt.create_system(x=state, c=ball.C, f=ball.F, d=ball.D, g=ball.G, u=ball.U,
-                              y=ball.Y, vars={ball.Params: params}, id="ball")
+    for ind in range(0,count):
+        state = ball.State(y_position=y_position, y_velocity=y_velocity)
+        params = ball.Params(gravity=gravity, restitution=restitution)
+        system = osdt.create_system(x=state, c=ball.C, f=ball.F, d=ball.D, g=ball.G, u=ball.U,
+                                  y=ball.Y, vars={ball.Params: params}, id="ball_"+str(ind))
 
     osdt.run(time=time,jumps=jumps)
 

@@ -1,4 +1,5 @@
 import argparse
+import json
 
 import osdt
 import yaml
@@ -9,7 +10,8 @@ def main(
     ):
 
     pac=osdt.utils.read_yaml_file(osdt.get_path(workspace))
-    print(pac)
+    print("Workspace: "+str(workspace)+"\n-----------------------------------")
+    print(json.dumps(pac,indent=4))
 
 if __name__ == "__main__":
     main()
