@@ -23,8 +23,8 @@ def main(y_position = 1.0,
     vel_sensor = osdt.create_system(x=vel_sensor_state, c=sensor.C, f=sensor.F, d=sensor.D, g=sensor.G, u=sensor.U, id="vel_sensor",vars={sensor.Params: vel_sensor_params})
 
     # connect the sensors
-    pos_sensor.set(sensor.INPUT, ball)
-    vel_sensor.set(sensor.INPUT, ball)
+    pos_sensor.set(sensor.INPUT, ball_system)
+    vel_sensor.set(sensor.INPUT, ball_system)
 
     # run the environment
     osdt.run()
@@ -32,11 +32,13 @@ def main(y_position = 1.0,
     # create the figure
     figure1 = osdt.create_figure(1200, 800, layout=[[1], [2]],
                                  title="Bouncing Ball with Sensors")
+    figure1.configure_subplot(1, y_axis="Y Position (m)")
+    figure1.configure_subplot(2, x_axis="Time(s)", y_axis="Y Velocity (m/s)")
     figure1.plot(1, "y_position")
     figure1.plot(1, "value", system="pos_sensor")
     figure1.plot(2, "y_velocity")
     figure1.plot(2, "value", system="vel_sensor")
-    figure1.export("figure1",format=".png")
+    figure1.export("figure1",format="png")
 
 
     osdt.display()

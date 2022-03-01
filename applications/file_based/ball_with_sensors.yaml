@@ -1,0 +1,44 @@
+ball:
+  state:
+    y_position: 1.0
+    y_velocity: 0.0
+  params:
+    gravity: 9.81
+    restitution: .95
+  model:
+    c: osdt_examples.models.ball.C
+    f: osdt_examples.models.ball.F
+    d: osdt_examples.models.ball.D
+    g: osdt_examples.models.ball.G
+    u: osdt_examples.models.ball.U
+    y: osdt_examples.models.ball.Y_dict
+
+pos_sensor:
+  state:
+    value: 0.0
+    timer: 0.0
+  params:
+    sample_period: .2
+    sample_field: y_position
+  model:
+    id: pos_sensor
+    c: osdt_examples.models.sensor.C
+    f: osdt_examples.models.sensor.F
+    d: osdt_examples.models.sensor.D
+    g: osdt_examples.models.sensor.G
+    u: osdt_examples.models.sensor.U
+
+vel_sensor:
+  state:
+    value: 0.0
+    timer: 0.0
+  params:
+    sample_period: .2
+    sample_field: y_velocity
+  model:
+    id: pos_sensor
+    c: osdt_examples.models.sensor.C
+    f: osdt_examples.models.sensor.F
+    d: osdt_examples.models.sensor.D
+    g: osdt_examples.models.sensor.G
+    u: osdt_examples.models.sensor.U
