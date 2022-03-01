@@ -1,0 +1,11 @@
+ball:
+  y_position: 1.0
+  y_velocity: 2.0
+  gravity: 9.81
+  restitution: .95
+  c: osdt_examples.models.ball.C
+  f: osdt_examples.models.ball.F
+  d: osdt_examples.models.ball.D
+  g: osdt_examples.models.ball.G
+  u: osdt_examples.models.ball.U
+  y: osdt_examples.models.ball.Y
