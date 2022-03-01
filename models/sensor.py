@@ -80,7 +80,12 @@ def connect_input(sh_system,input_system):
 def initialize(system): # initialize the system when the environment starts
     pass
 
-def create(x,p,**model): # create a new system
-    return osdt.create_system(x=x,vars={PARAMS: p},**model)
 
-
+def create(sample_field=None, sample_interval=.25, input=None, id="sensor"):
+    sensor_state = State(value=0.0, timer=0.0)
+    sensor_params = Params(sample_period=sample_interval,
+                                       sample_field=sample_field)
+    sensor_system = osdt.create_system(x=sensor_state, c=C, f=F, d=D, g=G, u=U, y=Y, id=id, vars={Params: sensor_params})
+    if input is not None:
+        sensor_system.set(INPUT,input)
+    return sensor_system

@@ -2,6 +2,7 @@ import osdt
 import osdt as dt
 
 from osdt_examples.models import temperature_system,thermostat_controller,sensor
+import osdt_examples.models as mods
 from random import random
 
 
@@ -57,6 +58,7 @@ def main(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0,
     controller = osdt.create_system(x=controller_state, d=thermostat_controller.D, g=thermostat_controller.G, u=thermostat_controller.U, y=thermostat_controller.Y, id="temperature",
                              vars={thermostat_controller.Params:controller_params} , routine=thermostat_controller.routine )
 
+    """
     temp_sensor_state = sensor.State(value=0.0, timer=0.0)
     temp_sensor_params = sensor.Params(sample_period=temp_sample_period,
                                       sample_field=None)
@@ -64,10 +66,11 @@ def main(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0,
                                     d=sensor.D, g=sensor.G, u=sensor.U,y=sensor.Y,
                                     id="temp_sensor",
                                     vars={sensor.Params: temp_sensor_params})
-
-
-    temperature.set(temperature_system.CONTROLLER,controller)
     temp_sensor.set(sensor.INPUT, temperature)
+    """
+
+    temp_sensor = mods.create_sensor(sample_field=None,sample_interval=0.2,input=temperature)
+    temperature.set(temperature_system.CONTROLLER,controller)
     controller.set(thermostat_controller.TEMPERATURE, temp_sensor)
 
   #  dt.set_integrator(max_step=.01)
