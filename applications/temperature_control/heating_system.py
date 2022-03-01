@@ -6,9 +6,11 @@ from random import random
 import osdt.constructor
 
 
-def run(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0,
+def test(initial_temp=60.0 ):
+    print(initial_temp)
+def main(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0,
         thermostat_on=0.0, set_temperature=60.0, hysteresis_range=15.0,
-        t=10.0, j=60,q=[1,2,3]):
+        t=10.0, j=60):
 
     temperature = temperature_system.create(initial_temp=initial_temp,
                                             heater_capacity=heater_capacity,
@@ -31,7 +33,6 @@ def run(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0,
 
     # display figure
     dt.display()
-    print(q)
 
 
 def create_opfile():

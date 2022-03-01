@@ -9,8 +9,6 @@ def main(
         y_velocity = 0.0,
         gravity = 9.81,
         restitution = .95,
-        time=10.0,
-        jumps=20,
     ):
 
     state = ball.State(y_position=y_position, y_velocity=y_velocity)
