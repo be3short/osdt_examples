@@ -33,7 +33,7 @@ def runpm():
     osdt.set_integrator(osdt.get_configuration().integrator_type, max_step=100.0)
     #osdt.run(time=100000.0, jumps=20)
     xyfig = osdt.create_figure(width=800, height=600, layout=[[1]], title="Point Mass Interaction",dpi=130)
-    xyfig.plot(1,x="x_position",y="y_position")
+    xyfig.plot(1,x="x_position",y="y_position",system=)
     #xyfig.plot(1,"y_position")
 
     osdt.display()
