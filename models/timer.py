@@ -11,22 +11,16 @@ class Params: # parameters object
     def __init__(self, interval=1.0):
         self.interval = interval
 
-class Params2:
-    def __init__(self,params1=None,params2=Params()):
-        self.value=params1 if params1 is not None else Params()
-        self.params2=params2 if params2 is not None else Params()
-
-def C(x, system): # flow set (state in continuous domain)
+def C(x, system): # flow set (determine if state in continuous domain)
     return x.value >= 0.0
 
-def F(x, x_dot, system): # flow map (continuous dynamics)
+def F(x, x_dot, system): # flow map (compute continuous dynamics)
     x_dot.value = -1.0
 
-def D(x, system): # jump set (state in discrete domain)
+def D(x, system): # jump set (determine if state in discrete domain)
     return x.value <= 0.0
 
-def G(x, x_plus, system): # jump map (discrete dynamics)
-    osdt.get_logger().info(system.get(None))
+def G(x, x_plus, system): # jump map (compute discrete dynamics)
     x_plus.value = system.get(Params).interval
 
 def U(x, system, *args, **argmap): # input map (determine input)
