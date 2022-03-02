@@ -1,3 +1,4 @@
+import osdt
 import osdt as dt
 
 TEMPERATURE = "TEMPERATURE"
@@ -39,8 +40,26 @@ def U(x, hs, *args, **argmap):
 def Y(x, hs, *args, **argmap):
     return x.thermostat_on
 
-def connect_temperature_system(controller_sys, temperature_sys):
-    controller_sys.set(TEMPERATURE,temperature_sys)
-
 def routine(x, hs):
     x.measured_temp=hs.get_input()
+
+
+def create(thermostat_on=0.0, set_temperature=60.0, hysteresis_range=15.0, temperature_system = None) -> osdt.System:
+    controller_state = State(thermostat_on=thermostat_on, set_temperature=set_temperature)
+    controller_params = Params(hysteresis_range=hysteresis_range)
+
+    controller = osdt.create_system(x=controller_state,
+                                    d=D,
+                                    g=G,
+                                    u=U,
+                                    y=Y,
+                                    id="temperature",
+                                    vars={
+                                        Params: controller_params},
+                                    routine=routine)
+
+    return controller
+
+
+def connect_heater(controller_sys, temperature_sys):
+    controller_sys.set(TEMPERATURE,temperature_sys)

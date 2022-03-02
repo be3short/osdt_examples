@@ -1,3 +1,4 @@
+import osdt
 import osdt as dt
 
 TEMPERATURE = "TEMPERATURE"
@@ -45,21 +46,13 @@ def Y(x, hs, *args, **argmap):
     return hs.x().temperature
 
 
-class TemperatureSystem(dt.System):
-    def __init__(self, x=State, c=C, f=F, d=D, g=G, u=U, y=Y, p=Params(), id="temperature_sys"):
-        super().__init__(x=x, c=c, f=f, d=d, g=g, u=u, y=y, id=id, vars={Params:p})
+def create(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0, id="temperature") -> osdt.System:
+    temperature_state = State(temperature=initial_temp)
+    temperature_params = Params(heater_capacity=heater_capacity,
+                    outside_temperature=outside_temp)
+    temperature = osdt.create_system(x=temperature_state, c=C, f=F, d=D, g=G, u=U, y=Y, id=id,
+                             vars={Params:temperature_params} )
+    return temperature
 
-def create(c=C, f=F, d=D, g=G, u=U, y=Y, id="temperature_sys",
-                initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0):
-        state=State(temperature=initial_temp)
-        params=Params(heater_capacity=heater_capacity,
-                      outside_temperature=outside_temp)
-        return TemperatureSystem(x=state, c=c, f=f, d=d, g=g, u=u, y=y, id=id,p=params)
-
-
-def create(c=C, f=F, d=D, g=G, u=U, y=Y, id="temperature_sys",
-                initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0):
-        state=State(temperature=initial_temp)
-        params=Params(heater_capacity=heater_capacity,
-                      outside_temperature=outside_temp)
-        return TemperatureSystem(x=state, c=c, f=f, d=d, g=g, u=u, y=y, id=id,p=params)
+def connect_controller(temperature_system, controller_system):
+    temperature_system.set(CONTROLLER,controller_system)

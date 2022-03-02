@@ -11,9 +11,9 @@ class State:
         self.y_velocity= y_velocity
 
 class Params:
-    def __init__(self, mass = 1.0 ):
+    def __init__(self, mass = 1.0 ,gravity=0.00000000006674 ):
         self.mass = mass
-        self.gravity=0.00000000006674
+        self.gravity=gravity
 
 def C(x, hs):
 
@@ -140,3 +140,11 @@ def FDrag(x,x_dot,sys):
     x_dot.y_velocity = y_force_total / sys.get(PARAMS).mass
     x_dot.x_position = x.x_velocity
     x_dot.y_position = x.y_velocity
+
+
+def create(x_position=1000.0, y_position=1000.0, x_velocity=0.0,
+                      y_velocity=0.0, mass=1000.0, id="pointmass"):
+    state = State(x_position, y_position, x_velocity, y_velocity)
+    params = Params(mass)
+    system = osdt.create_system(x=state, c=C, f=F, u=U, vars={PARAMS: params}, id=id)
+    return system
