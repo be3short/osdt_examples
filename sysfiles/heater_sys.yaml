@@ -1,0 +1,55 @@
+# constructor file: heapter_system, heapter_controller, connections
+
+heapter_system:
+  values:
+    x:
+      temperature: 60.0
+    var1:
+      heater_capacity: 90.0
+      outside_temperature: 40.0
+  properties:
+    id: heater_system2
+    label: null
+  objects:
+    x: osdt_examples.models.heater_system.State
+    var1: osdt_examples.models.heater_system.Params
+  model:
+    c: osdt_examples.models.heater_system.C
+    f: osdt_examples.models.heater_system.F
+    d: null
+    g: null
+    u: osdt_examples.models.heater_system.U
+    y: osdt_examples.models.heater_system.Y
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.heater_system.Params
+
+heapter_controller:
+  values:
+    x:
+      thermostat_on: 0.0
+      set_temperature: 60.0
+    var1:
+      hysteresis_range: 5.0
+  properties:
+    id: heater_controller2
+    label: null
+  objects:
+    x: osdt_examples.models.heater_controller.State
+    var1: osdt_examples.models.heater_controller.Params
+  model:
+    c: null
+    f: null
+    d: osdt_examples.models.heater_controller.D
+    g: osdt_examples.models.heater_controller.G
+    u: osdt_examples.models.heater_controller.U
+    y: osdt_examples.models.heater_controller.Y
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.heater_controller.Params
+
+connections:
+- heater_controller2,osdt_examples.models.heater_controller.TEMPERATURE,heater_system2
+- heater_system2,osdt_examples.models.heater_system.CONTROLLER,heater_controller2

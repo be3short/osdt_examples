@@ -52,7 +52,7 @@ def U(x, system, *args, **argmap): # input map (determine input value)
     signal_system = system.get(INPUT)
     sample_field = system.get(Params).sample_field
     signal_input = signal_system.get_output()
-    if sample_field is None:
+    if len(sample_field)==0:
         return signal_input
     else:
         if type(signal_input) is not dict: signal_input = signal_input.__dict__

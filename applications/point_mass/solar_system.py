@@ -52,7 +52,7 @@ included = ["earth","mercury", "venus", "earth","mars" ]
 
 def defaults():
     osdt.set_configuration(time=3600.0*24.0*365, jumps=10)
-    osdt.set_integrator(osdt.get_configuration().integrator_type, max_step=250.0)
+    osdt.set_integrator( max_step=250.0)
 
 def main():
     sun = point_mass.create(x_position=1.0, y_position=1.0, x_velocity=0.0, y_velocity =0.0, mass=sun_mass, id="sun")

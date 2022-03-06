@@ -1,0 +1,152 @@
+# constructor file: ball2, vel_sensor, pos_sensor, connections, connectionsA, connectionsB, timer1, timer2
+
+ball:
+  values:
+    x:
+      y_position: 1.0,5.0
+      y_velocity: 0.0
+    var1: $params
+  properties:
+    id: ball
+    label: null
+  objects:
+    x: osdt_examples.models.ball.State
+    var1: osdt_examples.models.ball.Params
+  model:
+    c: osdt_examples.models.ball.C
+    f: osdt_examples.models.ball.F
+    d: osdt_examples.models.ball.D
+    g: osdt_examples.models.ball.G
+    u: null
+    y: osdt_examples.models.ball.Y_dict
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.ball.Params
+
+vel_sensor:
+  values:
+    x:
+      value: 0.0
+      timer: 0.0
+    var1:
+      sample_period: 0.25
+      sample_field: y_velocity
+  properties:
+    id: vel_sensor
+    label: null
+  objects:
+    x: osdt_examples.models.sensor.State
+    var1: osdt_examples.models.sensor.Params
+  model:
+    c: osdt_examples.models.sensor.C
+    f: osdt_examples.models.sensor.F
+    d: osdt_examples.models.sensor.D
+    g: osdt_examples.models.sensor.G
+    u: osdt_examples.models.sensor.U
+    y: osdt_examples.models.sensor.Y
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.sensor.Params
+
+pos_sensor:
+  values:
+    x:
+      value: 0.0
+      timer: 0.0
+    var1:
+      sample_period: 0.25
+      sample_field: y_position
+  properties:
+    id: pos_sensor
+    label: null
+  objects:
+    x: osdt_examples.models.sensor.State
+    var1: osdt_examples.models.sensor.Params
+  model:
+    c: osdt_examples.models.sensor.C
+    f: osdt_examples.models.sensor.F
+    d: osdt_examples.models.sensor.D
+    g: osdt_examples.models.sensor.G
+    u: osdt_examples.models.sensor.U
+    y: osdt_examples.models.sensor.Y
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.sensor.Params
+
+connections:
+- pos_sensor, ball1, osdt_examples.models.sensor.INPUT
+- vel_sensor, ball1, osdt_examples.models.sensor.INPUT
+
+connectionsA:
+- pos_sensor, osdt_examples.models.sensor.INPUT, ball2
+
+connectionsB:
+- vel_sensor, osdt_examples.models.sensor.INPUT, ball2
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+- ball2,'hello',pos_sensor
+
+timer1:
+  values:
+    x:
+      value: 0.0
+    var1:
+      interval: 1.0
+  properties:
+    id: timer1
+    label: null
+  objects:
+    x: osdt_examples.models.timer.State
+    var1: osdt_examples.models.timer.Params
+  model:
+    c: osdt_examples.models.timer.C
+    f: osdt_examples.models.timer.F
+    d: osdt_examples.models.timer.D
+    g: osdt_examples.models.timer.G
+    u: null
+    y: null
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.timer.Params
+
+timer2:
+  values:
+    x:
+      value: 0.0
+    var1:
+      interval: 1.0
+  properties:
+    id: timer2
+    label: null
+  objects:
+    x: osdt_examples.models.timer.State
+    var1: osdt_examples.models.timer.Params
+  model:
+    c: osdt_examples.models.timer.C
+    f: osdt_examples.models.timer.F
+    d: osdt_examples.models.timer.D
+    g: osdt_examples.models.timer.G
+    u: null
+    y: null
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.timer.Params
+
+
+
+connections_defs:
+- pos_sensor, ball, osdt_examples.models.sensor.INPUT
+- vel_sensor, ball, osdt_examples.models.sensor.INPUT
+- pos_sensor2, ball2, osdt_examples.models.sensor.INPUT
+- vel_sensor2, ball2, osdt_examples.models.sensor.INPUT

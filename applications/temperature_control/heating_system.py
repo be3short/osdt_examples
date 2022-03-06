@@ -6,12 +6,12 @@ from osdt_examples.models import heater_system, heater_controller
 
 def main(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0,
         thermostat_on=0.0, set_temperature=60.0, hysteresis_range=15.0):
+    if False:
+        heater = heater_system.create(initial_temp, heater_capacity, outside_temp)
+        controller = heater_controller.create(thermostat_on, set_temperature, hysteresis_range)
 
-    heater = heater_system.create(initial_temp, heater_capacity, outside_temp)
-    controller = heater_controller.create(thermostat_on, set_temperature, hysteresis_range)
-
-    heater_system.connect_controller(heater, controller)
-    heater_controller.connect_heater(controller,heater)
+        heater_system.connect_controller(heater, controller)
+        heater_controller.connect_heater(controller,heater)
 
     dt.run()
 
@@ -20,13 +20,21 @@ def main(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0,
                            width=1600, height=600 )
 
     fig.subplot(1).plot("temperature")
+    fig.subplot(1).plot("measured_temp")
+
+    fig.subplot(1).plot("value",system="temp_sensor")
+
     fig.subplot(2).plot("thermostat_on")
+
+    fig.subplot(2).plot("value",system="controller_sensor")
 
     fig.export("figure1",format="png")
 
     # display figure
     dt.display()
-
+    for syst in osdt.get_systems().values():
+        print(osdt.system.get_model(syst).get_component_map())
+        print(syst.get(None))
 
 """
 

@@ -8,7 +8,7 @@ osdt run D:\osdt_dev\osdt_home\osdt_examples\applications\point_mass\point_mass.
 """
 def defaults():
     osdt.set_configuration(time=100000.0,jumps=10)
-    osdt.set_integrator(osdt.get_configuration().integrator_type, max_step=500.0)
+    osdt.set_integrator(max_step=500.0)
 
 def main(top_right_distance = 1000.0,
          top_left_distance = 1000.0,

@@ -1,0 +1,22 @@
+
+figure1:
+  figure: {title: "Hello", layout: [[1,2,5],[3,4,5]], width: 1200, height: 800}
+  configure_subplot:
+  - {i: 1, title: "Subplot"}
+  plot:
+  - {i: 1, y: "value", system: "*pos_sensor*"}
+  - {i: 3, y: "y_position"}
+  - {i: 2, y: "value", system: "*vel_sensor*"}
+  - {i: 4, y: "y_velocity"}
+  - {i: 5, y: "y_velocity", x: "y_position"}
+  export: {path: "examplefig", format: "png"}
+
+
+
+
+
+connectionsz:
+- heater_controller2, temp_sensor, osdt_examples.models.heater_controller.TEMPERATURE
+- heater_system2, controller_sensor, osdt_examples.models.heater_system.CONTROLLER
+- controller_sensor, heater_controller2, osdt_examples.models.sensor.INPUT
+- temp_sensor, heater_system2, osdt_examples.models.sensor.INPUT

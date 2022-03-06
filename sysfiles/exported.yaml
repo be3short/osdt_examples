@@ -1,0 +1,27 @@
+# system constructor file: system
+
+system:
+  values:
+    x:
+      y_position: 1.0
+      y_velocity: 0.0
+    var1:
+      gravity: 9.81
+      restitution: 0.9
+  properties:
+    id: ball1
+    label: Ball 1
+  objects:
+    x: osdt_examples.models.ball.State
+    var1: osdt_examples.models.ball.Params
+  model:
+    c: osdt_examples.models.ball.C
+    f: osdt_examples.models.ball.F
+    d: osdt_examples.models.ball.D
+    g: osdt_examples.models.ball.G
+    u: null
+    y: osdt_examples.models.ball.Y_dict
+    init: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.ball.Params

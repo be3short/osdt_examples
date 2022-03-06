@@ -13,9 +13,11 @@ class State:
 class Params:
     def __init__(self, hysteresis_range=5.0):
         self.hysteresis_range = hysteresis_range
+def C(x, hs):
+    return True
 
 def D(x, hs):
-    current_temp = x.measured_temp
+    current_temp = hs.get_input()
     if hs.get(Params).hysteresis_range + x.set_temperature < current_temp and x.thermostat_on > 0.0:
         return True
     elif x.set_temperature - hs.get(Params).hysteresis_range > current_temp and x.thermostat_on <= 0.0:
@@ -24,7 +26,7 @@ def D(x, hs):
 
 
 def G(x, x_plus, hs):
-    current_temp = x.measured_temp
+    current_temp = hs.get_input()
     if hs.get(Params).hysteresis_range + x.set_temperature < current_temp and x.thermostat_on > 0.0:
         x_plus.thermostat_on = 0.0
     elif x.set_temperature - hs.get(Params).hysteresis_range > current_temp and x.thermostat_on <= 0.0:

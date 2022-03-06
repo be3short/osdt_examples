@@ -1,0 +1,2 @@
+pos_sensor,osdt_examples.models.sensor.INPUT,ball2
+vel_sensor,osdt_examples.models.sensor.INPUT,ball2

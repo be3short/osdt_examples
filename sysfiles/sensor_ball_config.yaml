@@ -1,0 +1,25 @@
+
+systems:
+  system_def_file:
+    ball: ball
+    pos_sensor: pos_sensor
+    vel_sensor: vel_sensor
+    ball2: ball
+    pos_sensor2: pos_sensor
+    vel_sensor2: vel_sensor
+
+system_args:
+  system_def_file:
+    ball: {label: Ball}
+    pos_sensor: {label: Position Sensor}
+    vel_sensor: {label: Velocity Sensor}
+    ball2: {label: Ball 2}
+    pos_sensor2: {label: Position Sensor 2}
+    vel_sensor2: {label: Velocity Sensor 2}
+
+connections:
+  connections_file: [connections_defs]
+
+figures:
+  figure_file: [figure1]
+

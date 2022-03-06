@@ -1,0 +1,8 @@
+systems:
+  'sysfiles/heater_w_sensor.yaml': {ball1: ball, ball2: ball, ball3: ball} 
+
+connections:
+  'sysfiles/heater_w_sensor.yaml': [connections] 
+
+
+

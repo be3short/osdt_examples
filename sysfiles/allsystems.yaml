@@ -1,0 +1,30 @@
+# constructor file: point_mass
+
+point_mass:
+  values:
+    x:
+      x_position: 0.0
+      y_position: 0.0
+      x_velocity: 0.0
+      y_velocity: 0.0
+    var1:
+      mass: 1.0
+      gravity: 6.674e-11
+  properties:
+    id: point_mass
+    label: null
+  objects:
+    x: osdt_examples.models.point_mass.State
+    var1: osdt_examples.models.point_mass.Params
+  model:
+    c: osdt_examples.models.point_mass.C
+    f: osdt_examples.models.point_mass.F
+    d: osdt_examples.models.point_mass.D
+    g: osdt_examples.models.point_mass.G
+    u: osdt_examples.models.point_mass.U
+    y: null
+    initialize: null
+    routine: null
+  varkeys:
+    var1: osdt_examples.models.point_mass.Params
+
