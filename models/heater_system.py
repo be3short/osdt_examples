@@ -46,7 +46,7 @@ def Y(x, hs, *args, **argmap):
     return hs.x().temperature
 
 
-def create(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0, id="temperature") -> osdt.System:
+def create2(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0, id="temperature") -> osdt.System:
     temperature_state = State(temperature=initial_temp)
     temperature_params = Params(heater_capacity=heater_capacity,
                     outside_temperature=outside_temp)
@@ -56,3 +56,9 @@ def create(initial_temp=60.0, heater_capacity=90.0, outside_temp=40.0, id="tempe
 
 def connect_controller(temperature_system, controller_system):
     temperature_system.set(CONTROLLER,controller_system)
+
+
+def create(state=State(),params=Params(),c=C,f=F,d=None,g=None,u=U,y=Y,initialize=None,routine=None,id="heater_system"): # create a new system
+    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)
+
+

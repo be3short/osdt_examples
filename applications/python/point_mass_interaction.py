@@ -1,7 +1,7 @@
 import sys, os
 
 import osdt
-from osdt_examples.models import point_mass
+#from osdt_examples.models import point_mass
 from osdt_examples.models import point_mass as pm
 import osdt
 

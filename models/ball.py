@@ -1,7 +1,9 @@
 """Bouncing ball model"""
+import copy
 
 import osdt
 from osdt import PARAMS
+
 
 CONNECTOR="Test"
 
@@ -11,7 +13,7 @@ class State(): # state class
         self.y_velocity = y_velocity
 
 class Params(): # parameters class
-    def __init__(self, gravity=9.81, restitution=0.9):
+    def __init__(self, gravity=9.81, restitution=0.95):
         self.gravity = gravity
         self.restitution = restitution
 
@@ -39,10 +41,16 @@ def Y_dict(x, hs, *args, **argmap): # output map (determine output)
     return x.__dict__
 
 def initialize(systemtem): # initialize the systemtem when the environment starts
+    print("\n\neeeeeeeeee\n\n\n\n")
     pass
 
-def create(x:State,p:Params,**model): # create a new system
-    return osdt.create_system(x=x,vars={PARAMS: p},**model)
+def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y_dict,initialize=None,routine=None,id="ball"): # create a new system
+    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)
+
+
+# define the positional arguments of create
+osdt.define_function_args(create, state=State(),params=Params())
 
 
 
+#desc = osdt.system_def(__name__,x=State(),c=C,f=F,d=D,g=G,u=U,y=Y_dict,initialize=initialize,vars={Params:Params()})

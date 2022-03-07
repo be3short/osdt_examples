@@ -46,7 +46,7 @@ def routine(x, hs):
     x.measured_temp=hs.get_input()
 
 
-def create(thermostat_on=0.0, set_temperature=60.0, hysteresis_range=15.0, temperature_system = None) -> osdt.System:
+def create2(thermostat_on=0.0, set_temperature=60.0, hysteresis_range=15.0, temperature_system = None) -> osdt.System:
     controller_state = State(thermostat_on=thermostat_on, set_temperature=set_temperature)
     controller_params = Params(hysteresis_range=hysteresis_range)
 
@@ -65,3 +65,8 @@ def create(thermostat_on=0.0, set_temperature=60.0, hysteresis_range=15.0, tempe
 
 def connect_heater(controller_sys, temperature_sys):
     controller_sys.set(TEMPERATURE,temperature_sys)
+
+
+
+def create(state=State(),params=Params(),c=None,f=None,d=D,g=G,u=U,y=Y,initialize=None,routine=None,id="temperature_control"): # create a new system
+    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)

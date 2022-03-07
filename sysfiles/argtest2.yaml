@@ -1,0 +1,8 @@
+val1: {}
+val2: {}
+val3:
+  val3: 3
+test4:
+  val1: 1
+  val2: '2'
+  val3: null

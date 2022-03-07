@@ -12,8 +12,57 @@ figure1:
   export: {path: "examplefig", format: "png"}
 
 
+figure2:
+  figure: {title: "Hello", layout: [[1],[2]], width: 1200, height: 800}
+  configure_subplot:
+  - {i: 1, title: "Subplot"}
+  plot:
+  - {i: 1, y: "angle"}
+  - {i: 2 , y: "velocity"}
+  #export: {path: "examplefig", format: "png"}
+
+figure3:
+  figure: {title: "Ball", layout: [[1],[2]], width: 1200, height: 800}
+  configure_subplot:
+  - {i: 1, title: "Subplot"}
+  plot:
+  - {i: 1, y: "y_position", system: "*ball*"}
+  - {i: 2, y: "y_velocity", system: "*ball*"}
 
 
+figure4:
+  figure: {title: "Temperature", layout: [[1],[2]], width: 1200, height: 800}
+  configure_subplot:
+  - {i: 1, title: "Subplot"}
+  plot:
+  - {i: 1, y: "temperature"}
+  - {i: 2, y: "thermostat_on"}
+
+
+figure4:
+  figure: {title: "Temperature", layout: [[1],[2]], width: 1200, height: 800}
+  configure_subplot:
+  - {i: 1, title: "Subplot"}
+  plot:
+  - {i: 1, y: "temperature"}
+  - {i: 2, y: "thermostat_on"}
+  - {i: 1, y: "value", system: "heater_sensor"}
+  - {i: 2, y: "value", system: "controller_sensor"}
+
+figure5:
+  figure: {title: "Dubins Vehicle", layout: [[1,2,5,5],[3,4,5,5]] ,width: 1600, height: 600}
+  configure_subplot:
+  - {i: 1, title: "X Position"}
+  - {i: 2, title: "Y Position"}
+  - {i: 3, title: "Orientation"}
+  - {i: 4, title: "Turn State"}
+  - {i: 5, title: "X Position vs Y Position"}
+  plot:
+  - {i: 1, y: "x_position"}
+  - {i: 2, y: "y_position"}
+  - {i: 3, y: "orientation"}
+  - {i: 4, y: "turn"}
+  - {i: 5, x: "x_position", y: "y_position"}
 
 connectionsz:
 - heater_controller2, temp_sensor, osdt_examples.models.heater_controller.TEMPERATURE

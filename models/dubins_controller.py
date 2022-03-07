@@ -1,6 +1,6 @@
 import math
 import osdt
-from osdt_examples.models import dubins_vehicle
+
 
 VEHICLE = "VEHICLE"
 
@@ -17,7 +17,7 @@ class VehicleInput:
         self.orientation = orientation
 
 def C(x, system): # flow set (state in continuous domain)
-    return False
+    return True
 
 
 def F(x, x_dot, system): # flow map (continuous dynamics)
@@ -65,6 +65,9 @@ def Y_convert(x, system,*args, **argmap):  # output map (determine output)
     return y
 
 
-def create(x,**model): # create a new system
+def createz(x,**model): # create a new system
     return osdt.create_system(x=x,**model)
 
+
+def create(state=State(),vars=None,c=C,f=F,d=D,g=G,u=U,y=Y,initialize=None,routine=None,id="dubins_control"): # create a new system
+    return osdt.create_system(x=state,vars=vars,c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)

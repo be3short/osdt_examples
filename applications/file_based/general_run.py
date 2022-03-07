@@ -9,6 +9,7 @@ def main(def_file = "",
          system_args_file="sysfiles/ball_w_sensors.yaml",
          connections_file="sysfiles/ball_w_sensors.yaml",
          figure_file="sysfiles/figure.yaml"):
+
     pathmap={"system_def_file":system_def_file,"system_arg_file":system_args_file,"connections_file":connections_file,"figure_file":figure_file}
     def_data = osdt.load(def_file)
     print(def_data)

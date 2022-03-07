@@ -1,0 +1,14 @@
+state:
+  y_position: 3.0
+  y_velocity: 0.0
+params:
+  gravity: 9.81
+  restitution: 0.9
+c: osdt_examples.models.ball.C
+f: osdt_examples.models.ball.F
+d: osdt_examples.models.ball.D
+g: osdt_examples.models.ball.G
+u: osdt_examples.models.ball.U
+y: osdt_examples.models.ball.Y_dict
+initialize: osdt_examples.models.ball.initialize
+routine: null

@@ -1,0 +1,175 @@
+# constructor file: ball, timer, point_mass_1, point_mass_2, simple_pendulum, sensor, heater_system, heater_controller, dubins_controller, dubins_vehicle
+
+ball:
+  state:
+    y_position: 3.0
+    y_velocity: 0.0
+  params:
+    gravity: 9.81
+    restitution: 0.97
+  c: osdt_examples.models.ball.C
+  f: osdt_examples.models.ball.F
+  d: osdt_examples.models.ball.D
+  g: osdt_examples.models.ball.G
+  u: osdt_examples.models.ball.U
+  y: osdt_examples.models.ball.Y_dict
+  initialize: null
+  routine: null
+  id: ball
+  $: osdt_examples.models.ball.create
+
+timer:
+  state:
+    value: 0.0
+  params:
+    interval: 1.0
+  c: osdt_examples.models.timer.C
+  f: osdt_examples.models.timer.F
+  d: osdt_examples.models.timer.D
+  g: osdt_examples.models.timer.G
+  u: osdt_examples.models.timer.U
+  y: osdt_examples.models.timer.Y
+  initialize: null
+  routine: null
+  $: osdt_examples.models.timer.create
+
+point_mass_1:
+  state:
+    x_position: -1000.0
+    y_position: -1000.0
+    x_velocity: 0.0
+    y_velocity: 0.0
+  params:
+    mass: 10000000000.0
+    gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: null
+  initialize: null
+  routine: null
+  $: osdt_examples.models.point_mass.create
+
+point_mass_2:
+  state:
+    x_position: 1000000000.0
+    y_position: 10000000000.0
+    x_velocity: 0.0
+    y_velocity: 0.0
+  params:
+    mass: 10000000000.0
+    gravity: 6.674e-11
+  c: osdt_examples.models.point_mass.C
+  f: osdt_examples.models.point_mass.F
+  d: osdt_examples.models.point_mass.D
+  g: osdt_examples.models.point_mass.G
+  u: osdt_examples.models.point_mass.U
+  y: null
+  initialize: null
+  routine: null
+  $: osdt_examples.models.point_mass.create
+
+simple_pendulum:
+  state:
+    angle: 1.0
+    velocity: 0.0
+  params:
+    length: 1.0
+    mass: 1.0
+    gravity: 9.81
+  c: osdt_examples.models.simple_pendulum.C
+  f: osdt_examples.models.simple_pendulum.F
+  u: null
+  y: null
+  initialize: null
+  routine: null
+  id: pendulum
+  $: osdt_examples.models.simple_pendulum.create
+
+sensor:
+  state:
+    value: 0.0
+    timer: 0.0
+  params:
+    sample_period: 0.25
+    sample_field: ''
+  c: osdt_examples.models.sensor.C
+  f: osdt_examples.models.sensor.F
+  d: osdt_examples.models.sensor.D
+  g: osdt_examples.models.sensor.G
+  u: osdt_examples.models.sensor.U
+  y: osdt_examples.models.sensor.Y
+  initialize: null
+  routine: null
+  id: sensor
+  input_sys: null
+  $: osdt_examples.models.sensor.create
+
+heater_system:
+  state:
+    temperature: 60.0
+  params:
+    heater_capacity: 90.0
+    outside_temperature: 40.0
+  c: osdt_examples.models.heater_system.C
+  f: osdt_examples.models.heater_system.F
+  d: null
+  g: null
+  u: osdt_examples.models.heater_system.U
+  y: osdt_examples.models.heater_system.Y
+  initialize: null
+  routine: null
+  id: heater_system
+  $: osdt_examples.models.heater_system.create
+
+heater_controller:
+  state:
+    thermostat_on: 0.0
+    set_temperature: 60.0
+  params:
+    hysteresis_range: 5.0
+  c: null
+  f: null
+  d: osdt_examples.models.heater_controller.D
+  g: osdt_examples.models.heater_controller.G
+  u: osdt_examples.models.heater_controller.U
+  y: osdt_examples.models.heater_controller.Y
+  initialize: null
+  routine: null
+  id: temperature_control
+  $: osdt_examples.models.heater_controller.create
+
+dubins_controller:
+  state:
+    turn: 1.0
+    velocity: 0.0
+  vars: null
+  c: null
+  f: null
+  d: osdt_examples.models.dubins_controller.D
+  g: osdt_examples.models.dubins_controller.G
+  u: osdt_examples.models.dubins_controller.U
+  y: osdt_examples.models.dubins_controller.Y
+  initialize: null
+  routine: null
+  id: dubins_control
+  $: osdt_examples.models.dubins_controller.create
+
+dubins_vehicle:
+  state:
+    x_position: 0.0
+    y_position: 0.0
+    orientation: 0.5
+  vars: null
+  c: osdt_examples.models.dubins_vehicle.C
+  f: osdt_examples.models.dubins_vehicle.F
+  d: osdt_examples.models.dubins_vehicle.D
+  g: osdt_examples.models.dubins_vehicle.G
+  u: osdt_examples.models.dubins_vehicle.U
+  y: osdt_examples.models.dubins_vehicle.Y
+  initialize: null
+  routine: null
+  id: dubins_vehicle
+  $: osdt_examples.models.dubins_vehicle.create

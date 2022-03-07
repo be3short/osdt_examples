@@ -1,0 +1,82 @@
+# constructor file: ball, pos_sensor, vel_sensor
+
+ball:
+  values:
+    x:
+      y_position: 1.0
+      y_velocity: 0.0
+    var1:
+      gravity: 9.81
+      restitution: 0.9
+   
+  properties:
+    id: null
+    label: null
+  model:
+    c: <osdt_examples.models.ball.C
+    f: <osdt_examples.models.ball.F
+    d: <osdt_examples.models.ball.D
+    g: <osdt_examples.models.ball.G
+    u: <osdt_examples.models.ball.U
+    y: <osdt_examples.models.ball.Y_dict
+    initialize: <osdt_examples.models.ball.initialize
+    routine: null
+  objects:
+    x: <osdt_examples.models.ball.State
+    var1: <osdt_examples.models.ball.Params
+    var2: <osdt_examples.models.ball.Params
+  varkeys:
+    var1: <osdt_examples.models.ball.Params
+    var2: HI
+
+pos_sensor:
+  values:
+    x:
+      value: 0.0
+      timer: 0.0
+    var1:
+      sample_period: 1.0
+      sample_field: y_position
+  properties:
+    id: pos_sensor
+    label: null
+  model:
+    c: <osdt_examples.models.sensor.C
+    f: <osdt_examples.models.sensor.F
+    d: <osdt_examples.models.sensor.D
+    g: <osdt_examples.models.sensor.G
+    u: <osdt_examples.models.sensor.U
+    y: <osdt_examples.models.sensor.Y
+    initialize: <osdt_examples.models.sensor.initialize
+    routine: null
+  objects:
+    x: <osdt_examples.models.sensor.State
+    var1: <osdt_examples.models.sensor.Params
+  varkeys:
+    var1: <osdt_examples.models.sensor.Params
+
+vel_sensor:
+  values:
+    x:
+      value: 0.0
+      timer: 0.0
+    var1:
+      sample_period: 1.0
+      sample_field: y_velocity
+  properties:
+    id: vel_sensor
+    label: null
+  model:
+    c: <osdt_examples.models.sensor.C
+    f: <osdt_examples.models.sensor.F
+    d: <osdt_examples.models.sensor.D
+    g: <osdt_examples.models.sensor.G
+    u: <osdt_examples.models.sensor.U
+    y: <osdt_examples.models.sensor.Y
+    initialize: <osdt_examples.models.sensor.initialize
+    routine: null
+  objects:
+    x: <osdt_examples.models.sensor.State
+    var1: <osdt_examples.models.sensor.Params
+  varkeys:
+    var1: <osdt_examples.models.sensor.Params

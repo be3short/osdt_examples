@@ -1,3 +1,4 @@
+import sys
 """Bouncing ball model"""
 import osdt
 import copy
@@ -11,7 +12,7 @@ class State(): # state class
         self.timer = timer
 
 class Params: # parameters class
-    def __init__(self, sample_period=1.0, sample_field=""):
+    def __init__(self, sample_period=0.25, sample_field=""):
         self.sample_period = sample_period
         self.sample_field = sample_field
 
@@ -77,13 +78,11 @@ def Y(x, system, *args, **argmap): # output map (determine output value)
 def initialize(system): # initialize the system when the environment starts
     pass
 
-
-def create(sample_field=None, sample_interval=.25, input=None, id="sensor") -> osdt.System:
-    sensor_state = State(value=0.0, timer=0.0)
-    sensor_params = Params(sample_period=sample_interval, sample_field=sample_field)
-    sensor_system = osdt.create_system(x=sensor_state, c=C, f=F, d=D, g=G, u=U, y=Y, id=id, vars={Params: sensor_params})
-    connect_input(sensor_system,input)
-    return sensor_system
-
 def connect_input(sensor_system, input_system):
     sensor_system.set(INPUT,osdt.get_system(input_system))
+
+def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y,initialize=None,routine=None,id="sensor",input_sys=None): # create a new system
+    system=osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)
+    if input_sys is not None:
+        system.set(INPUT,input_sys)
+    return system

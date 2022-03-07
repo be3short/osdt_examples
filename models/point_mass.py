@@ -2,7 +2,7 @@ import osdt
 import math
 
 ALL_MASSES = "ALL_MASSES"
-PARAMS = "PARAMS"
+
 class State:
     def __init__(self,x_position=0.0, y_position=0.0, x_velocity=0.0, y_velocity = 0.0):
         self.x_position = x_position
@@ -35,14 +35,14 @@ def F(x, x_dot, sys):
         y_distance = y.y_position - x.y_position;
         angle = math.atan2(y_distance, x_distance);
         if distance < 50: distance = 50.0
-        force = sys.get(PARAMS).gravity * (sys.get(PARAMS).mass * point_mass.get(PARAMS).mass) / math.pow(distance, 2)
+        force = sys.get(Params).gravity * (sys.get(Params).mass * point_mass.get(Params).mass) / math.pow(distance, 2)
         x_force = force * math.cos(angle);
         y_force = force * math.sin(angle);
         x_force_total = x_force_total + x_force
         y_force_total = y_force_total + y_force
 
-    x_dot.x_velocity = x_force_total / sys.get(PARAMS).mass
-    x_dot.y_velocity = y_force_total / sys.get(PARAMS).mass
+    x_dot.x_velocity = x_force_total / sys.get(Params).mass
+    x_dot.y_velocity = y_force_total / sys.get(Params).mass
     x_dot.x_position = x.x_velocity
     x_dot.y_position = x.y_velocity
    # print("envtime="+str(osdt.get_environment_time())+" "+str(x.__dict__))
@@ -125,7 +125,7 @@ def FDrag(x,x_dot,sys):
         y_distance = y.y_position - x.y_position;
         angle = math.atan2(y_distance, x_distance);
         if distance < 5: distance = 5
-        force = sys.get(PARAMS).gravity * (sys.get(PARAMS).mass * point_mass.get(PARAMS).mass) / math.pow(distance, 2)
+        force = sys.get(Params).gravity * (sys.get(Params).mass * point_mass.get(Params).mass) / math.pow(distance, 2)
         x_force = force * math.cos(angle);
         y_force = force * math.sin(angle);
         x_force_total = x_force_total + x_force
@@ -136,8 +136,8 @@ def FDrag(x,x_dot,sys):
 
 
 
-    x_dot.x_velocity = (x_force_total) / sys.get(PARAMS).mass
-    x_dot.y_velocity = y_force_total / sys.get(PARAMS).mass
+    x_dot.x_velocity = (x_force_total) / sys.get(Params).mass
+    x_dot.y_velocity = y_force_total / sys.get(Params).mass
     x_dot.x_position = x.x_velocity
     x_dot.y_position = x.y_velocity
 
@@ -146,5 +146,10 @@ def create(x_position=1000.0, y_position=1000.0, x_velocity=0.0,
                       y_velocity=0.0, mass=1000.0, id="pointmass"):
     state = State(x_position, y_position, x_velocity, y_velocity)
     params = Params(mass)
-    system = osdt.create_system(x=state, c=C, f=F, u=U, vars={PARAMS: params}, id=id)
+    system = osdt.create_system(x=state, c=C, f=F, u=U, vars={Params: params}, id=id)
     return system
+
+
+def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=None,initialize=None,routine=None): # create a new system
+    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine)
+

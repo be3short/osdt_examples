@@ -69,5 +69,8 @@ def Y_convert(x, system, *args, **argmap): # output map (determine output)
 def initialize(system): # initialize the system when the environment starts
     pass
 
-def create(x,**model): # create a new system
+def createz(x,**model): # create a new system
     return osdt.create_system(x=x,**model)
+
+def create(state=State(),vars=None,c=C,f=F,d=D,g=G,u=U,y=Y,initialize=None,routine=None,id="dubins_vehicle"): # create a new system
+    return osdt.create_system(x=state,vars=vars,c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)

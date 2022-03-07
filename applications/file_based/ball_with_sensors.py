@@ -7,6 +7,8 @@ from osdt_examples.models import ball
 def main(
         system_file="osdt_examples/applications/file_based/ball_with_sensors.yaml"
     ):
+
+
     # load system arg file
     args = osdt.load(system_file)
 

@@ -45,3 +45,8 @@ if __name__ == "__main__":
 
 
 
+def create(state=State(),params=Params(),c=C,f=F,u=None,y=None,initialize=None,routine=None,id="pendulum"): # create a new system
+    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,u=u,y=y,initialize=initialize,routine=routine,id=id)
+
+
+
