@@ -1,20 +1,12 @@
-2022-03-31 00:51:46 | DEBUG | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'run', 'osdt_examples\\osdt_testing\\runtests.py' | toolbox.py:352
-2022-03-31 00:51:46 | INFO  | final format | toolbox.py:353
-2022-03-31 00:51:46 | INFO  | created new system: ball <osdt.system.System object at 0x000001CBB61D6130> | system.py:117
-2022-03-31 00:51:46 | INFO  | system added to environment: ball <osdt.system.System object at 0x000001CBB61D6130> | environment.py:76
-2022-03-31 00:51:46 | INFO  | pre-move: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_51_45_692328\osdt_log.txt | runtests.py:46
-2022-03-31 00:51:46 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_51_45_692328 -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
-2022-03-31 00:51:46 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_51_45_692328\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
-2022-03-31 00:51:46 | INFO  | running unit tests | runtests.py:15
-2022-03-31 00:51:46 | ERROR | failed to run osdt_examples\osdt_testing\runtests.py
-Traceback (most recent call last):
-  File "c:\users\17074\documents\github\osdt_dev\osdt\cli.py", line 263, in run_function
-    function(**func_args)
-  File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\runtests.py", line 49, in main
-    report=run_tests(*fileio_tests.TESTS)
-  File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\runtests.py", line 22, in run_tests
-    s.addTests(test_case)
-  File "C:\Users\17074\AppData\Local\Programs\Python\Python38\lib\unittest\suite.py", line 57, in addTests
-    for test in tests:
-TypeError: 'type' object is not iterable
- | cli.py:265
+2022-03-31 02:09:42 | DEBUG | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'run', 'osdt_examples\\osdt_testing\\runtests.py' | toolbox.py:352
+2022-03-31 02:09:42 | INFO  | final format | toolbox.py:353
+2022-03-31 02:09:42 | INFO  | created new system: ball <osdt.system.System object at 0x0000025C3B6F7340> | system.py:117
+2022-03-31 02:09:42 | INFO  | system added to environment: ball <osdt.system.System object at 0x0000025C3B6F7340> | environment.py:76
+2022-03-31 02:09:42 | INFO  | pre-move: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_09_41_587422\osdt_log.txt | runtests.py:159
+2022-03-31 02:09:42 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_09_41_587422 -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
+2022-03-31 02:09:42 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_09_41_587422\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
+2022-03-31 02:09:42 | INFO  | exported object to yaml: GeneralConfiguration -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\config.yaml | fileio.py:235
+2022-03-31 02:09:42 | INFO  | exported configuration to D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\config.yaml | fileio.py:77
+2022-03-31 02:09:42 | INFO  | saved object to file: <osdt.system.System object at 0x0000025C3B6F7340> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\sys_ball.odst | fileio.py:60
+2022-03-31 02:09:42 | INFO  | exported object to yaml: dict -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\environment.yaml | fileio.py:235
+2022-03-31 02:09:42 | INFO  | saved object to file: <osdt.system.System object at 0x0000025C3B6F7340> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_obj.odst | fileio.py:60

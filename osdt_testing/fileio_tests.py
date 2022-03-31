@@ -1,8 +1,8 @@
 import contextlib
+import copy
 import io
 import os
 import shutil
-import sys
 import unittest
 import logging as log
 import osdt
@@ -27,7 +27,7 @@ class SaveTests(unittest.TestCase):
         osdt.save_env(SAVED_ENV,overwrite=True)
         self.assertTrue(os.path.exists(osdt.get_path(LOAD_ENV)))
 
-class LoadTests(unittest.TestCase):
+class LoadTestsBad(unittest.TestCase):
     def compare_states(self,orig,loaded):
         self.assertEqual(len(orig.__dict__), len(loaded.__dict__))
         for key in orig.__dict__:
@@ -35,7 +35,7 @@ class LoadTests(unittest.TestCase):
     def test_load_obj(self):
         loaded_sys = osdt.load_obj(LOAD_OBJ)
         loaded = loaded_sys.x()
-        orig= ball_state
+        orig= copy.deepcopy(ball_state)
         orig.y_position=43243.0
         self.compare_states(orig,loaded)
     def test_load_env(self):
@@ -45,21 +45,21 @@ class LoadTests(unittest.TestCase):
         #self.compare_states(ball_sys.x(),sys1.x())
         self.compare_states(ball_state2, sys1.x())
 
+class LoadTests(unittest.TestCase):
+    def compare_states(self,orig,loaded):
+        self.assertEqual(len(orig.__dict__), len(loaded.__dict__))
+        for key in orig.__dict__:
+            self.assertEqual(orig.__dict__[key], loaded.__dict__[key])
+    def test_load_obj(self):
+        loaded_sys = osdt.load_obj(LOAD_OBJ)
+        loaded = loaded_sys.x()
+        orig= ball_state
+        self.compare_states(orig,loaded)
+    def test_load_env(self):
+        osdt.clear()
+        loaded = osdt.load_env(LOAD_ENV)
+        sys1 = loaded.get_system(ball_sys.get_id())
+        self.compare_states(ball_sys.x(),sys1.x())
+#TESTS = [SaveTests,LoadTestsBad,LoadTests]
 
-suite = unittest.TestLoader().loadTestsFromModule( sys.modules[__name__] )
-
-def run_tests( test_case ):
-    report="test report"
-
-    s = unittest.makeSuite(test_case)
-    with io.StringIO() as buf:
-        # run the tests
-        with contextlib.redirect_stdout(buf):
-            unittest.TextTestRunner(stream=buf,verbosity=2).run(s)
-        # process (in this case: print) the results
-        test_report='%s' % buf.getvalue()
-        report=report+"\n"+test_report
-    return report
-
-def rt():
-    print(run_tests(TestStringMethods))
+#suite = unittest.TestLoader().loadTestsFromModule( sys.modules[__name__] )
