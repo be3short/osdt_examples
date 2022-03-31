@@ -10,6 +10,7 @@ import logging as log
 import osdt
 
 osdt.enable_user_data(False)
+
 OUTPUT_DIR = "files/"
 TEST_OUTPUT_SUBDIR = "files/"
 TEST_FILE_DIR = OUTPUT_DIR+TEST_OUTPUT_SUBDIR
@@ -54,45 +55,45 @@ class ModuleMembers:
         module_members = ModuleMembers(module)
         member_map = module_members.member_map
         return member_map
-class Unbuffered:
-   def __init__(self, stream):
-       self.stream = stream
-   def write(self, data):
-       sys.stdout.write(data)
-       self.stream.write(data)
-       self.stream.flush()
-   def writelines(self, datas):
-       sys.stdout.writelines(datas)
-       self.stream.writelines(datas)
-       self.stream.flush()
-   def __getattr__(self, attr):
-       return getattr(self.stream, attr)
+
+class StreamWithStdOut:
+    def __init__(self, stream):
+        self.curr_line = ""
+        self.stream = stream
+    def write(self, data):
+        self.curr_line = self.curr_line + data
+        if "\n" in self.curr_line:
+            if len(self.curr_line)>2:
+                log.info(self.curr_line.rstrip("\n"))
+            self.curr_line=""
+        self.stream.write(data)
+        self.stream.flush()
+    def writelines(self, datas):
+        for line in datas:
+            log.info(line.rstrip("\n"))
+        self.stream.writelines(datas)
+        self.stream.flush()
+    def __getattr__(self, attr):
+        return getattr(self.stream, attr)
+
 def run_module_tests(*modules):
     report = ""
     for module in modules:
-        clear_test_files()
-        alltests = unittest.TestSuite()
         module_header = "\n" + osdt.logger.create_header(
             module.__name__, bar_char="#") + "\n"
-        if print_log:
-            print("\n"+module_header)
-        else:
-            report = report +  module_header
+        log.info("testing: "+module.__name__)
+        clear_test_files()
+        alltests = unittest.TestSuite()
+        report = report +  module_header
         module_tests = get_module_tests(module)
         for test in module_tests:
             alltests.addTest(unittest.makeSuite(test))
-
-        # run the tests
-        if print_log:
-            unittest.TextTestRunner(verbosity=2).run(alltests)
-            io.Str
         else:
             with io.StringIO() as buf:
-                st = Unbuffered(buf)
-
-                # with contextlib.redirect_stdout(buf):
-                    #sys.stdout = buf
-               # contextlib.redirect_stderr(buf)
+                if print_log:
+                    st = StreamWithStdOut(buf)
+                else:
+                    st = buf
 
                 unittest.TextTestRunner(stream=st, verbosity=2).run(alltests)
                 test_report = '%s' % buf.getvalue()
@@ -138,10 +139,10 @@ def get_test_modules():
     return test_modules
 
 def run_tests():
+    log.info("\n\n"+osdt.logger.create_header("Test Log",bar_char="#")+"\n\n")
     test_modules=get_test_modules()
-    log.info("pre-move: " + osdt.get_run_params().log_file)
-    print(test_modules)
     report = run_module_tests(*test_modules)
+    osdt.log_enabled(True)
     log.info("unit testing complete:\n" + report)
 
 def setup_paths():
@@ -154,14 +155,26 @@ def setup_paths():
     osdt.change_output_path(OUTPUT_DIR)
     print(os.path.abspath("."))
 
-def main(printlog):
+def get_log_conf():
+    conf = osdt.user.UserSettings()
+    conf.log_msg_format="%(levelname)-5.5s | %(message)s"
+    conf.log_msg_format_debug="%(levelname)-5.5s | %(message)s | %(filename)s:%(lineno)s"
+    osdt.logger.configure_logger(conf=conf)
+
+def main(args):
     global print_log
-    print_log = printlog
     setup_paths()
+    if not args.date:
+        get_log_conf()
+        log.info("test")
+    print_log = args.log
+    osdt.log_enabled(print_log)
     run_tests()
+
 
 if __name__ == "__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument("--log", action="store_true",default=False)
+    parser.add_argument("--date", action="store_true",default=False)
     args=parser.parse_args()
-    main(args.log)
+    main(args)
