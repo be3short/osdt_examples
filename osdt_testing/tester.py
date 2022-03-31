@@ -7,7 +7,8 @@ import unittest
 import logging as log
 import osdt
 
-
+TEST_MODULE_PARENT = "osdt_examples.osdt_testing.tests"
+TEST_MODULE_PATH = "osdt_examples/osdt_testing/tests"
 OUTPUT_PATH = "osdt_examples/osdt_testing/files/"
 
 class ModuleMembers:
@@ -49,6 +50,7 @@ class ModuleMembers:
 def run_module_tests(*modules):
     report = ""
     for module in modules:
+        #clear_test_files()
         alltests = unittest.TestSuite()
         report = report + "\n" + osdt.logger.create_header(
             module.__name__, bar_char="#") + "\n"
@@ -85,8 +87,22 @@ def clear_test_files():  ##.ball.__name__, read_file=""
     else:
         os.makedirs(remove_path)
 
+def get_test_modules():
+    test_modules=[]
+    module_files=os.listdir(TEST_MODULE_PATH)
+    for module_file in module_files:
+        if module_file.endswith(osdt.defs.PYTHON_FILE_EXT):
+            module_name = module_file.rstrip(osdt.defs.PYTHON_FILE_EXT)
+            full_module = TEST_MODULE_PARENT+"."+module_name
+            module=osdt.utils.get_module_from_name(full_module)
+            test_modules.append(module)
+    return test_modules
 def run_tests():
+    test_modules=get_test_modules()
     log.info("pre-move: " + osdt.get_run_params().log_file)
-    osdt.change_output_path(remove_path, clear_old_log=True)
-    report = run_tests(fileio_tests, environment_tests)
+    print(test_modules)
+    report = run_module_tests(*test_modules)
     log.info("unit testing complete:\n" + report)
+
+def main():
+    run_tests()
