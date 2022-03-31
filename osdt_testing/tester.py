@@ -1,15 +1,23 @@
+import argparse
 import contextlib
 import inspect
 import io
 import os
 import shutil
+import sys
 import unittest
 import logging as log
 import osdt
 
-TEST_MODULE_PARENT = "osdt_examples.osdt_testing.tests"
-TEST_MODULE_PATH = "osdt_examples/osdt_testing/tests"
-OUTPUT_PATH = "osdt_examples/osdt_testing/files/"
+osdt.enable_user_data(False)
+OUTPUT_DIR = "files/"
+TEST_OUTPUT_SUBDIR = "files/"
+TEST_FILE_DIR = OUTPUT_DIR+TEST_OUTPUT_SUBDIR
+APPEND_PATHS = ["tests","models"]
+TEST_MODULE_PARENT = "tests"
+TEST_MODULE_PATH = "tests"
+
+print_log = True
 
 class ModuleMembers:
     def __init__(self,module):
@@ -46,24 +54,50 @@ class ModuleMembers:
         module_members = ModuleMembers(module)
         member_map = module_members.member_map
         return member_map
-
+class Unbuffered:
+   def __init__(self, stream):
+       self.stream = stream
+   def write(self, data):
+       sys.stdout.write(data)
+       self.stream.write(data)
+       self.stream.flush()
+   def writelines(self, datas):
+       sys.stdout.writelines(datas)
+       self.stream.writelines(datas)
+       self.stream.flush()
+   def __getattr__(self, attr):
+       return getattr(self.stream, attr)
 def run_module_tests(*modules):
     report = ""
     for module in modules:
-        #clear_test_files()
+        clear_test_files()
         alltests = unittest.TestSuite()
-        report = report + "\n" + osdt.logger.create_header(
+        module_header = "\n" + osdt.logger.create_header(
             module.__name__, bar_char="#") + "\n"
+        if print_log:
+            print("\n"+module_header)
+        else:
+            report = report +  module_header
         module_tests = get_module_tests(module)
         for test in module_tests:
             alltests.addTest(unittest.makeSuite(test))
-        with io.StringIO() as buf:
-            # run the tests
-            with contextlib.redirect_stdout(buf):
-                unittest.TextTestRunner(stream=buf, verbosity=2).run(alltests)
-            # process (in this case: print) the results
-            test_report = '%s' % buf.getvalue()
-            report = report + "\n" + test_report
+
+        # run the tests
+        if print_log:
+            unittest.TextTestRunner(verbosity=2).run(alltests)
+            io.Str
+        else:
+            with io.StringIO() as buf:
+                st = Unbuffered(buf)
+
+                # with contextlib.redirect_stdout(buf):
+                    #sys.stdout = buf
+               # contextlib.redirect_stderr(buf)
+
+                unittest.TextTestRunner(stream=st, verbosity=2).run(alltests)
+                test_report = '%s' % buf.getvalue()
+                report = report + "\n" + test_report
+
 
     return report
 
@@ -81,8 +115,9 @@ def get_module_tests(module):
     return module_tests
 
 def clear_test_files():  ##.ball.__name__, read_file=""
-    remove_path = osdt.get_path(OUTPUT_PATH)
+    remove_path = osdt.get_path(TEST_FILE_DIR)
     if os.path.exists(remove_path):
+        print("removing: "+remove_path)
         shutil.rmtree(remove_path)
     else:
         os.makedirs(remove_path)
@@ -94,9 +129,14 @@ def get_test_modules():
         if module_file.endswith(osdt.defs.PYTHON_FILE_EXT):
             module_name = module_file.rstrip(osdt.defs.PYTHON_FILE_EXT)
             full_module = TEST_MODULE_PARENT+"."+module_name
-            module=osdt.utils.get_module_from_name(full_module)
+            print(full_module)
+
+            #__import__(full_module)
+            #module=sys.modules[full_module]
+            module=osdt.utils.get_module_from_name(module_name)
             test_modules.append(module)
     return test_modules
+
 def run_tests():
     test_modules=get_test_modules()
     log.info("pre-move: " + osdt.get_run_params().log_file)
@@ -104,5 +144,24 @@ def run_tests():
     report = run_module_tests(*test_modules)
     log.info("unit testing complete:\n" + report)
 
-def main():
+def setup_paths():
+    test_root = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(test_root)
+    log.info("test root: " + test_root)
+    for append_path in APPEND_PATHS:
+        append_abs_path = os.path.abspath(append_path)
+        sys.path.append(append_abs_path)
+    osdt.change_output_path(OUTPUT_DIR)
+    print(os.path.abspath("."))
+
+def main(printlog):
+    global print_log
+    print_log = printlog
+    setup_paths()
     run_tests()
+
+if __name__ == "__main__":
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--log", action="store_true",default=False)
+    args=parser.parse_args()
+    main(args.log)

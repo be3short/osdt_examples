@@ -72,4 +72,4 @@ default_series_colors:
 - gray
 - olive
 - cyan
-max_plot_points: 1000
+max_plot_points: 5000
