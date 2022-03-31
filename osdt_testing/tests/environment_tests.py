@@ -9,11 +9,17 @@ import logging as log
 import osdt
 from osdt_examples.models import ball
 
+
 def create_system(**args):
     ball_sys=ball.create(**args)
     return ball_sys
 
+
+
 class SystemTests(unittest.TestCase):
+    def setUp(self) -> None:
+        osdt.enable_user_data(False)
+
     def test_auto_add_systems(self):
         osdt.clear()
         system1 = create_system()

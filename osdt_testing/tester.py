@@ -9,8 +9,6 @@ import unittest
 import logging as log
 import osdt
 
-osdt.enable_user_data(False)
-
 OUTPUT_DIR = "files/"
 TEST_OUTPUT_SUBDIR = "files/"
 TEST_FILE_DIR = OUTPUT_DIR+TEST_OUTPUT_SUBDIR
