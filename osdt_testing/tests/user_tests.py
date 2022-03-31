@@ -30,26 +30,24 @@ class SystemTests(unittest.TestCase):
             log.error("failed",traceback.format_exc())
         self.assertTrue(loaded)
 
-    def ztest_auto_add_systems(self):
+    def test_auto_add_systems(self):
         osdt.enable_user_files(True)
-        initial_modules = list(sys.modules.keys())
+        initial_modules = list(sys.path)
         osdt.enable_user_files(False,restore_defaults=True)
-        current_modules = list(sys.modules.keys())
+        current_modules = list(sys.path)
         changed_modules = []
         for mod in initial_modules:
             if mod not in current_modules:
                 changed_modules.append(mod)
-        for mod in current_modules:
-            if mod not in initial_modules and mod not in changed_modules:
-                changed_modules.append(mod)
-
+        log.info(changed_modules)
         osdt.enable_user_files(True)
-        reloaded_modules = list(sys.modules.keys())
-        self.assertEqual(len(initial_modules),len(reloaded_modules))
-        same_modules=True
+        reloaded_modules = list(sys.path)
+        self.assertEqual(len(current_modules)+len(changed_modules),len(reloaded_modules))
+        same_modules = True
         for mod in initial_modules:
             if mod not in reloaded_modules:
-                same_modules=False
+                same_modules = False
         self.assertTrue(same_modules)
+
 
 

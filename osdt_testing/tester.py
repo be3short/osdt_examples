@@ -16,7 +16,7 @@ FAIL = "FAIL"
 OUTPUT_DIR = "files/"
 TEST_OUTPUT_SUBDIR = "files/"
 TEST_FILE_DIR = OUTPUT_DIR+TEST_OUTPUT_SUBDIR
-APPEND_PATHS = ["tests","models"]
+APPEND_PATHS = ["tests","test_models"]
 TEST_MODULE_PARENT = "tests"
 TEST_MODULE_PATH = "tests"
 

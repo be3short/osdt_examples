@@ -7,7 +7,7 @@ import shutil
 import unittest
 import logging as log
 import osdt
-from models import ball
+from test_models import ball
 
 
 def create_system(**args):

@@ -6,7 +6,7 @@ import shutil
 import unittest
 import logging as log
 import osdt
-from models import ball
+from test_models import ball
 from tester import OUTPUT_DIR,TEST_OUTPUT_SUBDIR
 SAVED_OBJ=TEST_OUTPUT_SUBDIR+"saved_obj"
 LOAD_OBJ = OUTPUT_DIR+SAVED_OBJ+osdt.defs.OSDT_FILE_EXT
