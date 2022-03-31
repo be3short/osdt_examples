@@ -6,16 +6,9 @@ import shutil
 import unittest
 import logging as log
 import osdt
-from osdt_examples.models import ball, timer, point_mass,sensor,heater_system,heater_controller,dubins_vehicle,dubins_controller
-from osdt import load_call
-from osdt_examples.osdt_testing import fileio
 
-from osdt_examples.osdt_testing import *
-#from osdt_examples.osdt_testing import fileio_tests,environment_tests
-#from osdt_examples.osdt_testing import environment_tests
-unittest.TestLoader.sortTestMethodsUsing = None
+
 OUTPUT_PATH = "osdt_examples/osdt_testing/files/"
-
 
 class ModuleMembers:
     def __init__(self,module):
@@ -53,13 +46,13 @@ class ModuleMembers:
         member_map = module_members.member_map
         return member_map
 
-def run_tests(*modules):
+def run_module_tests(*modules):
     report = ""
     for module in modules:
         alltests = unittest.TestSuite()
         report = report + "\n" + osdt.logger.create_header(
             module.__name__, bar_char="#") + "\n"
-        module_tests = get_tests(module)
+        module_tests = get_module_tests(module)
         for test in module_tests:
             alltests.addTest(unittest.makeSuite(test))
         with io.StringIO() as buf:
@@ -72,7 +65,7 @@ def run_tests(*modules):
 
     return report
 
-def get_tests(module):
+def get_module_tests(module):
     global mmap
     module_tests=[]
     member_map = ModuleMembers.get_member_map(module)
@@ -85,25 +78,15 @@ def get_tests(module):
                 module_tests.append(member_obj)
     return module_tests
 
-def main():  ##.ball.__name__, read_file=""
+def clear_test_files():  ##.ball.__name__, read_file=""
     remove_path = osdt.get_path(OUTPUT_PATH)
     if os.path.exists(remove_path):
         shutil.rmtree(remove_path)
     else:
         os.makedirs(remove_path)
 
+def run_tests():
     log.info("pre-move: " + osdt.get_run_params().log_file)
     osdt.change_output_path(remove_path, clear_old_log=True)
     report = run_tests(fileio_tests, environment_tests)
     log.info("unit testing complete:\n" + report)
-    #get_tests(fileio_tests)
-    #log.info(str(inspect.get.getmembers(fileio_tests)))
-    #print(report)
-    #fileio_tests.rt()
-    #unittest.main()
-  #  t=fileio_tests.TestStringMethods()
-  #  t.run()
-   # fileio.run_tests()
-
-
-

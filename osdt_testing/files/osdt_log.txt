@@ -1,12 +1,10 @@
-2022-03-31 02:09:42 | DEBUG | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'run', 'osdt_examples\\osdt_testing\\runtests.py' | toolbox.py:352
-2022-03-31 02:09:42 | INFO  | final format | toolbox.py:353
-2022-03-31 02:09:42 | INFO  | created new system: ball <osdt.system.System object at 0x0000025C3B6F7340> | system.py:117
-2022-03-31 02:09:42 | INFO  | system added to environment: ball <osdt.system.System object at 0x0000025C3B6F7340> | environment.py:76
-2022-03-31 02:09:42 | INFO  | pre-move: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_09_41_587422\osdt_log.txt | runtests.py:159
-2022-03-31 02:09:42 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_09_41_587422 -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
-2022-03-31 02:09:42 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_09_41_587422\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
-2022-03-31 02:09:42 | INFO  | exported object to yaml: GeneralConfiguration -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\config.yaml | fileio.py:235
-2022-03-31 02:09:42 | INFO  | exported configuration to D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\config.yaml | fileio.py:77
-2022-03-31 02:09:42 | INFO  | saved object to file: <osdt.system.System object at 0x0000025C3B6F7340> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\sys_ball.odst | fileio.py:60
-2022-03-31 02:09:42 | INFO  | exported object to yaml: dict -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\environment.yaml | fileio.py:235
-2022-03-31 02:09:42 | INFO  | saved object to file: <osdt.system.System object at 0x0000025C3B6F7340> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_obj.odst | fileio.py:60
+2022-03-31 02:17:30 | DEBUG | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'run', 'osdt_examples\\osdt_testing\\runtests.py' | toolbox.py:352
+2022-03-31 02:17:30 | INFO  | final format | toolbox.py:353
+2022-03-31 02:17:30 | INFO  | pre-move: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_17_29_711050\osdt_log.txt | runtests.py:95
+2022-03-31 02:17:30 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_17_29_711050 -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
+2022-03-31 02:17:30 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_02_17_29_711050\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
+2022-03-31 02:17:30 | INFO  | exported object to yaml: GeneralConfiguration -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\config.yaml | fileio.py:235
+2022-03-31 02:17:30 | INFO  | exported configuration to D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\config.yaml | fileio.py:77
+2022-03-31 02:17:30 | INFO  | saved object to file: <osdt.system.System object at 0x000001AFFF102CD0> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\sys_ball.odst | fileio.py:60
+2022-03-31 02:17:30 | INFO  | exported object to yaml: dict -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_env\environment.yaml | fileio.py:235
+2022-03-31 02:17:30 | INFO  | saved object to file: <osdt.system.System object at 0x000001AFFF102CD0> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_obj.odst | fileio.py:60
