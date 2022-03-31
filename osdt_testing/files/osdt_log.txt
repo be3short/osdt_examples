@@ -1,98 +1,102 @@
-2022-03-31 05:17:35 | DEBUG | osdt initialized, invoked by: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\tester.py '--log' | toolbox.py:359
-2022-03-31 05:17:35 | INFO  | final format | toolbox.py:360
-2022-03-31 05:17:35 | INFO  | test root: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing | tester.py:149
-2022-03-31 05:17:35 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\_operations\python -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
-2022-03-31 05:17:35 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\_operations\python\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
-INFO  | test | tester.py:167
+2022-03-31 05:22:35 | DEBUG | osdt initialized, invoked by: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\tester.py '--log' | toolbox.py:359
+2022-03-31 05:22:35 | INFO  | final format | toolbox.py:360
+2022-03-31 05:22:35 | INFO  | test root: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing | tester.py:165
+2022-03-31 05:22:35 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\_operations\python -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
+2022-03-31 05:22:35 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\_operations\python\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
+INFO  | test | tester.py:183
 INFO  | 
 
 ################################################################################
 Test Log
 ################################################################################
 
- | tester.py:140
-INFO  | created new system: ball <osdt.system.System object at 0x0000019DADDA6580> | system.py:117
-INFO  | system added to environment: ball <osdt.system.System object at 0x0000019DADDA6580> | environment.py:76
-INFO  | testing: environment_tests | tester.py:82
-INFO  | toggling user data: True | user.py:581
-INFO  | created new system: ball <osdt.system.System object at 0x0000019D97029250> | system.py:117
-INFO  | system added to environment: ball <osdt.system.System object at 0x0000019D97029250> | environment.py:76
-INFO  | created new system: ball <osdt.system.System object at 0x0000019DADD7DEB0> | system.py:117
-WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x0000019D97029250>) | environment.py:226
-WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x0000019DADD7DEB0>) | environment.py:233
-INFO  | system added to environment: ball_2 <osdt.system.System object at 0x0000019DADD7DEB0> | environment.py:76
-INFO  | test_add_duplicates (environment_tests.SystemTests) ... ok | tester.py:65
-INFO  | toggling user data: True | user.py:581
-INFO  | created new system: ball <osdt.system.System object at 0x0000019DADDE73A0> | system.py:117
-INFO  | created new system: ball <osdt.system.System object at 0x0000019DADDE7730> | system.py:117
-INFO  | system added to environment: ball <osdt.system.System object at 0x0000019DADDE73A0> | environment.py:76
-WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x0000019DADDE73A0>) | environment.py:226
-WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x0000019DADDE7730>) | environment.py:233
-INFO  | system added to environment: ball_2 <osdt.system.System object at 0x0000019DADDE7730> | environment.py:76
-INFO  | test_add_systems (environment_tests.SystemTests) ... ok | tester.py:65
-INFO  | toggling user data: True | user.py:581
-INFO  | created new system: ball <osdt.system.System object at 0x0000019DADDE7F70> | system.py:117
-INFO  | system added to environment: ball <osdt.system.System object at 0x0000019DADDE7F70> | environment.py:76
-INFO  | created new system: ball <osdt.system.System object at 0x0000019DADDEE490> | system.py:117
-WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x0000019DADDE7F70>) | environment.py:226
-WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x0000019DADDEE490>) | environment.py:233
-INFO  | system added to environment: ball_2 <osdt.system.System object at 0x0000019DADDEE490> | environment.py:76
-INFO  | test_auto_add_systems (environment_tests.SystemTests) ... ok | tester.py:65
-INFO  | ---------------------------------------------------------------------- | tester.py:65
-INFO  | Ran 3 tests in 0.011s | tester.py:65
-INFO  | OK | tester.py:65
-INFO  | testing: fileio_tests | tester.py:82
-INFO  | system added to environment: ball <osdt.system.System object at 0x0000019DADDA6580> | environment.py:76
+ | tester.py:156
+INFO  | created new system: ball <osdt.system.System object at 0x00000222E4936490> | system.py:117
+INFO  | system added to environment: ball <osdt.system.System object at 0x00000222E4936490> | environment.py:76
+INFO  | testing: environment_tests | tester.py:98
+INFO  | toggling user data: False | user.py:581
+INFO  | removing: C:\Users\17074\AppData\Local\osdt\osdt\osdt_workspace | user.py:590
+INFO  | removing: D:\osdt_dev\osdt_home | user.py:590
+INFO  | removing: C:\Users\17074\GitHub\osdt_documentation | user.py:590
+INFO  | removing: D:\osdt_dev\test_path | user.py:590
+INFO  | created new system: ball <osdt.system.System object at 0x00000222E48DC460> | system.py:117
+INFO  | system added to environment: ball <osdt.system.System object at 0x00000222E48DC460> | environment.py:76
+INFO  | created new system: ball <osdt.system.System object at 0x00000222E4931340> | system.py:117
+WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x00000222E48DC460>) | environment.py:226
+WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x00000222E4931340>) | environment.py:233
+INFO  | system added to environment: ball_2 <osdt.system.System object at 0x00000222E4931340> | environment.py:76
+INFO  | test_add_duplicates (environment_tests.SystemTests) ... ok | tester.py:81
+INFO  | toggling user data: False | user.py:581
+INFO  | created new system: ball <osdt.system.System object at 0x00000222E49754C0> | system.py:117
+INFO  | created new system: ball <osdt.system.System object at 0x00000222E4975A60> | system.py:117
+INFO  | system added to environment: ball <osdt.system.System object at 0x00000222E49754C0> | environment.py:76
+WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x00000222E49754C0>) | environment.py:226
+WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x00000222E4975A60>) | environment.py:233
+INFO  | system added to environment: ball_2 <osdt.system.System object at 0x00000222E4975A60> | environment.py:76
+INFO  | test_add_systems (environment_tests.SystemTests) ... ok | tester.py:81
+INFO  | toggling user data: False | user.py:581
+INFO  | created new system: ball <osdt.system.System object at 0x00000222E497F070> | system.py:117
+INFO  | system added to environment: ball <osdt.system.System object at 0x00000222E497F070> | environment.py:76
+INFO  | created new system: ball <osdt.system.System object at 0x00000222E497F5B0> | system.py:117
+WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x00000222E497F070>) | environment.py:226
+WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x00000222E497F5B0>) | environment.py:233
+INFO  | system added to environment: ball_2 <osdt.system.System object at 0x00000222E497F5B0> | environment.py:76
+INFO  | test_auto_add_systems (environment_tests.SystemTests) ... ok | tester.py:81
+INFO  | ---------------------------------------------------------------------- | tester.py:81
+INFO  | Ran 3 tests in 0.011s | tester.py:81
+INFO  | OK | tester.py:81
+INFO  | testing: fileio_tests | tester.py:98
+INFO  | system added to environment: ball <osdt.system.System object at 0x00000222E4936490> | environment.py:76
 INFO  | exported object to yaml: GeneralConfiguration -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\config.yaml | fileio.py:235
 INFO  | exported configuration to D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files/saved_env\config.yaml | fileio.py:77
-INFO  | saved object to file: <osdt.system.System object at 0x0000019DADDA6580> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\sys_ball.odst | fileio.py:60
+INFO  | saved object to file: <osdt.system.System object at 0x00000222E4936490> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\sys_ball.odst | fileio.py:60
 INFO  | exported object to yaml: dict -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\environment.yaml | fileio.py:235
-INFO  | test_save_env (fileio_tests.SaveTests) ... ok | tester.py:65
-INFO  | saved object to file: <osdt.system.System object at 0x0000019DADDA6580> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_obj.odst | fileio.py:60
-INFO  | test_save_obj (fileio_tests.SaveTests) ... ok | tester.py:65
-INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\sys_ball.odst -> <osdt.system.System object at 0x0000019DADDEEFD0> | fileio.py:169
-INFO  | system added to environment: ball <osdt.system.System object at 0x0000019DADDEEFD0> | environment.py:76
-INFO  | loaded environment system: ball <osdt.system.System object at 0x0000019DADDEEFD0> | environment.py:362
+INFO  | test_save_env (fileio_tests.SaveTests) ... ok | tester.py:81
+INFO  | saved object to file: <osdt.system.System object at 0x00000222E4936490> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_obj.odst | fileio.py:60
+INFO  | test_save_obj (fileio_tests.SaveTests) ... ok | tester.py:81
+INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\sys_ball.odst -> <osdt.system.System object at 0x00000222E497F610> | fileio.py:169
+INFO  | system added to environment: ball <osdt.system.System object at 0x00000222E497F610> | environment.py:76
+INFO  | loaded environment system: ball <osdt.system.System object at 0x00000222E497F610> | environment.py:362
 INFO  | loading configuration: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\config.yaml | fileio.py:188
-INFO  | environment loaded successfully from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env -> <osdt.environment.Environment object at 0x0000019DADDA6F70> | fileio.py:123
-INFO  | test_load_env (fileio_tests.LoadTests) ... ok | tester.py:65
-INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_obj.odst -> <osdt.system.System object at 0x0000019D97029430> | fileio.py:169
-WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x0000019DADDEEFD0>) | environment.py:226
-WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x0000019D97029430>) | environment.py:233
-INFO  | system added to environment: ball_2 <osdt.system.System object at 0x0000019D97029430> | environment.py:76
-INFO  | test_load_obj (fileio_tests.LoadTests) ... ok | tester.py:65
-INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\sys_ball.odst -> <osdt.system.System object at 0x0000019DADDE7160> | fileio.py:169
-INFO  | system added to environment: ball <osdt.system.System object at 0x0000019DADDE7160> | environment.py:76
-INFO  | loaded environment system: ball <osdt.system.System object at 0x0000019DADDE7160> | environment.py:362
+INFO  | environment loaded successfully from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env -> <osdt.environment.Environment object at 0x00000222E497FDC0> | fileio.py:123
+INFO  | test_load_env (fileio_tests.LoadTests) ... ok | tester.py:81
+INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_obj.odst -> <osdt.system.System object at 0x00000222E490CEE0> | fileio.py:169
+WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x00000222E497F610>) | environment.py:226
+WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x00000222E490CEE0>) | environment.py:233
+INFO  | system added to environment: ball_2 <osdt.system.System object at 0x00000222E490CEE0> | environment.py:76
+INFO  | test_load_obj (fileio_tests.LoadTests) ... ok | tester.py:81
+INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\sys_ball.odst -> <osdt.system.System object at 0x00000222E4975640> | fileio.py:169
+INFO  | system added to environment: ball <osdt.system.System object at 0x00000222E4975640> | environment.py:76
+INFO  | loaded environment system: ball <osdt.system.System object at 0x00000222E4975640> | environment.py:362
 INFO  | loading configuration: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env\config.yaml | fileio.py:188
-INFO  | environment loaded successfully from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env -> <osdt.environment.Environment object at 0x0000019DADDA6BE0> | fileio.py:123
-INFO  | test_load_env (fileio_tests.LoadTestsBad) ... FAIL | tester.py:65
-INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_obj.odst -> <osdt.system.System object at 0x0000019DADD7DF10> | fileio.py:169
-WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x0000019DADDE7160>) | environment.py:226
-WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x0000019DADD7DF10>) | environment.py:233
-INFO  | system added to environment: ball_2 <osdt.system.System object at 0x0000019DADD7DF10> | environment.py:76
-INFO  | test_load_obj (fileio_tests.LoadTestsBad) ... FAIL | tester.py:65
-INFO  | ====================================================================== | tester.py:65
-INFO  | FAIL: test_load_env (fileio_tests.LoadTestsBad) | tester.py:65
-INFO  | ---------------------------------------------------------------------- | tester.py:65
+INFO  | environment loaded successfully from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_env -> <osdt.environment.Environment object at 0x00000222E490CFD0> | fileio.py:123
+INFO  | test_load_env (fileio_tests.LoadTestsBad) ... FAIL | tester.py:81
+INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\files\saved_obj.odst -> <osdt.system.System object at 0x00000222E4995190> | fileio.py:169
+WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x00000222E4975640>) | environment.py:226
+WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x00000222E4995190>) | environment.py:233
+INFO  | system added to environment: ball_2 <osdt.system.System object at 0x00000222E4995190> | environment.py:76
+INFO  | test_load_obj (fileio_tests.LoadTestsBad) ... FAIL | tester.py:81
+INFO  | ====================================================================== | tester.py:81
+INFO  | FAIL: test_load_env (fileio_tests.LoadTestsBad) | tester.py:81
+INFO  | ---------------------------------------------------------------------- | tester.py:81
 INFO  | Traceback (most recent call last):
   File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\tests\fileio_tests.py", line 65, in test_load_env
     self.compare_states(ball_state2, sys1.x())
   File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\tests\fileio_tests.py", line 53, in compare_states
     self.assertEqual(orig.__dict__[key], loaded.__dict__[key])
-AssertionError: 999.99 != 1.0 | tester.py:65
-INFO  | ====================================================================== | tester.py:65
-INFO  | FAIL: test_load_obj (fileio_tests.LoadTestsBad) | tester.py:65
-INFO  | ---------------------------------------------------------------------- | tester.py:65
+AssertionError: 999.99 != 1.0 | tester.py:81
+INFO  | ====================================================================== | tester.py:81
+INFO  | FAIL: test_load_obj (fileio_tests.LoadTestsBad) | tester.py:81
+INFO  | ---------------------------------------------------------------------- | tester.py:81
 INFO  | Traceback (most recent call last):
   File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\tests\fileio_tests.py", line 59, in test_load_obj
     self.compare_states(orig,loaded)
   File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\tests\fileio_tests.py", line 53, in compare_states
     self.assertEqual(orig.__dict__[key], loaded.__dict__[key])
-AssertionError: 43243.0 != 1.0 | tester.py:65
-INFO  | ---------------------------------------------------------------------- | tester.py:65
-INFO  | Ran 6 tests in 0.042s | tester.py:65
-INFO  | FAILED (failures=2) | tester.py:65
+AssertionError: 43243.0 != 1.0 | tester.py:81
+INFO  | ---------------------------------------------------------------------- | tester.py:81
+INFO  | Ran 6 tests in 0.044s | tester.py:81
+INFO  | FAILED (failures=2) | tester.py:81
 INFO  | unit testing complete:
 
 ################################################################################
@@ -140,7 +144,7 @@ Traceback (most recent call last):
 AssertionError: 43243.0 != 1.0
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.042s
+Ran 6 tests in 0.044s
 
 FAILED (failures=2)
- | tester.py:144
+ | tester.py:160

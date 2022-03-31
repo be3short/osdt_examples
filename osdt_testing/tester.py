@@ -8,7 +8,8 @@ import sys
 import unittest
 import logging as log
 import osdt
-
+PASS = "PASS"
+FAIL = "FAIL"
 OUTPUT_DIR = "files/"
 TEST_OUTPUT_SUBDIR = "files/"
 TEST_FILE_DIR = OUTPUT_DIR+TEST_OUTPUT_SUBDIR
@@ -17,6 +18,21 @@ TEST_MODULE_PARENT = "tests"
 TEST_MODULE_PATH = "tests"
 
 print_log = True
+
+def create_bar(bar_char,bar_width=80):
+    bar_str = ""
+    while len(bar_str)<bar_width:
+        bar_str=bar_str+str(bar_char)
+    return bar_str
+
+def create_header(title, bar_char = "-", bar_width = 80, top_bar=True, bottom_bar = True):
+    bar_str=create_bar(bar_char,bar_width=bar_width)
+    header_str = bar_str+"\n"+title if top_bar else title
+    if bottom_bar:
+        header_str = header_str +"\n"+ bar_str
+    return header_str
+
+
 
 class ModuleMembers:
     def __init__(self,module):
@@ -77,7 +93,7 @@ class StreamWithStdOut:
 def run_module_tests(*modules):
     report = ""
     for module in modules:
-        module_header = "\n" + osdt.logger.create_header(
+        module_header = "\n" + create_header(
             module.__name__, bar_char="#") + "\n"
         log.info("testing: "+module.__name__)
         clear_test_files()
@@ -137,7 +153,7 @@ def get_test_modules():
     return test_modules
 
 def run_tests():
-    log.info("\n\n"+osdt.logger.create_header("Test Log",bar_char="#")+"\n\n")
+    log.info("\n\n"+ create_header("Test Log",bar_char="#")+"\n\n")
     test_modules=get_test_modules()
     report = run_module_tests(*test_modules)
     osdt.log_enabled(True)
