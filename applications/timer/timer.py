@@ -14,7 +14,7 @@ def main(timer_value = 0.0,
     figure1 = osdt.create_figure(1200, 800, layout=[[1]], title="Timer")
     figure1.plot(1, "value")
     figure1.export("figure1",format="png")
-    osdt.display()
+   # osdt.display()
 
 def main_old():
     timer_state = timer.State(value=0.0)

@@ -8,6 +8,9 @@ import sys
 import unittest
 import logging as log
 import osdt
+
+osdt.enable_user_files(False)
+
 PASS = "PASS"
 FAIL = "FAIL"
 OUTPUT_DIR = "files/"
@@ -18,6 +21,16 @@ TEST_MODULE_PARENT = "tests"
 TEST_MODULE_PATH = "tests"
 
 print_log = True
+
+initial_modules = list(sys.modules.keys())
+
+
+
+def restore_initial_modules(*keep_modules):
+    current_modules = list(sys.modules.keys())
+    for module in current_modules:
+        if module not in initial_modules and module not in keep_modules:
+            del sys.modules[module]
 
 def create_bar(bar_char,bar_width=80):
     bar_str = ""
@@ -167,7 +180,8 @@ def setup_paths():
         append_abs_path = os.path.abspath(append_path)
         sys.path.append(append_abs_path)
     osdt.change_output_path(OUTPUT_DIR)
-    print(os.path.abspath("."))
+    sys.path.append(".")
+
 
 def get_log_conf():
     conf = osdt.user.UserSettings()
