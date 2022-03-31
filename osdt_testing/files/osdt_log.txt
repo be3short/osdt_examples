@@ -1,24 +1,20 @@
-2022-03-31 00:33:25 | DEBUG | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'run', 'osdt_examples\\osdt_testing\\runtests.py' | toolbox.py:352
-2022-03-31 00:33:25 | INFO  | final format | toolbox.py:353
-2022-03-31 00:33:25 | INFO  | pre-move: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_33_24_885208\osdt_log.txt | runtests.py:32
-2022-03-31 00:33:25 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_33_24_885208 -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
-2022-03-31 00:33:25 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_33_24_885208\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
-2022-03-31 00:33:25 | INFO  | created new system: ball <osdt.system.System object at 0x000001B6B5275130> | system.py:117
-2022-03-31 00:33:25 | INFO  | system added to environment: ball <osdt.system.System object at 0x000001B6B5275130> | environment.py:76
-2022-03-31 00:33:25 | INFO  | saved object to file: <osdt.system.System object at 0x000001B6B5275130> -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_obj.odst | fileio.py:60
-2022-03-31 00:33:25 | INFO  | created new system: ball <osdt.system.System object at 0x000001B6B52756D0> | system.py:117
-2022-03-31 00:33:25 | WARN  | duplicate id found - updating original id to include index: ball -> ball_1 (<osdt.system.System object at 0x000001B6B5275130>) | environment.py:226
-2022-03-31 00:33:25 | WARN  | updating duplicate system id: ball -> ball_2 (<osdt.system.System object at 0x000001B6B52756D0>) | environment.py:233
-2022-03-31 00:33:25 | INFO  | system added to environment: ball_2 <osdt.system.System object at 0x000001B6B52756D0> | environment.py:76
-2022-03-31 00:33:25 | INFO  | created new system: ball <osdt.system.System object at 0x000001B6B5275C10> | system.py:117
-2022-03-31 00:33:25 | WARN  | system id already exists - id changed: ball -> ball_3 (<osdt.system.System object at 0x000001B6B5275C10>) | environment.py:236
-2022-03-31 00:33:25 | INFO  | system added to environment: ball_3 <osdt.system.System object at 0x000001B6B5275C10> | environment.py:76
-2022-03-31 00:33:25 | INFO  | loaded object from file: D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\saved_obj.odst -> <osdt.system.System object at 0x000001B6B52823A0> | fileio.py:169
-2022-03-31 00:33:25 | WARN  | system id already exists - id changed: ball -> ball_4 (<osdt.system.System object at 0x000001B6B52823A0>) | environment.py:236
-2022-03-31 00:33:25 | INFO  | system added to environment: ball_4 <osdt.system.System object at 0x000001B6B52823A0> | environment.py:76
-2022-03-31 00:33:25 | INFO  | created new system: ball <osdt.system.System object at 0x000001B6B52821F0> | system.py:117
-2022-03-31 00:33:25 | WARN  | system id already exists - id changed: ball -> ball_5 (<osdt.system.System object at 0x000001B6B52821F0>) | environment.py:236
-2022-03-31 00:33:25 | INFO  | system added to environment: ball_5 <osdt.system.System object at 0x000001B6B52821F0> | environment.py:76
-2022-03-31 00:33:25 | INFO  | created new system: ball <osdt.system.System object at 0x000001B6B5282D00> | system.py:117
-2022-03-31 00:33:25 | WARN  | system id already exists - id changed: ball -> ball_6 (<osdt.system.System object at 0x000001B6B5282D00>) | environment.py:236
-2022-03-31 00:33:25 | INFO  | system added to environment: ball_6 <osdt.system.System object at 0x000001B6B5282D00> | environment.py:76
+2022-03-31 00:51:46 | DEBUG | osdt initialized, invoked by: C:\Users\17074\AppData\Local\Programs\Python\Python38\Scripts\osdt 'run', 'osdt_examples\\osdt_testing\\runtests.py' | toolbox.py:352
+2022-03-31 00:51:46 | INFO  | final format | toolbox.py:353
+2022-03-31 00:51:46 | INFO  | created new system: ball <osdt.system.System object at 0x000001CBB61D6130> | system.py:117
+2022-03-31 00:51:46 | INFO  | system added to environment: ball <osdt.system.System object at 0x000001CBB61D6130> | environment.py:76
+2022-03-31 00:51:46 | INFO  | pre-move: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_51_45_692328\osdt_log.txt | runtests.py:46
+2022-03-31 00:51:46 | INFO  | changing output path: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_51_45_692328 -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files | arguments.py:55
+2022-03-31 00:51:46 | DEBUG | log file updated: D:\osdt_dev\osdt_home\osdt_output\runtests_main_2022_03_31_00_51_45_692328\osdt_log.txt -> D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\files\osdt_log.txt | arguments.py:49
+2022-03-31 00:51:46 | INFO  | running unit tests | runtests.py:15
+2022-03-31 00:51:46 | ERROR | failed to run osdt_examples\osdt_testing\runtests.py
+Traceback (most recent call last):
+  File "c:\users\17074\documents\github\osdt_dev\osdt\cli.py", line 263, in run_function
+    function(**func_args)
+  File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\runtests.py", line 49, in main
+    report=run_tests(*fileio_tests.TESTS)
+  File "D:\osdt_dev\osdt_home\osdt_examples\osdt_testing\runtests.py", line 22, in run_tests
+    s.addTests(test_case)
+  File "C:\Users\17074\AppData\Local\Programs\Python\Python38\lib\unittest\suite.py", line 57, in addTests
+    for test in tests:
+TypeError: 'type' object is not iterable
+ | cli.py:265
