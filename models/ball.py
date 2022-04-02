@@ -41,16 +41,11 @@ def Y_dict(x, hs, *args, **argmap): # output map (determine output)
     return x.__dict__
 
 def initialize(systemtem): # initialize the systemtem when the environment starts
-    print("\n\neeeeeeeeee\n\n\n\n")
     pass
 
 def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y_dict,initialize=None,routine=None,id="ball",**args): # create a new system
-    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id,**args)
-
-
-# define the positional arguments of create
-osdt.define_function_args(create, state=State(),params=Params())
+    return osdt.create_sys(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id,**args)
 
 
 
-#desc = osdt.system_def(__name__,x=State(),c=C,f=F,d=D,g=G,u=U,y=Y_dict,initialize=initialize,vars={Params:Params()})
+

@@ -12,28 +12,28 @@ def main(y_position = 1.0,
     # create ball system
     ball_state = ball.State(y_position=y_position, y_velocity=y_velocity)
     ball_params = ball.Params(gravity=gravity, restitution=restitution)
-    ball_system = osdt.create_system(x=ball_state,c=ball.C,f=ball.F,d=ball.D,g=ball.G,y=ball.Y_dict,id="ball",vars={ball.Params: ball_params})
+    ball_system = osdt.create_sys(x=ball_state,c=ball.C,f=ball.F,d=ball.D,g=ball.G,y=ball.Y_dict,id="ball",vars={ball.Params: ball_params})
 
     # create sensor systems
     pos_sensor_state = sensor.State(value=0.0,timer=0.0)
     pos_sensor_params = sensor.Params(sample_period=pos_sample_period,sample_field="y_position")
-    pos_sensor = osdt.create_system(x=pos_sensor_state, c=sensor.C, f=sensor.F, d=sensor.D, g=sensor.G,u=sensor.U, id="pos_sensor",vars={sensor.Params: pos_sensor_params})
+    pos_sensor = osdt.create_sys(x=pos_sensor_state, c=sensor.C, f=sensor.F, d=sensor.D, g=sensor.G,u=sensor.U, id="pos_sensor",vars={sensor.Params: pos_sensor_params})
     vel_sensor_state = sensor.State(value=0.0,timer=0.0)
     vel_sensor_params = sensor.Params(sample_period=vel_sample_period,sample_field="y_velocity")
-    vel_sensor = osdt.create_system(x=vel_sensor_state, c=sensor.C, f=sensor.F, d=sensor.D, g=sensor.G, u=sensor.U, id="vel_sensor",vars={sensor.Params: vel_sensor_params})
+    vel_sensor = osdt.create_sys(x=vel_sensor_state, c=sensor.C, f=sensor.F, d=sensor.D, g=sensor.G, u=sensor.U, id="vel_sensor",vars={sensor.Params: vel_sensor_params})
 
     # connect the sensors
     pos_sensor.set(sensor.INPUT, ball_system)
     vel_sensor.set(sensor.INPUT, ball_system)
 
     # run the environment
-    osdt.run()
+    osdt.run_env()
 
     # create the figure
-    figure1 = osdt.create_figure(1200, 800, layout=[[1], [2]],
+    figure1 = osdt.create_fig(1200, 800, layout=[[1], [2]],
                                  title="Bouncing Ball with Sensors")
-    figure1.configure_subplot(1, y_axis="Y Position (m)")
-    figure1.configure_subplot(2, x_axis="Time(s)", y_axis="Y Velocity (m/s)")
+    figure1.config_subplot(1, y_axis="Y Position (m)")
+    figure1.config_subplot(2, x_axis="Time(s)", y_axis="Y Velocity (m/s)")
     figure1.plot(1, "y_position")
     figure1.plot(1, "value", system="pos_sensor")
     figure1.plot(2, "y_velocity")

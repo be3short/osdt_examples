@@ -41,7 +41,6 @@ def Y_dict(x, hs, *args, **argmap): # output map (determine output)
     return x.__dict__
 
 def initialize(systemtem): # initialize the systemtem when the environment starts
-    print("\n\neeeeeeeeee\n\n\n\n")
     pass
 
 def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y_dict,initialize=None,routine=None,id="ball",**args): # create a new system

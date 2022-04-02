@@ -79,7 +79,7 @@ def initialize(system): # initialize the system when the environment starts
     pass
 
 def connect_input(sensor_system, input_system):
-    sensor_system.set(INPUT,osdt.get_system(input_system))
+    osdt.get_system(sensor_system).set(INPUT,osdt.get_system(input_system))
 
 def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y,initialize=None,routine=None,id="sensor",input_sys=None): # create a new system
     system=osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)
