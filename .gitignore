@@ -17,12 +17,7 @@ history
 history/*
 .idea/*
 .idea/workspace.xml
-*.osdt
-/osdt_example/objfiles/files/*
 *.pyc
 Open_Source_Dynamics_Toolbox.egg-info
-*/osdt/*
-
-osdt_output/*
-
-*/osdt_output/*
+examples/testlib/files/*
+*.DS_Store*

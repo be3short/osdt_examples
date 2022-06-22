@@ -16,37 +16,33 @@ class Params():  # parameters
 
 def F(x, x_dot, hs):
     x_dot.angle = x.velocity
-    x.acceleration = -(hs.get(Params).gravity/hs.get(Params).length)*math.sin(x.angle)
+    x.acceleration = -(hs.params.gravity/hs.params.length)*math.sin(x.angle)
     x_dot.velocity = x.acceleration
 
 def C(x,hs):
     return True
 
 
-if __name__ == "__main__":
+def create(state=State(),params=Params(),c=C,f=F,u=None,y=None,initialize=None,routine=None,id="pendulum"): # create a new system
+    return osdt.create_sys(x=state,params=params,c=c,f=f,u=u,y=y,initialize=initialize,routine=routine,id=id)
 
-    system = osdt.create_system(State(angle=1.5, velocity=0.0),f=F, vars={Params:Params(length=1.0, mass=1.0, gravity=9.81)})
-
+def main():
+    osdt.clear()
+    system = create()
+    system2 = create(State(angle=0.1))
     # run the simulation
-    osdt.run(t=10.0, j=20)
+    osdt.run(time=10.0, jumps=20)
 
     # create a figure
-    fig = osdt.create_figure(layout=[[1],[2]],
+    fig = osdt.create_fig(layout=[[1],[2]],
                                  title="Pendulum",
-                                 width=1600, height=600)
+                                 w=1600, h=600)
 
     # plot the angle and velocity
-    fig.sub(1).plot("angle")
-    fig.sub(2).plot("velocity")
-
+    fig.plot(1,"angle")
+    fig.plot(2,"velocity")
+    osdt.plotting.display()
     # display all figures
-    osdt.display()
-
-
-
-
-def create(state=State(),params=Params(),c=C,f=F,u=None,y=None,initialize=None,routine=None,id="pendulum"): # create a new system
-    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,u=u,y=y,initialize=initialize,routine=routine,id=id)
-
-
-
+    osdt.figure.display()
+if __name__ == "__main__":
+    main()
