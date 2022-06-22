@@ -3,8 +3,6 @@ from random import random
 
 import osdt
 
- 
-
 
 class State(): # state class
     def __init__(self, y_position=1.0, y_velocity=0.0):
@@ -57,7 +55,8 @@ def plot():
     return fig
 
 def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y_dict,id="ball",**args): # create a new system
-    return osdt.create_system(x=state,c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id,**args)
+    return osdt.create_system(x=state,c=c,f=f,d=d,g=g,u=u,y=y,params=params,id=id,**args)
+
 
 def create_multi(num_balls=1,
                               y_position_min=1.0,
@@ -70,13 +69,15 @@ def create_multi(num_balls=1,
                               c= C,
                               d= D,
                               g= G,
-                              y= Y_dict,id="ball",
-
-                                **fields):
+                              y= Y_dict,id="ball", **fields):
     for ind in range(0,num_balls):
         y_position=osdt.random(y_position_min,y_position_max)
         y_velocity=osdt.random(y_velocity_min,y_velocity_max)
-        ball_sys=osdt.create_sys(x=State(y_position, y_velocity),c=c, f=f, g=g, d=d, y=y, params=Params(gravity,restitution), id=id,add=True, **fields)
+        ball_sys=osdt.create_sys(x=State(y_position, y_velocity),c=c, f=f, g=g, d=d, y=y, params=Params(gravity,restitution), id=id, **fields)
     return ball_sys
 
 
+class BallSys(osdt.System):
+    def __init__(self, params=None):
+        super().__init__(state=State(1.0+random()*5.0),params=params if params is not None else Params(),c=C,f=F,d=D,g=G,u=U,y=Y_dict, id="ball")
+        #osdt.add_systems(self)
