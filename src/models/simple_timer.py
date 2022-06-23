@@ -9,7 +9,7 @@ class State(dt.UniversalObject):  # state object
         self.value = value
 
 
-class Params(dt.UniversalObject):  # parameters object
+class Params():  # parameters object
     def __init__(self, interval=1.0):
         self.interval = interval
 
@@ -30,18 +30,5 @@ def G(x, x_plus, system):  # jump map (compute discrete dynamics)
     x_plus.value = system.params.interval
 
 
-def U(x, system, *args, **argmap):  # input map (determine input)
-    return None
-
-
-def Y(x, system, *args, **argmap):  # output map (determine output)
-    return None
-
-
-def initialize(system):  # initialize the system when the environment starts
-    pass
-
-
-@dt.task
-def create(state=State(), params=Params(), c=C, f=F, d=D, g=G, u=U, y=Y, id="simple_timer"):  # create a new system
-    return dt.create_sys(x=state, c=c, f=f, d=d, g=g, u=u, y=y, params=params, id=id)
+def create(state=State(),p=Params(),c=C,f=F,d=D,g=G,id="simple_timer"):  # create a new system
+    return dt.create_sys(x=state, c=c, f=f, d=d, g=g, params=Params() if p is None else p, id=id)

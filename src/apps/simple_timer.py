@@ -54,6 +54,15 @@ def app_long():
     )
     '''
 
+@dt.task
+def timer_app():
+    app = dt.app(
+        timer1=dt.build_sys(simple_timer),
+        timer2=simple_timer.create(),
+        fig=figure()
+    )
+    return app
+
 
 
 

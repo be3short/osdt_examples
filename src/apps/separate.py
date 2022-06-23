@@ -16,15 +16,43 @@ attach_sensors(
 
 @dt.task
 def app1():
-    app = dt.app()
-    app.add_tasks(
-        create_balls_1=create_random_balls,
-        create_balls_2=create_random_balls
+    app = dt.app(
+        fig=app1_plot1(),
+        balls=[]
     )
-    app.run_func = app1_run
+    app.add_tasks(
+        app1plot=app1_plot1,
+        create_balls_1=create_random_balls,
+        create_balls_2=create_random_balls,
+        dump=example_script
+    )
+
+
+    print(app.dump)
+    app.run_func = app1_run2
+
     return app
+
+def example_script(fixed1,fixed2,*argz,val1=True,val2=True,**kwargs):##fixed1,fixed2,*argz,val1=True,val2=True,**kwargs):
+    return (fixed1,fixed2,argz,val1,val2,kwargs)
+
+def app1_run2(app:dt.Application):
+    print(app.__dict__)
+    ret=app.run_tasks(app.create_balls_1,app.create_balls_2 )
+    print(app.dump.__dict__)
+    app.dumps=app.dump.run()#dumps=app.dump.run()
+    app.balls=[]
+    app.balls.extend(app.create_balls_1.run().__dict__.values())
+    app.balls.extend(app.create_balls_2.run().__dict__.values())
+    for ball_sys in app.balls:
+        sh_sensor.attach_sensors(ball_sys, list(ball_sys.state.__dict__.keys()))
+    dt.run(jumps=50)
+    app1_plot1()
+    dt.core.get_objects()
+    print(app.dumps)
+
 def app1_run(app):
-    app.call(
+    app.run_tasks(
         balls1=app.create_balls_1,
         balls2=app.create_balls_2
     )
@@ -35,18 +63,21 @@ def app1_run(app):
     for ballid in app.balls:
         ball_sys = app.balls[ballid]
         sh_sensor.attach_sensors(ball_sys, list(ball_sys.state.__dict__.keys()))
-    app1_plot1(app)
+
+    dt.run(jumps=400)
+
     return app
 
-def app1_plot1(app):
-    dt.run(jumps=300)
-    app.fig = ball.plot()  # .display()
-    app.fig.get_subplot(1).legend = False
-    app.fig.get_subplot(2).legend = False
-    app.fig.plot(1, "value", system="*y_position*")
-    app.fig.plot(2, "value", system="*y_velocity*")
-    dt.display()
+def app1_plot1():
+    fig = ball.plot()  # .display()
+    fig.get_subplot(1).legend = False
+    fig.get_subplot(2).legend = False
+    fig.plot(1, "value", system="*y_position*")
+    fig.plot(2, "value", system="*y_velocity*")
+    return fig
 
+
+'''
 @dt.task
 class App1(dt.Application):
     def __init__(self):
@@ -79,11 +110,13 @@ class App1(dt.Application):
         self.fig.plot(1,"value",system="*y_position*")
         self.fig.plot(2,"value",system="*y_velocity*")
         if display: dt.display()
-
-
+'''
+'''
 if __name__ == "__main__":
     if len(sys.argv)<2:
         App1().save("app1")
     else:
         app=dt.load(sys.argv[1])
         app.run()
+
+'''
