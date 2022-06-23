@@ -1,0 +1,71 @@
+{
+"py/object": "osdt.figure.Figure",
+        "height": 600,
+        "width": 1600,
+        "title": "Extra Fig 2",
+        "style": null,
+        "layout": [
+            [1],
+            [2]
+        ],
+        "autofit": true,
+        "title_align": false,
+        "dpi": 100.0,
+        "h_pad": 1.08,
+        "w_pad": 1.08,
+        "export_path": null,
+        "export_format": "jpg",
+        "subplots": {
+            "1": {
+                "py/object": "osdt.figure.Subplot",
+                "title": null,
+                "x_axis": null,
+                "y_axis": null,
+                "legend": true,
+                "colors": null,
+                "series": [{
+                    "py/object": "osdt.figure.Series",
+                    "y": "y_position",
+                    "x": null,
+                    "system": null,
+                    "label": null,
+                    "color": null,
+                    "dash_style": null,
+                    "field_label": false,
+                    "max_points": null,
+                    "df": null
+                }, {
+                    "py/object": "osdt.figure.Series",
+                    "y": "value",
+                    "x": null,
+                    "system": null,
+                    "label": null,
+                    "color": null,
+                    "dash_style": null,
+                    "field_label": false,
+                    "max_points": null,
+                    "df": null
+                }]
+            },
+            "2": {
+                "py/object": "osdt.figure.Subplot",
+                "title": null,
+                "x_axis": null,
+                "y_axis": null,
+                "legend": true,
+                "colors": null,
+                "series": [{
+                    "py/object": "osdt.figure.Series",
+                    "y": "y_velocity",
+                    "x": null,
+                    "system": null,
+                    "label": null,
+                    "color": null,
+                    "dash_style": null,
+                    "field_label": false,
+                    "max_points": null,
+                    "df": null
+                }]
+            }
+        }
+}

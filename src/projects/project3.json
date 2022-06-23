@@ -1,0 +1,149 @@
+{
+    "py/object": "osdt.project.Project",
+    "config": {
+        "py/object": "osdt.configuration.ConfigCollection",
+        "run": {
+            "py/object": "osdt.configuration.RunConfig",
+            "jumps": 10,
+            "time": 10.0,
+            "jump_flow_priority": "JUMP_PRIORITY",
+            "real_time_mode": false,
+            "real_time_min_step": 0.001,
+            "quit_on_fatal": true
+        },
+        "display": {
+            "py/object": "osdt.configuration.DisplayConfig"
+        },
+        "integrator": {
+            "py/object": "osdt.configuration.IntegratorConfig",
+            "integrator_type": "vode",
+            "atol": 1e-12,
+            "rtol": 1e-06,
+            "method": "adams",
+            "nsteps": 500,
+            "first_step": 0.0,
+            "min_step": 0.0,
+            "max_step": 0.1,
+            "order": 12,
+            "with_jacobian": false,
+            "max_order_ns": 12,
+            "max_order_s": 5,
+            "max_hnilixpr": null,
+            "safety": 0.9,
+            "ifactor": 10.0,
+            "dfactor": 0.2,
+            "beta": 0.0,
+            "verbosity": -1
+        },
+        "file": {
+            "py/object": "osdt.configuration.FileConfig"
+        }
+    },
+    "externals": {
+        "py/object": "osdt.objects.ObjectBase",
+        "config": [],
+        "figs": []
+    },
+    "ball": {
+        "py/object": "osdt.system.System",
+        "properties": {
+            "py/object": "osdt.system.SystemProperties",
+            "id": "ball",
+            "label": null,
+            "c": "osdt_examples.models.ball.C",
+            "f": "osdt_examples.models.ball.F",
+            "d": "osdt_examples.models.ball.D",
+            "g": "osdt_examples.models.ball.G",
+            "u": "osdt_examples.models.ball.U",
+            "y": "osdt_examples.models.ball.Y_dict",
+            "init": null,
+            "pre": null,
+            "post": null
+        },
+        "state": {
+            "py/object": "osdt_examples.models.ball.X",
+            "y_position": 1.0,
+            "y_velocity": 0.0
+        },
+        "params": {
+            "py/object": "osdt_examples.models.ball.P",
+            "gravity": 9.81,
+            "restitution": 0.9
+        },
+        "data": "$compressed:1"
+    },
+    "fig": {
+        "py/object": "osdt.figure.Figure",
+        "height": 600,
+        "width": 1600,
+        "title": "Pendulum",
+        "style": null,
+        "layout": [
+            [1],
+            [2]
+        ],
+        "autofit": true,
+        "title_align": false,
+        "dpi": 100.0,
+        "h_pad": 1.08,
+        "w_pad": 1.08,
+        "export_path": null,
+        "export_format": "jpg",
+        "subplots": {
+            "1": {
+                "py/object": "osdt.figure.Subplot",
+                "title": null,
+                "x_axis": null,
+                "y_axis": null,
+                "legend": true,
+                "colors": null,
+                "series": [{
+                    "py/object": "osdt.figure.Series",
+                    "y": "y_position",
+                    "x": null,
+                    "system": null,
+                    "label": null,
+                    "color": null,
+                    "dash_style": null,
+                    "field_label": false,
+                    "max_points": null,
+                    "df": null
+                }, {
+                    "py/object": "osdt.figure.Series",
+                    "y": "value",
+                    "x": null,
+                    "system": null,
+                    "label": null,
+                    "color": null,
+                    "dash_style": null,
+                    "field_label": false,
+                    "max_points": null,
+                    "df": null
+                }]
+            },
+            "2": {
+                "py/object": "osdt.figure.Subplot",
+                "title": null,
+                "x_axis": null,
+                "y_axis": null,
+                "legend": true,
+                "colors": null,
+                "series": [{
+                    "py/object": "osdt.figure.Series",
+                    "y": "y_velocity",
+                    "x": null,
+                    "system": null,
+                    "label": null,
+                    "color": null,
+                    "dash_style": null,
+                    "field_label": false,
+                    "max_points": null,
+                    "df": null
+                }]
+            }
+        }
+    },
+    "$compressed": {
+        "py/b64": "H4sIAM7ZsmIC/2tgmRrDAAG1U3oYDaf08OQXp5TopSSWJBanlkzpYXeBsiZP0WycUjtFo4c1HiQJZPbwx0Ml4+OzSnMLiqfETunhQ4iVZOamAoVKk4r1AGGaOkBnAAAA"
+    }
+}
