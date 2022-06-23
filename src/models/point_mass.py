@@ -15,8 +15,8 @@ class Params:
         self.mass = mass
         self.gravity=gravity
 
-def C(x, hs):
 
+def C(x, hs):
     return True
 
 
