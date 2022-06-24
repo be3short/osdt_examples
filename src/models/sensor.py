@@ -94,7 +94,7 @@ def Y(x, system, *args, **argmap): # output map (determine output value)
 
 def new(**fields):
     sens=sys.modules[__name__]
-    syst=osdt.build_sys(sens,**fields)
+    syst=osdt.create_sys(sens,**fields)
     print("sys{}:".format(syst))
     connector=Connector(system=syst)
     syst.set(get_input=connector.get_input,connect=connector.connect)

@@ -22,8 +22,8 @@ def connect(app):
     app.vehicle.controller = app.controller
 
 
-@dt.app_def
-def dubins_app():
+@dt.root
+def dubins():
     app = dt.app(
         vehicle=dt.create_sys(dubins_vehicle),
         controller=dt.create_sys(dubins_controller),
@@ -34,7 +34,7 @@ def dubins_app():
 
 
 if __name__ == "__main__":
-    app = dubins_app()
+    app = dubins()
     app.run(True)
 
 

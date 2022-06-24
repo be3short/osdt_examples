@@ -41,8 +41,7 @@ def main():
     # plot the angle and velocity
     fig.plot(1,"angle")
     fig.plot(2,"velocity")
-    osdt.plotting.display()
+    osdt.display()
     # display all figures
-    osdt.figure.display()
 if __name__ == "__main__":
     main()

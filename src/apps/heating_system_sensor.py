@@ -4,7 +4,8 @@ import osdt
 import osdt as dt
 
 from osdt_examples.models import heater_system, heater_controller,sensor
-
+def ddd(qq1,avc=4):
+    return qq1
 def figure():
     fig = dt.create_fig(layout=[[1], [2]], title="Thermostat Controlled Temperature")
     fig.plot(1,"temperature")
@@ -15,24 +16,22 @@ def figure():
   #  fig.export("figure1", format="png")
     return fig
 
-def connect(app):
+def connect(app:dt.application.Application):
     app.heater.controller = app.controller_sensor
     app.controller_sensor.connect(app.controller )
     app.controller.heater = app.heater_sensor
-    app.heater_sensor.connect(app.heater )
+    app.heater_sensor.connect(app.heater)
 
-
-@dt.app_def
+@dt.root
 def heater_app():
     app = dt.app(
         heater=dt.create_sys(heater_system),
         controller=dt.create_sys(heater_controller),
         heater_sensor=sensor.new(id="heater_sensor"),
         controller_sensor = sensor.new(id="controller_sensor"),
-    figure=figure()
+        figure=figure()
     )
     app.add_setup(connect)
-
     return app
 
 if __name__ == "__main__":

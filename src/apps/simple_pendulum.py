@@ -15,7 +15,7 @@ def figure():
     return fig
 
 
-@dt.app_def
+@dt.root
 def pendulum_app():
     app = dt.app(
         sys1=dt.create_sys(simple_pendulum),
