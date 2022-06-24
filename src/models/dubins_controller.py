@@ -1,13 +1,13 @@
 import math
 import osdt
-from osdt_examples.models import dubins_vehicle 
+from osdt_examples.models import dubins_vehicle
 
 
 VEHICLE = "VEHICLE"
 
 
 class State:
-    def __init__(self, turn=1.0, velocity=0.0):
+    def __init__(self, turn=1.0, velocity=0.5):
         self.turn = turn
         self.velocity = velocity
 

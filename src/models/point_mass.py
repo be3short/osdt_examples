@@ -21,7 +21,7 @@ def C(x, hs):
 
 
 def F(x, x_dot, sys):
-    point_masses=sys.get_input()
+    point_masses=sys.u()
     x_force_total = 0
     y_force_total = 0
 
@@ -35,20 +35,20 @@ def F(x, x_dot, sys):
         y_distance = y.y_position - x.y_position;
         angle = math.atan2(y_distance, x_distance);
         if distance < 50: distance = 50.0
-        force = sys.get(Params).gravity * (sys.get(Params).mass * point_mass.get(Params).mass) / math.pow(distance, 2)
+        force = sys.params.gravity * (sys.params.mass * point_mass.params.mass) / math.pow(distance, 2)
         x_force = force * math.cos(angle);
         y_force = force * math.sin(angle);
         x_force_total = x_force_total + x_force
         y_force_total = y_force_total + y_force
 
-    x_dot.x_velocity = x_force_total / sys.get(Params).mass
-    x_dot.y_velocity = y_force_total / sys.get(Params).mass
+    x_dot.x_velocity = x_force_total / sys.params.mass
+    x_dot.y_velocity = y_force_total / sys.params.mass
     x_dot.x_position = x.x_velocity
     x_dot.y_position = x.y_velocity
    # print("envtime="+str(osdt.get_environment_time())+" "+str(x.__dict__))
 
 def CEarth(x, sys):
-    system = sys.get(ALL_MASSES)[0]
+    system = sys.all_masses[0]
     earth = system.x()
     dist = compute_distance(x, earth)
     if dist < 6361000:# and x.y_velocity==0.0:
@@ -58,7 +58,7 @@ def CEarth(x, sys):
 
 
 def D(x,sys):
-    system=sys.get(ALL_MASSES)[0]
+    system=sys.all_masses[0]
     earth=system.x()
     dist=compute_distance(x,earth)
     if dist < 6361000 and x.y_velocity>0:
@@ -68,7 +68,7 @@ def D(x,sys):
 
 
 def G(x,x_plus,sys):
-    system=sys.get(ALL_MASSES)[0]
+    system=sys.all_masses[0]
     earth=system.x()
     dist=compute_distance(x,earth)
     #if dist < 6361000:
@@ -81,7 +81,7 @@ def G(x,x_plus,sys):
 
 def U(x, sys, *args, **argmap):
     # get all other point masses
-    point_masses = sys.get(ALL_MASSES)
+    point_masses = sys.all_masses
     return point_masses
 
 
@@ -97,21 +97,21 @@ def connect_all_masses():
     all_point_masses = []
     for system in osdt.get_systems().values():
         system: osdt.system.System=system
-        if type(system.x()) == State:
+        if type(system.state) == State:
             all_point_masses.append(system)
     for pointmass in all_point_masses:
         other_masses = []
         for other_mass in all_point_masses:
             if other_mass != pointmass:
                 other_masses.append(other_mass)
-        pointmass.set(ALL_MASSES,other_masses)
+        pointmass.all_masses=other_masses
 
 
 def FDrag(x,x_dot,sys):
-    point_masses = sys.input()
+    point_masses = sys.u()
     x_force_total = 0
     y_force_total = 0
-    system = sys.get(ALL_MASSES)[0]
+    system = sys.all_masses[0]
     earth = system.x()
     dist = compute_distance(x, earth)
    # if dist >= 6350000:
@@ -125,7 +125,7 @@ def FDrag(x,x_dot,sys):
         y_distance = y.y_position - x.y_position;
         angle = math.atan2(y_distance, x_distance);
         if distance < 5: distance = 5
-        force = sys.get(Params).gravity * (sys.get(Params).mass * point_mass.get(Params).mass) / math.pow(distance, 2)
+        force = sys.params.gravity * (sys.params.mass * point_mass.params.mass) / math.pow(distance, 2)
         x_force = force * math.cos(angle);
         y_force = force * math.sin(angle);
         x_force_total = x_force_total + x_force
@@ -136,8 +136,8 @@ def FDrag(x,x_dot,sys):
 
 
 
-    x_dot.x_velocity = (x_force_total) / sys.get(Params).mass
-    x_dot.y_velocity = y_force_total / sys.get(Params).mass
+    x_dot.x_velocity = (x_force_total) / sys.params.mass
+    x_dot.y_velocity = y_force_total / sys.params.mass
     x_dot.x_position = x.x_velocity
     x_dot.y_position = x.y_velocity
 

@@ -3,7 +3,7 @@ from osdt_examples.models import dubins_vehicle,dubins_controller
 
 
 def figure():
-    fig = dt.create_fig(layout=[[1,2,5,5],[3,4,5,5] ])
+    fig = dt.create_fig(layout=[[1,2,5,5],[3,4,5,5]])
     fig.config(1, title="X Position")
     fig.config(2, title="Y Position")
     fig.config(3, title="Orientation")
@@ -29,8 +29,8 @@ def heater_app():
         figure=figure()
     )
     app.add_setup(connect)
-
     return app
+
 
 if __name__ == "__main__":
     app = heater_app()

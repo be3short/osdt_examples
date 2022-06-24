@@ -6,14 +6,14 @@ CONTROLLER = "CONTROLLER"
 VEHICLE = "VEHICLE"
 
 class State:
-    def __init__(self, x_position=0.0, y_position=0.0, orientation=0.0):
+    def __init__(self, x_position=1.0, y_position=0.0, orientation=0.5):
         self.x_position = x_position
         self.y_position = y_position
         self.orientation = orientation
 
 
 class ControlInput:
-    def __init__(self, turn_state=0.0, velocity=0.0):
+    def __init__(self, turn_state=0.0, velocity=0.5):
         self.turn_state = turn_state
         self.velocity = velocity
 
