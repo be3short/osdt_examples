@@ -1,5 +1,6 @@
 import math
 import osdt
+from osdt_examples.models import dubins_vehicle 
 
 
 VEHICLE = "VEHICLE"
@@ -16,6 +17,7 @@ class VehicleInput:
         self.y_position = y_position
         self.orientation = orientation
 
+
 def C(x, system): # flow set (state in continuous domain)
     return True
 
@@ -25,13 +27,13 @@ def F(x, x_dot, system): # flow map (continuous dynamics)
 
 
 def D(x, system): # jump set (state in discrete domain)
-    u = system.get_input()
+    u = system.u()
     jump = u.x_position >= 1 and x.turn == 2 or u.x_position <= -1 and x.turn == 1
     return jump
 
 
 def G(x, x_plus, system): # jump map (discrete dynamics)
-    u = system.get_input()
+    u = system.u()
     if u.x_position >= 1 and x.turn == 2 or u.x_position <= -1 and x.turn == 1:
         x_plus.turn = 3 - x.turn
 
@@ -45,14 +47,14 @@ def U(x, system,*args, **argmap): # input map (determine input)
 
 def U(x, system,*args, **argmap): # input map (determine input)
     """Input map where dubins controller is getting dubins_vehicle.State and construct the VehicleInput object"""
-    vehicle = system.get(VEHICLE)
-    output = vehicle.get_output()
+    vehicle = system.vehicle
+    output = vehicle.y()
     if type(output) is dict:
         u = VehicleInput(x_position=output["x_position"],
                          y_position=output["y_position"],
                          orientation=output["orientation"])
     else:
-        vehicle_state:dubins_vehicle.State = vehicle.get_output()
+        vehicle_state:dubins_vehicle.State = vehicle.y()
         u = VehicleInput(x_position=vehicle_state.x_position,y_position=vehicle_state.y_position,
                      orientation=vehicle_state.orientation)
     return u

@@ -19,13 +19,13 @@ class ControlInput:
 
 
 def C(x, system): # flow set (state in continuous domain)
-    u = system.get_input()
+    u = system.u()
     flow = x.x_position < 1 and u.turn_state == 2 or x.x_position > -1 and u.turn_state == 1
     return flow
 
 
 def F(x, x_dot, system): # flow map (continuous dynamics)
-    u = system.get_input()
+    u = system.u()
     x_dot.x_position = u.velocity * math.cos(x.orientation)
     x_dot.y_position = u.velocity * math.sin(x.orientation)
     x_dot.orientation = - x.orientation + (3 * math.pi / 4 if u.turn_state == 1 else math.pi / 4 if u.turn_state == 2 else 0)
@@ -42,19 +42,19 @@ def G(x, x_plus, system): # jump map (discrete dynamics)
 def U(x, system, *args, **argmap): # input map (determine input)
     """Input map where dubins vehicle is expecting to get a ControlInput object from the controller"""
     controller = system.get(CONTROLLER)
-    u = controller.get_output()
+    u = controller.y()
     return u
 '''
 
 def U(x, system, *args, **argmap): # input map (determine input)
     """Input map where dubins controller is getting dubins_controller.State and constructs the ControlInput object"""
-    controller = system.get(CONTROLLER)
-    output = controller.get_output()
+    controller = system.controller
+    output = controller.y()
     if type(output) is dict:
         u = ControlInput(turn_state=output["turn"],
                          velocity=output["velocity"])
     else:
-        controller_state:dubins_controller.State = controller.get_output(system)
+        controller_state:dubins_controller.State = controller.y()
         u = ControlInput(turn_state=controller_state.turn,
                      velocity=controller_state.velocity)
     return u
