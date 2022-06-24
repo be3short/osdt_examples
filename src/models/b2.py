@@ -40,6 +40,7 @@ def Y_dict(x, hs, *args, **argmap): # output map (determine output)
 
 def initialize(systemtem): # initialize the systemtem when the environment starts
     pass
+
 def new(state=State(), params=Params(),f= F,c=C,d=D,g=G,y= Y_dict, **fields):
     ball_sys=osdt.create_sys(x=state,c=c, f=f, g=g, d=d, y=y, id="ball", params=params, **fields)
     return ball_sys

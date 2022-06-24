@@ -2,7 +2,7 @@ import osdt as dt
 from osdt_examples.models import simple_pendulum
 
 
-@dt.task
+
 def figure():
     fig = dt.create_fig(
         title="Simple Pendulum",
@@ -15,11 +15,11 @@ def figure():
     return fig
 
 
-@dt.task
+@dt.app_def
 def pendulum_app():
     app = dt.app(
-        sys1=dt.build_sys(simple_pendulum),
-        sys2=dt.build_sys(simple_pendulum),
+        sys1=dt.create_sys(simple_pendulum),
+        sys2=dt.create_sys(simple_pendulum),
         fig1=figure()
     )
     return app

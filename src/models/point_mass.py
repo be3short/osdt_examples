@@ -150,6 +150,6 @@ def create(x_position=1000.0, y_position=1000.0, x_velocity=0.0,
     return system
 
 
-def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=None,initialize=None,routine=None): # create a new system
-    return osdt.create_system(x=state,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine)
+def create(x=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=None,initialize=None,routine=None): # create a new system
+    return osdt.create_system(x=x,vars={Params: params},c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine)
 

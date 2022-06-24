@@ -17,10 +17,12 @@ def connect(app):
     app.heater.controller = app.controller
     app.controller.heater = app.heater
 
+
+@dt.app_def
 def heater_app():
     app = dt.app(
-        heater=dt.build_sys(heater_system),
-        controller=dt.build_sys(heater_controller),
+        heater=dt.create_sys(heater_system),
+        controller=dt.create_sys(heater_controller),
         figure=figure()
     )
     app.add_setup(connect)

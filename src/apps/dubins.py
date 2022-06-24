@@ -22,10 +22,11 @@ def connect(app):
     app.vehicle.controller = app.controller
 
 
-def heater_app():
+@dt.app_def
+def dubins_app():
     app = dt.app(
-        vehicle=dt.build_sys(dubins_vehicle),
-        controller=dt.build_sys(dubins_controller),
+        vehicle=dt.create_sys(dubins_vehicle),
+        controller=dt.create_sys(dubins_controller),
         figure=figure()
     )
     app.add_setup(connect)
@@ -33,7 +34,7 @@ def heater_app():
 
 
 if __name__ == "__main__":
-    app = heater_app()
+    app = dubins_app()
     app.run(True)
 
 

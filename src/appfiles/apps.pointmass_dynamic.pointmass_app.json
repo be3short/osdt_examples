@@ -1,0 +1,33 @@
+{
+    "py/object": "osdt.application.Application",
+    "config": {
+        "run": {
+            "py/object": "osdt.configuration.RunConfig",
+            "jumps": 10,
+            "time": 10.0,
+            "jump_flow_priority": "JUMP_PRIORITY",
+            "real_time_mode": false,
+            "real_time_min_step": 0.001
+        }
+    },
+    "num_masses": 10,
+    "velocity": 0.1,
+    "model": {
+        "c": "osdt_examples.models.point_mass.C",
+        "f": "osdt_examples.models.point_mass.F",
+        "d": "osdt_examples.models.point_mass.D",
+        "g": "osdt_examples.models.point_mass.G",
+        "u": "osdt_examples.models.point_mass.U",
+        "y": null
+    },
+    "min_mass": 5000000000.0,
+    "max_mass": 150000000000.0,
+    "position_range": 50000.0,
+    "velocity_range": 10.0,
+    "fig": null,
+    "setup": [{
+        "py/function": "apps.pointmass_dynamic.create_masses"
+    }, {
+        "py/function": "apps.pointmass_dynamic.setup"
+    }]
+}

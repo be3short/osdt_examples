@@ -6,7 +6,7 @@ import osdt as dt
 from osdt_examples.models import ball
 
 
-@dt.task
+@dt.app_def
 def create_random_balls(
         num_balls = 1,
         min_state = ball.State(),

@@ -3,13 +3,13 @@ import sys
 import osdt as dt
 from osdt_examples.models import simple_timer
 
-@dt.task
+@dt.app_def
 def figure():
     fig = dt.create_fig(layout=[[1]])
     fig.plot(1,"value")
     return fig
 
-@dt.task
+@dt.app_def
 def runz(x=simple_timer.State(),
         p=simple_timer.Params()):
     timer_sys = simple_timer.create(x=x,p=p)
@@ -23,7 +23,7 @@ def app_setup(app):
 def app_cleanup(app):
     print("cleanup: {}".format(app))
 
-@dt.task
+@dt.app_def
 def app():
     app = dt.app(
         timer_sys=simple_timer.create(),
@@ -32,7 +32,7 @@ def app():
     app.set_process(setup=app_setup, cleanup=app_cleanup)
     return app
 
-@dt.task
+@dt.app_def
 def app_ext():
     app = dt.app(
         timer_sys=simple_timer.create(),
@@ -41,7 +41,7 @@ def app_ext():
     return app
 
 
-@dt.task
+@dt.app_def
 def app_long():
     pass
     '''
@@ -54,10 +54,10 @@ def app_long():
     )
     '''
 
-@dt.task
+@dt.app_def
 def timer_app():
     app = dt.app(
-        timer1=dt.build_sys(simple_timer),
+        timer1=dt.create_sys(simple_timer),
         timer2=simple_timer.create(),
         fig=figure()
     )

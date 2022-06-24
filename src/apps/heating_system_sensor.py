@@ -22,11 +22,11 @@ def connect(app):
     app.heater_sensor.connect(app.heater )
 
 
-
+@dt.app_def
 def heater_app():
     app = dt.app(
-        heater=dt.build_sys(heater_system),
-        controller=dt.build_sys(heater_controller),
+        heater=dt.create_sys(heater_system),
+        controller=dt.create_sys(heater_controller),
         heater_sensor=sensor.new(id="heater_sensor"),
         controller_sensor = sensor.new(id="controller_sensor"),
     figure=figure()

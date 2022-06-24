@@ -2,7 +2,6 @@ import osdt as dt
 from osdt_examples.models import rlc_filter
 
 
-@dt.task
 def figure():
     fig = dt.create_fig(
         title="Simple Pendulum",
@@ -20,10 +19,10 @@ def figure():
     return fig
 
 
-@dt.task
+@dt.app_def
 def rlc_filter_app():
     app = dt.app(
-        sys1=dt.build_sys(rlc_filter),
+        sys1=dt.create_sys(rlc_filter),
         fig1=figure()
     )
     return app

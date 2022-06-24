@@ -10,6 +10,8 @@ def setup(app):
     osdt.get_config().integrator.max_step=100.0
     osdt.get_config().run.time=10000.0
 
+
+@osdt.app_def
 def pointmass_app():
     app=osdt.app()
     V_0 = .1

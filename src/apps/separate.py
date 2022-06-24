@@ -14,7 +14,7 @@ attach_sensors(
         sensor_params = sensor.Params()):
 '''
 
-@dt.task
+@dt.app_def
 def app1():
     app = dt.app(
         fig=app1_plot1(),

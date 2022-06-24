@@ -3,7 +3,7 @@ from osdt_examples.models import sensor
 
 
 
-@dt.task
+@dt.app_def
 def attach_sensors(
         measured_sys = None,
         measured_values = [],
