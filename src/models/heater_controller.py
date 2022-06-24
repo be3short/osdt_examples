@@ -1,6 +1,6 @@
 import osdt
 import osdt as dt
-from models import heater_system
+from osdt_examples.models import heater_system
 
 TEMPERATURE = "TEMPERATURE"
 
@@ -18,7 +18,7 @@ def C(x, hs):
     return True
 
 def D(x, hs):
-    current_temp = hs.get_input()
+    current_temp = hs.u()
     if hs.params.hysteresis_range + x.set_temperature < current_temp and x.thermostat_on > 0.0:
         return True
     elif x.set_temperature - hs.params.hysteresis_range > current_temp and x.thermostat_on <= 0.0:
@@ -27,7 +27,7 @@ def D(x, hs):
 
 
 def G(x, x_plus, hs):
-    current_temp = hs.get_input()
+    current_temp = hs.u()
     if hs.params.hysteresis_range + x.set_temperature < current_temp and x.thermostat_on > 0.0:
         x_plus.thermostat_on = 0.0
     elif x.set_temperature - hs.params.hysteresis_range > current_temp and x.thermostat_on <= 0.0:
@@ -35,16 +35,15 @@ def G(x, x_plus, hs):
 
 
 def U(x, hs, *args, **argmap):
-    temperature_sys = hs.get(TEMPERATURE)
-    temperature_value = temperature_sys.get_output()
+    temperature_value = hs.heater.y()
     return temperature_value
 
 
 def Y(x, hs, *args, **argmap):
     return x.thermostat_on
 
-def routine(x, hs):
-    x.measured_temp=hs.get_input()
+def pre(hs):
+    hs.state.measured_temp=hs.u()
 
 
 def create2(thermostat_on=0.0, set_temperature=60.0, hysteresis_range=15.0, temperature_system = None) -> osdt.System:

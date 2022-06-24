@@ -54,7 +54,7 @@ def G(x, x_plus, system): # jump map (discrete dynamics)
     x_plus.v_in = 0.0 if x.v_in > 0 else params.max_voltage
     x_plus.i = (x_plus.v_in-x.di_dt) / (params.resistor+(1/params.capacitor))
     x_plus.toggle_timer = toggle_length
-    
+
 def U(x, system, *args, **argmap): # input map (determine input)
     return None
 

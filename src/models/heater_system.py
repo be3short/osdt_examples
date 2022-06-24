@@ -23,7 +23,7 @@ def C(x, hs):
 
 
 def F(x, x_dot, hs):
-    thermostat_on = hs.get_input()
+    thermostat_on = hs.u()
     outside_temp = hs.params.outside_temperature
     x_dot.temperature = (-x.temperature + hs.params.heater_capacity * thermostat_on + outside_temp);
 
@@ -37,8 +37,7 @@ def G(x, x_plus, hs):
 
 
 def U(x, hs, *args, **argmap):
-    thermostat_controller = hs.get(CONTROLLER)
-    control_signal = thermostat_controller.get_output()
+    control_signal = hs.controller.y()
     return control_signal
 
 

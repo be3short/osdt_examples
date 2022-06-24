@@ -3,7 +3,7 @@ import sys
 """Bouncing ball model"""
 import osdt
 import copy
-
+import sys
 INPUT = "input_sys"
 PARAMS="PARAMS"
 
@@ -92,10 +92,18 @@ def Y(x, system, *args, **argmap): # output map (determine output value)
 def initialize(system): # initialize the system when the environment starts
     pass
 
+
+def new(**fields):
+    syst=osdt.build_sys(sys.modules[__name__])
+    connector=Connector(syst)
+    syst.set(get_input=connector.get_input,connect=connector.connect)
+
 def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y ,id="sensor",input_sys=None,add=True): # create a new system
     system=osdt.create_sys(x=state,c=c,f=f,d=d,g=g,u=u,y=y,id=id,
                            params=Params() if params is None else params,add=add)
-    system.set(connector=Connector(system))
+    connector=Connector(system)
+    system.set(get_input=connector.get_input,connect=connector.connect)
+
 
     return system
 
