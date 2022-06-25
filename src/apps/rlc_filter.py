@@ -19,7 +19,7 @@ def figure():
     return fig
 
 
-@dt.main
+@dt.root
 def rlc_filter_app():
     app = dt.app(
         sys1=dt.create_sys(rlc_filter),

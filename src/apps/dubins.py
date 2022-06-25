@@ -1,6 +1,16 @@
 import osdt as dt
 from osdt_examples.models import dubins_vehicle, dubins_controller
 
+
+@dt.root
+def dubins():
+    app = dt.app(
+        vehicle=dt.create_sys(dubins_vehicle),
+        controller=dt.create_sys(dubins_controller),
+    )
+    app.add_setup(connect)
+    return app
+
 def connect(app):
     app.controller.vehicle = app.vehicle
     app.vehicle.controller = app.controller
@@ -19,16 +29,6 @@ def figure():
     fig.plot(4, "turn")
     fig.plot(5, x="x_position", y="y_position")
     return fig
-
-
-@dt.root
-def dubins():
-    app = dt.app(
-        vehicle=dt.create_sys(dubins_vehicle),
-        controller=dt.create_sys(dubins_controller),
-    )
-    app.add_setup(connect)
-    return app
 
 
 def runapp():

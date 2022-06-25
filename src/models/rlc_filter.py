@@ -8,7 +8,7 @@
 import osdt
 
 
-class State(osdt.UniversalObject): # state object
+class State(osdt.Object): # state object
     def __init__(self):
         self.vc=1.0
         self.vl =1.0
@@ -16,7 +16,7 @@ class State(osdt.UniversalObject): # state object
         self.i = 0.0#v_in / params.resistor
         self.di_dt = 0.2
 
-class Params(osdt.UniversalObject): # parameters object
+class Params(osdt.Object): # parameters object
     def __init__(self, resistor=63.24,capacitor=100.0e-6,inductor=100e-3,v_in=1.0,v_out=0.0):
         self.resistor=resistor
         self.capacitor=capacitor
