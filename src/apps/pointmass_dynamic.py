@@ -1,6 +1,6 @@
 import osdt as dt #as dt
 
-from dt_examples.models import point_mass as pm
+from osdt_examples.models import point_mass as pm
 
 def figure():
     xyfig = dt.create_fig(layout=[[1]], title="Point Mass Interaction", dpi=130)
@@ -11,7 +11,6 @@ def setup(app):
     pm.connect_all_masses()
     dt.get_config().integrator.max_step=100.0
     dt.get_config().run.time=10000.0
-
 
 def create_masses(app):
     for mass_num in range(0,app.num_masses):
@@ -28,19 +27,25 @@ def create_masses(app):
         app.set(new_mass.get_id(),new_mass)
         dt.add_systems(new_mass)
 
-@dt.main
-def pointmass_app():
+@dt.root()
+def pointmass():
     app=dt.app(
         num_masses=10,
         model=dt.create_sys(pm).properties.get_model(),
         min_mass=5e9, max_mass=5e10,
         position_range=10000.0,
         velocity_range=10.0,
-        fig = figure()
+        fig = figure(),
+
     )
     app.add_setup(create_masses,setup)
     return app
 
 if __name__ == "__main__":
-    app = pointmass_app()
-    app.run(True)
+    app = pointmass()
+    #app = dt.load("pointmass_dynamic.json")  # multi(
+    app.run_setup()
+    #app.save("pointmass_dynamic")
+    #app.run(True)
+    #app.save("pointmass_dynamic")
+    app.save("poin")

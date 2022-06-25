@@ -2,6 +2,13 @@ import osdt as dt
 from osdt_examples.models import simple_pendulum
 
 
+@dt.root
+def pendulum_app():
+    app = dt.app(
+        sys1=dt.create_sys(simple_pendulum),
+        fig1=figure()
+    )
+    return app
 
 def figure():
     fig = dt.create_fig(
@@ -13,16 +20,6 @@ def figure():
     fig.plot(2,"velocity")
     print(fig.get_subplot(1))
     return fig
-
-
-@dt.root
-def pendulum_app():
-    app = dt.app(
-        sys1=dt.create_sys(simple_pendulum),
-        sys2=dt.create_sys(simple_pendulum),
-        fig1=figure()
-    )
-    return app
 
 
 if __name__ == "__main__":

@@ -6,7 +6,6 @@ import osdt as dt
 from osdt_examples.models import ball
 
 
-@dt.app_def
 def create_random_balls(
         num_balls = 1,
         min_state = ball.State(),
@@ -20,7 +19,6 @@ def create_random_balls(
         y_velocity = dt.random(min_state.y_velocity, max_state.y_velocity)
         ball_sys=ball.create(x=ball.State(y_position, y_velocity),p=ball_params)
         balls.set(ball_sys.get_id(),ball_sys)
-
     return balls
 
 

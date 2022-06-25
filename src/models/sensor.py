@@ -7,17 +7,17 @@ import sys
 INPUT = "input_sys"
 PARAMS="PARAMS"
 
-class State(osdt.UniversalObject): # state class
+class State(osdt.Object): # state class
     def __init__(self, value=0.0, timer=0.0):
         self.value = value
         self.timer = timer
 
-class Params(osdt.UniversalObject): # parameters class
+class Params(osdt.Object): # parameters class
     def __init__(self, sample_period=0.1, sample_field=""):
         self.sample_period = sample_period
         self.sample_field = sample_field
 
-class StateMulti(osdt.UniversalObject): # state class
+class StateMulti(osdt.Object): # state class
     def __init__(self, timer=0.0, values=[]):
         self.timer = timer
         for val_name in values:
@@ -28,7 +28,7 @@ class ParamsMulti: # parameters class
         self.sample_period = sample_period
         self.sample_fields = sample_fields
 
-class Connector(osdt.UniversalObject):
+class Connector(osdt.Object):
     def __init__(self,system=None,connected_sys=None):# input_conn=None):
         self.system=system
        # self.system.get_input  = #self.get_input
@@ -59,14 +59,14 @@ def G(x, x_plus, system): # jump map (discrete dynamics)
 
 
 def G_multi(x, x_plus, system): # jump map (discrete dynamics)
-    signal_input = system.get_input()#.u()
+    signal_input = system.input_sys#.u()
     for signal in signal_input:
         signal_value = signal_input[signal]
         x_plus.__dict__[signal]=signal_value
     x_plus.timer = system.get(Params).sample_period
 
 def U(x, system, *args, **argmap): # input map (determine input value)
-    signal_system = system.get_input()#.u()
+    signal_system = system.input_sys#.u()
     sample_field = system.params.sample_field
     signal_input = signal_system.y()
     if len(sample_field)==0:
@@ -96,14 +96,14 @@ def new(**fields):
     sens=sys.modules[__name__]
     syst=osdt.create_sys(sens,**fields)
     print("sys{}:".format(syst))
-    connector=Connector(system=syst)
-    syst.set(get_input=connector.get_input,connect=connector.connect)
+    #connector=Connector(system=syst)
+    #syst.set(get_input=connector.get_input,connect=connector.connect)
     return syst
 def create(state=State(),params=Params(),c=C,f=F,d=D,g=G,u=U,y=Y ,id="sensor",input_sys=None,add=True): # create a new system
     system=osdt.create_sys(x=state,c=c,f=f,d=d,g=g,u=u,y=y,id=id,
                            params=Params() if params is None else params,add=add)
-    connector=Connector(system)
-    system.set(get_input=connector.get_input,connect=connector.connect)
+    #connector=Connector(system)
+    #system.set(get_input=connector.get_input,connect=connector.connect)
 
 
     return system

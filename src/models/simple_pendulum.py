@@ -2,12 +2,12 @@
 import osdt
 import math
 
-class State(osdt.UniversalObject):  # state
+class State(osdt.Object):  # state
     def __init__(self, angle=1.0,velocity=0.0):
         self.angle = angle
         self.velocity = velocity
 
-class Params(osdt.UniversalObject):  # parameters
+class Params(osdt.Object):  # parameters
     def __init__(self, length=1.0, mass=1.0, gravity =9.81):
         self.length = length
         self.mass = mass

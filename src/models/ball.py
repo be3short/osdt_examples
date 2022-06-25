@@ -4,12 +4,12 @@ from random import random
 import osdt
 
 
-class State(osdt.UniversalObject): # state class
+class State(osdt.Object): # state class
     def __init__(self, y_position=1.0, y_velocity=0.0):
         self.y_position = y_position
         self.y_velocity = y_velocity
 
-class Params(osdt.UniversalObject): # parameters class
+class Params(osdt.Object): # parameters class
     def __init__(self, gravity=9.81, restitution=0.9):
         self.gravity = gravity
         self.restitution = restitution

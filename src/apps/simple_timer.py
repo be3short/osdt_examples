@@ -54,7 +54,7 @@ def app_long():
     )
     '''
 
-
+@dt.root
 def timer_app():
     app = dt.app(
         timer1=dt.create_sys(simple_timer),
@@ -65,6 +65,8 @@ def timer_app():
 
 
 
-
+if __name__ == "__main__":
+    app=timer_app()
+    app.run(True)
 
 

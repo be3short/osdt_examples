@@ -1,17 +1,20 @@
 import osdt as dt #as dt
+import yaml
 
-from dt_examples.models import point_mass as pm
+from osdt_examples.models import point_mass as pm
 
 def figure():
     xyfig = dt.create_fig(layout=[[1]], title="Point Mass Interaction", dpi=130)
     xyfig.plot(1, x="x_position", y="y_position")
+
+
 def setup(app):
     pm.connect_all_masses()
     dt.get_config().integrator.max_step=100.0
     dt.get_config().run.time=10000.0
 
 
-@dt.main
+@dt.root
 def pointmass_app():
     app=dt.app()
     V_0 = .1
@@ -42,3 +45,5 @@ if __name__ == "__main__":
 
     app = pointmass_app()
     app.run(True)
+    print(app.get_objs(pm.Params))#dt.objects.get_children( app))
+    app.save("testpm")

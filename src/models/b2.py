@@ -1,4 +1,5 @@
 """Bouncing ball model"""
+import jsonpickle
 import osdt
 CONNECTOR="Test"
 
@@ -91,7 +92,9 @@ def plot():
 def main():
     ballsys=create(3)
     new()
-    osdt.run()
+    osdt.run(time=.01)
+    jsonpickle.dumps(osdt.get_env(),indent=4)
+
     plot()
     osdt.display()
   #  osdt.get_data().to_csv("bal.csv")

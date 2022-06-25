@@ -4,12 +4,12 @@
 import osdt as dt
 
 
-class State(dt.UniversalObject):  # state object
+class State(dt.Object):  # state object
     def __init__(self, value=0.0):
         self.value = value
 
 
-class Params():  # parameters object
+class Params(dt.Object):  # parameters object
     def __init__(self, interval=1.0):
         self.interval = interval
 

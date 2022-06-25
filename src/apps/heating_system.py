@@ -1,5 +1,6 @@
 import osdt
 import osdt as dt
+import yaml
 
 from osdt_examples.models import heater_system, heater_controller
 
@@ -20,7 +21,6 @@ def connect(app):
     app.controller.heater = app.heater
 
 
-@dt.root
 def heater_app():
     app = dt.app(
         heater=dt.create_sys(heater_system),
@@ -35,3 +35,4 @@ def heater_app():
 if __name__ == "__main__":
     app = heater_app()
     app.run(True)
+ 
