@@ -1,8 +1,6 @@
 import osdt as dt
 from osdt_examples.models import dubins_vehicle, dubins_controller
 
-
-@dt.root
 def dubins():
     app = dt.app(
         vehicle=dt.create_sys(dubins_vehicle),

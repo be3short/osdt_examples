@@ -3,14 +3,13 @@ from random import random
 
 import osdt
 
-
 class State(osdt.Object): # state class
     def __init__(self, y_position=1.0, y_velocity=0.0):
         self.y_position = y_position
         self.y_velocity = y_velocity
 
 class Params(osdt.Object): # parameters class
-    def __init__(self, gravity=9.81, restitution=0.9):
+    def __init__(self, gravity=9.81, restitution=0.95):
         self.gravity = gravity
         self.restitution = restitution
 
@@ -44,8 +43,8 @@ def new(state=State(), params=Params(), f= F, c=C, d=D, g=G, y= Y_dict, **fields
     ball_sys=osdt.create_sys(x=state,c=c, f=f, g=g, d=d, y=y, id="ball", params=params, **fields)
     return ball_sys
 
-def plot() -> osdt.Figure:
-    fig = osdt.create_fig(layout=[[1], [2]], title="Pendulum", w=1600, h=600)
+def figure1() -> osdt.Figure:
+    fig = osdt.create_fig(layout=[[1], [2]], title="Bouncing Ball", w=1600, h=600)
     # plot the angle and velocity
     fig.plot(1, "y_position")
    # fig.plot(1, "value")
@@ -76,7 +75,14 @@ def create_multi(num_balls=1,
     return ball_sys
 
 
+
+class BallSys2(osdt.System):
+    def __init__(self, params=None):
+        print("new ball2")
+
 class BallSys(osdt.System):
     def __init__(self, params=None):
-        super().__init__(state=State(1.0 + random() * 5.0), params=params if params is not None else Params(), c=C, f=F, d=D, g=G, u=U, y=Y_dict, id="ball")
+        print("new ball2")
+        #super().__init__(state=State(1.0 + random() * 5.0), params=params if params is not None else Params(), c=C, f=F, d=D, g=G, u=U, y=Y_dict, id="ball")
         #osdt.add_systems(self)
+

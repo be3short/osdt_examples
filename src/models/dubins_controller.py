@@ -37,6 +37,7 @@ def G(x, x_plus, system): # jump map (discrete dynamics)
     if u.x_position >= 1 and x.turn == 2 or u.x_position <= -1 and x.turn == 1:
         x_plus.turn = 3 - x.turn
 
+
 '''
 def U(x, system,*args, **argmap): # input map (determine input)
     """Input map where dubins controller is expecting to get a VehicleInput object from the vehicle"""
@@ -72,4 +73,4 @@ def createz(x,**model): # create a new system
 
 
 def create(state=State(),vars=None,c=C,f=F,d=D,g=G,u=U,y=Y,initialize=None,routine=None,id="dubins_control"): # create a new system
-    return osdt.create_system(x=state,vars=vars,c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)
+    return osdt.create_sys(x=state,vars=vars,c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)

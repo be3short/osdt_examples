@@ -23,7 +23,7 @@ def pointmass_app():
     app.system1 = dt.create_sys(x=state1, c=pm.C, f=pm.F, u=pm.U, params=params1, id="small mass 1")
 
     state2 = pm.State(x_position=-1000.0, y_position=-1000.0, x_velocity=V_0, y_velocity=-V_0)
-    params2 = pm.Params(mass=1100020110.0)
+    params2 = pm.Params(mass=110000020110.0)
     app.system2 = dt.create_sys(x=state2, c=pm.C, f=pm.F, u=pm.U, params=params2, id="small mass 2")
 
     state3 = pm.State(x_position=1000.0, y_position=-1000.0, x_velocity=V_0, y_velocity=V_0)
@@ -31,7 +31,7 @@ def pointmass_app():
     app.system3 = dt.create_sys(x=state3, c=pm.C, f=pm.F, u=pm.U, params=params3, id="small mass 3")
 
     state4 = pm.State(x_position=-1000.0, y_position=1000.0, x_velocity=-V_0, y_velocity=-V_0)
-    params4 = pm.Params(mass=1100020100.0)
+    params4 = pm.Params(mass=1100002000100.0)
     app.system4 = dt.create_sys(x=state4, c=pm.C, f=pm.F, u=pm.U, params= params4, id="small mass 4")
 
     state0 = pm.State(x_position=0.1, y_position=0.1, x_velocity=0.0, y_velocity=0.0)
@@ -42,8 +42,7 @@ def pointmass_app():
     return app
 
 if __name__ == "__main__":
-
     app = pointmass_app()
     app.run(True)
-    print(app.get_objs(pm.Params))#dt.objects.get_children( app))
+    print(app.get_objs(pm.Params))#dt.objects.get_children( app)).
     app.save("testpm")

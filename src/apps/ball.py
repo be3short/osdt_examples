@@ -81,7 +81,7 @@ if __name__ == "__main__":
     app=create_app()
     #app=dt.load("funcap2.json")
     #create_app(app)
-    #app.run()
-    #ball.plot().display()
+    app.run()
+    ball.plot().display()
    # app.save("postfunc")
 

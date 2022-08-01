@@ -29,6 +29,7 @@ def run_if_func(object_val,objectfile):
         else:
             args.append(fcomp[ind])
     func(*args,**kwargs)
+
 def fill_object(object_val,objectfile):
     object_val_filled =object_val
     if type(object_val) is str:
@@ -68,6 +69,7 @@ def handle_list(object_val,objectfile):
 def get_python_object(object_val, objectfile):
     print(object_val[len(OBJECT_PREFIX):])
     return osdt.utils.get_function(object_val[len(OBJECT_PREFIX):])
+
 def get_variable_value(object_val, objectfile):
     components = object_val.split(SEPARATION_SPLITTER)
     parent_key = components[1]

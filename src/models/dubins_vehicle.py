@@ -29,7 +29,7 @@ def F(x, x_dot, system): # flow map (continuous dynamics)
     x_dot.x_position = u.velocity * math.cos(x.orientation)
     x_dot.y_position = u.velocity * math.sin(x.orientation)
     x_dot.orientation = - x.orientation + (3 * math.pi / 4 if u.turn_state == 1 else math.pi / 4 if u.turn_state == 2 else 0)
-
+    print(x.__dict__)
 
 def D(x, system): # jump set (state in discrete domain)
     return False
@@ -73,4 +73,4 @@ def createz(x,**model): # create a new system
     return osdt.create_system(x=x,**model)
 
 def create(state=State(),vars=None,c=C,f=F,d=D,g=G,u=U,y=Y,initialize=None,routine=None,id="dubins_vehicle"): # create a new system
-    return osdt.create_system(x=state,vars=vars,c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)
+    return osdt.create_sys(x=state,vars=vars,c=c,f=f,d=d,g=g,u=u,y=y,initialize=initialize,routine=routine,id=id)
